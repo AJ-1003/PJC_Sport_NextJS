@@ -1,19 +1,32 @@
 {
   "name": "pjc-sport-nextjs",
+  "homepage": "https://pjcsport.co.za",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export",
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "babel-eslint": "^10.1.0",
+    "chalk": "^5.0.1",
+    "contentful": "^9.1.34",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-multi-carousel": "^2.8.2",
+    "react-router-dom": "^6.3.0",
+    "sass": "^1.54.5",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.3.1",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5"
   }

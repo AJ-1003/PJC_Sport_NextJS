@@ -1,7 +1,26 @@
-import '../styles/globals.css'
+// React
+import React from 'react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+// Next
 
-export default MyApp
+// Contentful
+
+// Components
+import Layout from '../components/layout/layout.component';
+
+// Images
+
+// Data
+
+// Styles
+import '../styles/globals.css';
+
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+};
+
+export default MyApp;
