@@ -14,8 +14,8 @@ import { createClient } from 'contentful';
 // Styles
 
 const client = createClient({
-  space: 'badogy0foon5',
-  accessToken: 'KpV67Mwyx62XFclM09L6yWFwTYLhv1EPI6yuvqrU6g8'
+  space: NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
 export default client;
