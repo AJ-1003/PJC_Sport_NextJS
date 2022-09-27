@@ -25,17 +25,14 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const BalletItemsContainer = () => {
+const BalletItemsContainer = ({ content }) => {
   return (
     <Container>
-      <BalletItem />
-      <BalletItem />
-      <BalletItem />
-      <BalletItem />
-      <BalletItem />
-      <BalletItem />
-      <BalletItem />
-      <BalletItem />
+      {content.map(item => {
+        return (
+          <BalletItem key={item.sys.id} content={item} />
+        )
+      })}
     </Container>
   );
 };

@@ -21,9 +21,9 @@ const Header = styled.div`
 const TradingHoursHeader = () => {
   return (
     <Header>
-      <h4>Top</h4>
-      <h2>Middle</h2>
-      <h4>Bottom</h4>
+      <h4>Come on in</h4>
+      <h2>We&apos;re open</h2>
+      <h4>Times may differ on public holidays</h4>
     </Header>
   );
 };

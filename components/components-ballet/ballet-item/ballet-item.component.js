@@ -25,18 +25,45 @@ const Item = styled.div`
   flex: 1;
 `;
 
-const BalletItem = () => {
+const ImageContainer = styled.div`
+  text-align: center;
+`;
+
+const DescriptionContainer = styled.div`
+  text-align: center;
+`;
+
+const ColorContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  height: 20px;
+  align-items: center;
+`;
+
+const BalletItem = ({ content }) => {
+  const { description, image, colors, order } = content.fields;
   return (
     <Item>
-      <div className='item-image'>
-        <Image src='/assets/home/what-we-offer/wwo-ballet.webp' width='50px' height='50px' />
-      </div>
-      <div className='item-description'>
-        <p>Description</p>
-      </div>
-      <div className='item-color'>
-        <ItemColor />
-      </div>
+      <ImageContainer>
+        <Image className='round-image' src={'https:' + image.fields.file.url} width='200px' height='200px' alt={'item-' + order} />
+      </ImageContainer>
+      <DescriptionContainer>
+        <p>{description}</p>
+      </DescriptionContainer>
+      <ColorContainer>
+        {colors.map(color => {
+          return (
+            <>
+              {color !== 'Assorted colours'
+                ?
+                <ItemColor key={color} color={color} />
+                : <span>{color}</span>}
+            </>
+          )
+        })}
+      </ColorContainer>
     </Item>
   );
 };

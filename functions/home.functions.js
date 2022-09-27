@@ -3,40 +3,40 @@ const currentMonth = new Date().getMonth();
 
 switch (currentMonth) {
   case 0:
-    monthName = "January";
+    monthName = 'January';
     break;
   case 1:
-    monthName = "February";
+    monthName = 'February';
     break;
   case 2:
-    monthName = "March";
+    monthName = 'March';
     break;
   case 3:
-    monthName = "April";
+    monthName = 'April';
     break;
   case 4:
-    monthName = "May";
+    monthName = 'May';
     break;
   case 5:
-    monthName = "June";
+    monthName = 'June';
     break;
   case 6:
-    monthName = "July";
+    monthName = 'July';
     break;
   case 7:
-    monthName = "August";
+    monthName = 'August';
     break;
   case 8:
-    monthName = "September";
+    monthName = 'September';
     break;
   case 9:
-    monthName = "October";
+    monthName = 'October';
     break;
   case 10:
-    monthName = "November";
+    monthName = 'November';
     break;
   case 11:
-    monthName = "December";
+    monthName = 'December';
     break;
 };
 

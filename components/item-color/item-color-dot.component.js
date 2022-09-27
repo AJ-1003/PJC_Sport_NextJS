@@ -15,14 +15,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Color = styled.div`
-
+  background: var(${props => props.color});
+  width: 15px;
+  height: 15px;
 `;
 
-const ItemColor = () => {
+const ItemColor = ({ color }) => {
   return (
-    <Color>
-      <span>Color</span>
-    </Color>
+    <Color
+      className='round-image'
+      color={color} />
   );
 };
 

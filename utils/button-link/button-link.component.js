@@ -15,11 +15,39 @@ import Link from 'next/link';
 // Styles
 import styled from 'styled-components';
 
-const ButtonLink = ({to, children}) => {
+const Button = styled.button`
+  width: fit-content;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &.fill {
+    background: var(${props => props.color});
+    color: #fff;
+  }
+
+  &.outline {
+    border: 1px solid var(${props => props.color});
+    color: #313131;
+  }
+
+  &:hover {
+    background: var(${props => props.color + '-hover'});
+    transition: 0.3s;
+    color: #fff;
+  }
+`;
+
+const ButtonLink = ({ to, color, fill, children }) => {
   return (
-    <Link href={to}>
-      {children}
-    </Link>
+    <Button
+      className={`rounded-corners ${fill ? 'fill' : 'outline'}`}
+      color={color}>
+      <Link href={to}>
+        {children}
+      </Link>
+    </Button>
   )
 }
 

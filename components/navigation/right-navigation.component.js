@@ -19,6 +19,8 @@ const RightNav = styled.div`
   justify-content: flex-start;
   flex-flow: row nowrap;
   padding-right: 20px;
+  color: #fff;
+  text-transform: uppercase;
 
   .nav-link {
     padding: 10px 15px;

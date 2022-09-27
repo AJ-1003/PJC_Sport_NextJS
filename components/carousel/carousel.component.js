@@ -3,6 +3,8 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 
 // Next
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Contentful
 
@@ -37,12 +39,11 @@ const responsive = {
 };
 
 const CarouselItem = styled.div`
-  width: 50px;
-  height: 50px;
-  background: #fff;
+  
 `;
 
-const CarouselSlider = () => {
+const CarouselSlider = ({ content }) => {
+  console.log(content)
   return (
     <div>
       <Carousel
@@ -55,17 +56,32 @@ const CarouselSlider = () => {
         autoPlay={true}
         autoPlaySpeed={2000}
         keyBoardControl={true}
-        customTransition=""
+        customTransition=''
         transitionDuration={500}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-        itemClass="carousel-item-padding-40-px"
+        containerClass=''
+        itemClass=''
+        removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}
       >
-        <CarouselItem>Item 1</CarouselItem>
-        <CarouselItem>Item 2</CarouselItem>
-        <CarouselItem>Item 3</CarouselItem>
-        <CarouselItem>Item 4</CarouselItem>
-        <CarouselItem>Item 5</CarouselItem>
+        {content.map(brandName => {
+          const { brand, image, websiteLink, width, height } = brandName.fields;
+          return (
+            <CarouselItem
+              key={brandName.sys.id}>
+              {typeof websiteLink !== 'undefined'
+                ?
+                <Link
+                  href={websiteLink}>
+                  <a
+                    target='_blank'
+                    rel='noreferrer'>
+                    <Image src={'https:' + image.fields.file.url} width={width} height={height} alt={brand} />
+                  </a>
+                </Link>
+                :
+                <Image src={'https:' + image.fields.file.url} width={width} height={height} alt={brand} />}
+            </CarouselItem>
+          )
+        })}
       </Carousel>
     </div>
   );

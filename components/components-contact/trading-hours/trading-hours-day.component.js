@@ -10,27 +10,49 @@ import React from 'react';
 // Images
 
 // Data
+import today from '../../../functions/contact.functions';
 
 // Styles
 import styled from 'styled-components';
 
 const Day = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const Weekday = styled.div`
 
 `;
 
-const TradingHoursDay = () => {
+const Time = styled.div`
+
+`;
+
+const Underline = styled.div`
+  height: 2px;
+  background: #31313107;
+`;
+
+const TradingHoursDay = ({ content }) => {
+  const { weekday, openTime, closingTime } = content.fields;
+  console.log(today);
   return (
-    <Day>
-      <div className='day-info'>
-        <div className='weekday'>
-          <p>Day</p>
-        </div>
-        <div className='day-time'>
-          <p>Time</p>
-        </div>
-      </div>
-      <div className='day-underline' />
-    </Day>
+    <>
+      <Day className={today == weekday ? 'bold' : ''}>
+        <Weekday>
+          {weekday}
+        </Weekday>
+        <Time>
+          {openTime == "" || openTime == null || typeof openTime == 'undefined'
+            ?
+            <span>{closingTime}</span>
+            :
+            <span>{openTime} to {closingTime}</span>}
+        </Time>
+      </Day>
+      <Underline />
+    </>
   );
 };
 

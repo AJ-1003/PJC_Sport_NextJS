@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 
 // Components
 import BurgerToggle from './burger-toggle.component';
+import HeroImage from '../hero-image/hero-image.component';
 
 // Images
 import logo from '../../assets/navigation/Logo.png';
@@ -19,23 +20,22 @@ import logo from '../../assets/navigation/Logo.png';
 
 // Styles
 import styled from 'styled-components';
-import HeroImage from '../hero-image/hero-image.component';
 
 const Nav = styled.nav`
   display: flex;
   width: 100%;
-  background-color: rgba(128, 128, 128, 0.205);
+  background-color: rgba(133, 133, 133, 0.2);
   position: absolute;
 
   .navigation_container {
-    height: auto;
+    height: 100px;
     width: 90%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
-    z-index: 2;
+    z-index: 1;
 
     .logo_container {
       width: 200px;

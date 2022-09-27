@@ -9,7 +9,7 @@ import client from '/contentful/contentful.data';
 
 // Components
 import SeperationHeader from '/components/seperation-header/seperation-header.component';
-import WhatWeOfferContainer from '/components/components-home/what-we-offer-container/what-we-offer-container.component';
+import WhatWeOfferContainer from '/components/components-home/what-we-offer/what-we-offer-container.component';
 import SpecialsContainer from '../components/components-home/specials-container/specials-container.component';
 import WeekendRides from '../components/components-home/weekend-rides/weekend-rides.component';
 import HeroImage from '../components/hero-image/hero-image.component';
@@ -64,11 +64,11 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
         <HeroImage content={header} />
         <SeperationHeader
           childrenLvl1={'What We Offer'} />
-        <WhatWeOfferContainer cardDetails={whatWeOfferCards} />
+        <WhatWeOfferContainer content={whatWeOfferCards} />
         <SeperationHeader
           childrenLvl1={monthName}
           childrenLvl2={'Specials'} />
-        <SpecialsContainer specialsDetails={specials} />
+        <SpecialsContainer content={specials} />
         <WeekendRides />
       </main>
     </div>

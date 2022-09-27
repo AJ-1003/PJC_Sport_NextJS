@@ -18,10 +18,17 @@ const Header = styled.div`
 
 `;
 
-const DetailsSectionHeader = ({ details }) => {
+const DetailsSectionHeader = ({ heading, colouredHeading }) => {
   return (
     <Header>
-      <h2>{details}</h2>
+      {(heading !== null && colouredHeading !== null ?
+        <>
+          <h2>{heading}</h2>
+          <h2>{colouredHeading}</h2>
+        </>
+        :
+        <h2>{heading}</h2>
+      )}
     </Header>
   );
 };

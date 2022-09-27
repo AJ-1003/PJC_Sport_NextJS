@@ -1,3 +1,35 @@
+:root {
+  --red: #ed1d22;
+  --red-hover: #ed1d20cc;
+  --orange: #f74902;
+  --orange-hover: #f74702cc;
+  --blue: #6c97c6;
+  --blue-hover: #6c97c6cc;
+  --green: #0e9c07;
+  --green-hover: #0e9c07cc;
+  --pink: #ff69b4;
+  --pink-hover: #ff69b4cc;
+  --grey: #272727;
+  --grey-hover: #555555;
+
+  --background-grey: rgb(231, 231, 231);
+
+  --ballet-pink: #F0BBC1;
+  --ballet-blue: #A0CDD0;
+  --ballet-mulberry: #99135E;
+  --ballet-black: #000;
+  --ballet-navy: #00275D;
+  --ballet-purple: #342A7B;
+  --ballet-lilac: #9396CB;
+  --ballet-honey: #d7aa5f;
+  --ballet-white: #fff;
+
+  --messenger: #0695FF;
+  --messenger-hover: #0695FF;
+  --whatsapp: #25D366;
+  --whatsapp-hover: #25D366;
+}
+
 html,
 body {
   padding: 0;
@@ -14,14 +46,64 @@ a {
 
 * {
   box-sizing: border-box;
+  overflow: auto;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
-    color: white;
+    color: #fff;
     background: #313131;
   }
+} */
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+  body {
+    color: #313131;
+    background: #fff;
+  }
+}
+
+.react-multi-carousel-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.react-multi-carousel-item {
+  margin: auto !important;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.rounded-corners {
+  border-radius: 0.5rem;
+}
+
+.round-image {
+  border-radius: 50%;
+}
+
+.box-shadow {
+  box-shadow: 15px -11px 82px -18px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 15px -11px 82px -18px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 15px -11px 82px -18px rgba(0, 0, 0, 0.5);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.mx-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.my-auto {
+  margin: 0 auto;
 }

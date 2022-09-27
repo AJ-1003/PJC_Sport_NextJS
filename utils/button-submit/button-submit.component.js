@@ -14,11 +14,39 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
-const ButtonSubmit = () => {
+const Button = styled.button`
+  width: fit-content;
+  padding: 8px 10px;
+  background: var(${props => props.color});
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &.fill {
+    background: var(${props => props.color});
+    color: #fff;
+  }
+
+  &.outline {
+    border: 1px solid var(${props => props.color});
+    color: #313131;
+  }
+
+  &:hover {
+    background: var(${props => props.color + '-hover'});
+    transition: 0.3s;
+    color: #fff;
+  }
+`;
+
+const ButtonSubmit = ({ color, fill, children }) => {
   return (
-    <>
-      <button>Submit</button>
-    </>
+    <Button
+      className={`rounded-corners ${fill ? 'fill' : 'outline'}`}
+      color={color}
+      type='submit'>
+      {children}
+    </Button>
   );
 };
 

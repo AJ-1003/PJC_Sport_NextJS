@@ -13,17 +13,23 @@ import BackToTop from '../../utils/button-back-to-top/button-back-to-top.compone
 // Data
 
 // Styles
+import styled from 'styled-components';
+
+const LayoutContainer = styled.div`
+  margin: 0;
+`;
 
 const Layout = ({ children }) => {
+
+
+
   return (
-    <>
+    <LayoutContainer>
       <Navigation />
-      <div className='page-content'>
-        {children}
-      </div>
+      {children}
       <BackToTop />
       <Footer />
-    </>
+    </LayoutContainer>
   );
 };
 

@@ -20,19 +20,19 @@ const Container = styled.div`
   display : flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
   /* gap: 10px; */
 `;
 
-const BicycleRangeContainer = () => {
+const BicycleRangeContainer = ({ content }) => {
   return (
     <Container>
-      <BicycleRangeCard/>
-      <BicycleRangeCard/>
-      <BicycleRangeCard/>
-      <BicycleRangeCard/>
-      <BicycleRangeCard/>
-      <BicycleRangeCard/>
-      <BicycleRangeCard/>
+      {content.map(bicycleRange => {
+        return (
+          <BicycleRangeCard key={bicycleRange.sys.id} bicycleRangeDetails={bicycleRange} />
+        )
+      })}
     </Container>
   );
 };

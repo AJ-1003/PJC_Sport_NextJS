@@ -14,12 +14,12 @@ import Instagram from '/assets/footer/icons8-instagram.svg';
 
 // Styles
 import styled from 'styled-components';
-import Image from 'next/image';
 
 const FooterContainer = styled.footer`
-  background: rgb(51, 58, 64);
+  background: rgb(51,58,64);
 
   .footer-content {
+    position: relative;
     color: #fff;
     margin: 0 auto;
     padding: 1rem 0;
@@ -30,9 +30,7 @@ const FooterContainer = styled.footer`
 `;
 
 const Footer = () => {
-
   const currentYear = new Date().getFullYear();
-
   return (
     <FooterContainer>
       <div className='footer-content'>

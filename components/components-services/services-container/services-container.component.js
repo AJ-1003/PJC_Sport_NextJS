@@ -6,7 +6,7 @@ import React from 'react';
 // Contentful
 
 // Components
-import ServiceCard from '../service-card/service-card.component';
+import ServiceCard from './service-card/service-card.component';
 
 // Images
 
@@ -23,19 +23,15 @@ const Container = styled.div`
   gap: 10px;
 `;
 
-const content = {
-  header: 'Header',
-  body: 'Body',
-  footer: 'Footer'
-}
-
-const ServicesContainer = () => {
+const ServicesContainer = ({ content }) => {
+  console.log(content)
   return (
     <Container>
-      <ServiceCard content={content} />
-      <ServiceCard content={content} />
-      <ServiceCard content={content} />
-      <ServiceCard content={content} />
+      {content.map(service => {
+        return (
+          <ServiceCard key={service.sys.id} serviceDetails={service} />
+        )
+      })}
     </Container>
   );
 };

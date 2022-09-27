@@ -35,7 +35,7 @@ const SpecialCard = ({ specialDetails }) => {
         <h2>{title}</h2>
       </div>
       <div>
-        <Image className='card-image' src={'https:' + image.fields.file.url} alt={altText} width='50vw' height='50vh' layout='responsive' />
+        <Image className='card-image rounded-corners' src={'https:' + image.fields.file.url} alt={altText} width='50vw' height='50vh' layout='responsive' />
       </div>
       <div>
         {documentToReactComponents(description)}

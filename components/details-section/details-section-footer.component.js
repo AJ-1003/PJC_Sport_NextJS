@@ -18,10 +18,10 @@ const Footer = styled.div`
 
 `;
 
-const DetailsSectionFooter = ({ details }) => {
+const DetailsSectionFooter = ({ colouredFootnote, footnote }) => {
   return (
     <Footer>
-      <p>{details}</p>
+      <p><span>{colouredFootnote}</span> {footnote}</p>
     </Footer>
   );
 };

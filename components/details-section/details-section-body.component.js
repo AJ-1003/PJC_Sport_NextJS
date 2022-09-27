@@ -18,17 +18,18 @@ const Body = styled.div`
 
 `;
 
-const DetailsSectionBody = ({ details }) => {
+const DetailsSectionBody = ({ description, features }) => {
   return (
     <Body>
-      <p>{details}</p>
+      <p>{description}</p>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {features.map(feature => (
+          <li key={feature}>{feature}</li>
+        ))}
       </ul>
     </Body>
   );
 };
 
 export default DetailsSectionBody;
+

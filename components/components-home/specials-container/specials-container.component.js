@@ -25,12 +25,12 @@ const Container = styled.div`
   margin: 1rem auto;
 `;
 
-const SpecialsContainer = ({ specialsDetails }) => {
+const SpecialsContainer = ({ content }) => {
   return (
     <Container>
-      {specialsDetails.map(special => {
+      {content.map(special => {
         return (
-          <SpecialCard key={special.order} specialDetails={special} />
+          <SpecialCard key={special.sys.id} specialDetails={special} />
         )
       })}
     </Container>

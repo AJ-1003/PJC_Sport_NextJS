@@ -16,18 +16,29 @@ import styled from 'styled-components';
 import TradingHoursDay from './trading-hours-day.component';
 
 const Body = styled.div`
-
+  margin: 0 20%;
 `;
 
-const TradingHoursBody = () => {
+const TradingHourDays = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+const TradingHoursBody = ({ content }) => {
+  console.log(content)
   return (
     <Body>
-      <div className='trading-hours'>
-        <TradingHoursDay />
-      </div>
+      <TradingHourDays>
+        {content.map(day => {
+          return (
+            <TradingHoursDay key={day.sys.id} content={day} />
+          )
+        })}
+      </TradingHourDays>
       <div className='address'>
-        <h3>Address 1</h3>
-        <h4>Address 2</h4>
+        <h3>183 Koedoe Street</h3>
+        <h4>Wierda Park, Centurion</h4>
       </div>
     </Body>
   );
