@@ -105,6 +105,13 @@ const CardRight = styled.div`
   }
 `;
 
+const Price = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+`;
+
 export const LineBreak = styled.div`
   background: #313131;
   height: 1px;
@@ -113,8 +120,10 @@ export const LineBreak = styled.div`
 `;
 
 const BicycleCard = ({ content }) => {
-  const { 
+  const {
     name,
+    brand,
+    model,
     description,
     cardImage,
     cardImageWidth,
@@ -142,7 +151,7 @@ const BicycleCard = ({ content }) => {
         </CardLeft>
         <CardRight>
           <div className='heading'>
-            <span>{name}</span>
+            <span>{brand} {model}</span>
           </div>
           <div className='description'>
             <p>{description}</p>
@@ -162,10 +171,10 @@ const BicycleCard = ({ content }) => {
             </div>
             <div className='price'>
               {onSpecial ?
-                <>
-                  <span className='price-now'>R{priceNow}.00</span>
-                  <span className='price-was'>R{priceWas}.00</span>
-                </>
+                <Price>
+                  <div className='price-now'>Now - R{priceNow}.00</div>
+                  <div className='price-was'>Was - R{priceWas}.00</div>
+                </Price>
                 :
                 <span className='price-now'>R{priceNow}.00</span>
               }

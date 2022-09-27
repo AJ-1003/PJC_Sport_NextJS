@@ -40,23 +40,25 @@ const SpecsContainer = styled.div`
 const BicycleSpecifications = ({ content }) => {
 
   const {
-    brakes,
-    frontDerailleur,
-    rearDerailleur,
-    bottomBracket,
     frameMaterial,
-    shifters,
-    frontHub,
-    rearHub,
-    wheels,
-    tyres,
-    crank,
     fork,
     rearShock,
+    chainwheel,
+    frontDerailleur,
+    rearDerailleur,
+    shifters,
     chain,
+    cassette,
+    bottomBracket,
+    speed,
+    brakes,
+    wheels,
+    frontHub,
+    rearHub,
+    tyres,
     stem,
     seatPost,
-    extras,
+    extras
   } = content;
 
   let entries = Object.entries(content)
@@ -68,21 +70,27 @@ const BicycleSpecifications = ({ content }) => {
 
   return (
     <SpecsContainer>
-      <Specification image={brakesImg} heading='Brakes' spec={brakes} />
+      <h3>Frameset</h3>
+      <Specification image={frameMaterialImg} heading='Frame Material' spec={frameMaterial} />
+      <h3>Suspension</h3>
+      <Specification image={forkImg} heading='Fork' spec={fork} />
+      <Specification image={rearShockImg} heading='Rear Shock' spec={rearShock} />
+      <h3>Drivetrain</h3>
       <Specification image={frontDerailleurImg} heading='Front Derailleur' spec={frontDerailleur} />
       <Specification image={rearDerailleurImg} heading='Rear Derailleur' spec={rearDerailleur} />
       <Specification image={bottomBracketImg} heading='Bottom Bracket' spec={bottomBracket} />
-      <Specification image={crankImg} heading='Crank' spec={crank} />
+      <Specification image={crankImg} heading='Crank' spec={chainwheel} />
       <Specification image={chainImg} heading='Chain' spec={chain} />
       <Specification image={shiftersImg} heading='Shifters' spec={shifters} />
-      <Specification image={stemImg} heading='Stem' spec={stem} />
+      <h3>Brakes</h3>
+      <Specification image={brakesImg} heading='Brakes' spec={brakes} />
+      <h3>Wheels</h3>
       <Specification image={frontHubImg} heading='Front Hub' spec={frontHub} />
       <Specification image={rearHubImg} heading='Rear Hub' spec={rearHub} />
       <Specification image={wheelsImg} heading='Wheels' spec={wheels} />
       <Specification image={tyresImg} heading='Tyres' spec={tyres} />
-      <Specification image={frameMaterialImg} heading='Frame Material' spec={frameMaterial} />
-      <Specification image={forkImg} heading='Fork' spec={fork} />
-      <Specification image={rearShockImg} heading='Rear Shock' spec={rearShock} />
+      <h3>Components</h3>
+      <Specification image={stemImg} heading='Stem' spec={stem} />
       <Specification image={seatPostImg} heading='Seat Post' spec={seatPost} />
     </SpecsContainer>
   );

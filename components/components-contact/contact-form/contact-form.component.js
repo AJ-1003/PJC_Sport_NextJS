@@ -21,6 +21,7 @@ import ButtonSubmit from '../../../utils/button-submit/button-submit.component';
 // Styles
 import styled from 'styled-components';
 import ButtonLink from '../../../utils/button-link/button-link.component';
+import { LineBreak } from '../../components-bicycles/bicycle-card/bicycle-card.component';
 
 const ContactSection = styled.div`
   display: flex;
@@ -73,7 +74,6 @@ const ContactOption = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  /* border: 1px solid #31313140; */
   padding: 0.5rem;
 
   h4, h5 {
@@ -101,7 +101,7 @@ const ContactForm = () => {
       }, (error) => {
         console.log(error.text);
       });
-      e.target.reset();
+    e.target.reset();
   };
 
   return (
@@ -116,7 +116,7 @@ const ContactForm = () => {
           </ButtonSubmit>
         </ButtonSection>
       </Form>
-      <BreakLine />
+      <LineBreak />
       <MessageServices>
         <ContactOption className='rounded-corners'>
           <ContactOptionHeading>

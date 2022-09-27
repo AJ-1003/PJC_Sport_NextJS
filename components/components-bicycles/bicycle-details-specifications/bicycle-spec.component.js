@@ -26,15 +26,24 @@ const SpecContent = styled.div`
   flex-direction: column;
 `;
 
+const Heading = styled.span`
+  font-weight: 600;
+`;
+
 const Specification = ({ image, heading, spec }) => {
   return (
-    <Spec>
-      <Image src={image} width='50px' height='50px' alt={spec} />
-      <SpecContent>
-        <span>{heading}</span>
-        <span>{spec}</span>
-      </SpecContent>
-    </Spec>
+    <>
+      {spec !== '' || spec !== null || typeof spec !== 'undefined'
+        ?
+        <Spec>
+          <Image src={image} width='50px' height='50px' alt={spec} />
+          <SpecContent>
+            <Heading>{heading}</Heading>
+            <span>{spec}</span>
+          </SpecContent>
+        </Spec>
+        : null}
+    </>
   );
 };
 

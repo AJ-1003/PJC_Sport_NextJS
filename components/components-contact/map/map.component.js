@@ -21,9 +21,13 @@ const Map = styled.div`
 const MapLocation = () => {
   return (
     <Map className='rounded-corners'>
-      <iframe src='https://storage.googleapis.com/maps-solutions-58vqg398ug/locator-plus/2bjt/locator-plus.html'
-        width='600px' height='500px'
-        loading='lazy'>
+      <iframe
+        allowFullScreen
+        style={{ border: '1px solid #31313140', borderRadius: '0.5rem' }}
+        src={'https://www.google.com/maps/embed/v1/place?key=' + `${process.env.NEXT_PUBLIC_MAP_API_KEY}` + '&q=183+Koedoe+street&zoom=15'}
+        loading='lazy'
+        width='600px'
+        height='500px'>
       </iframe>
     </Map>
   );

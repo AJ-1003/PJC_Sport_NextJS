@@ -88,12 +88,12 @@ const DetailsSection = ({ content, panelContent, type }) => {
                       footnote={footnote} />
                     : null}
 
-                {hasContent
+                {/* {hasContent
                   ?
                   <ViewMoreButton onClick={togglePanel}>
                     View More
                   </ViewMoreButton>
-                  : null}
+                  : null} */}
 
 
               </SectionContainer>

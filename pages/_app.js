@@ -1,4 +1,5 @@
 // React
+import Head from 'next/head';
 import React from 'react';
 
 // Next
@@ -17,9 +18,15 @@ import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+
+      </Head>
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 
