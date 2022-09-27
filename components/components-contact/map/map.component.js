@@ -21,7 +21,7 @@ const Map = styled.div`
 const MapLocation = () => {
   return (
     <Map className='rounded-corners'>
-      <iframe src={`https://'${process.env.NEXT_PUBLIC_MAP_API_KEY}'/locator-plus/2bjt/locator-plus.html`}
+      <iframe src='https://storage.googleapis.com/maps-solutions-58vqg398ug/locator-plus/2bjt/locator-plus.html'
         width='600px' height='500px'
         loading='lazy'>
       </iframe>
