@@ -21,12 +21,9 @@ const Map = styled.div`
 const MapLocation = () => {
   return (
     <Map className='rounded-corners'>
-      <iframe
-        allowFullScreen={true} 
-        loading='lazy'
-        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAP_API_KEY};zoom=15`}
-        height='500px'
-        width='600px'>
+      <iframe src={`https://${process.env.NEXT_PUBLIC_MAP_API_KEY}/locator-plus/2bjt/locator-plus.html`}
+        width='600px' height='500px'
+        loading='lazy'>
       </iframe>
     </Map>
   );
