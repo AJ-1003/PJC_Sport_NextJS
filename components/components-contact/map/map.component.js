@@ -24,7 +24,7 @@ const MapLocation = () => {
       <iframe
         allowFullScreen={true} 
         loading='lazy'
-        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAP_API_KEY}&amp;q=183+Koedoe+street%2C+Wierda+Park%2C+Centurion&amp;zoom=15`}
+        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAP_API_KEY};zoom=15`}
         height='500px'
         width='600px'>
       </iframe>
