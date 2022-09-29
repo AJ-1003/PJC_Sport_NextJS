@@ -1,33 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Montserrat:wght@100;200;300;400&family=Racing+Sans+One&family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
 :root {
-  --red: #ed1d22;
-  --red-hover: #ed1d20cc;
-  --orange: #f74902;
-  --orange-hover: #f74702cc;
-  --blue: #6c97c6;
-  --blue-hover: #6c97c6cc;
-  --green: #0e9c07;
-  --green-hover: #0e9c07cc;
-  --pink: #ff69b4;
-  --pink-hover: #ff69b4cc;
-  --grey: #272727;
-  --grey-hover: #555555;
+  --red: rgb(237, 29, 34);
+  --red-hover: rgba(237, 29, 32, 0.8);
+  --orange: rgb(247, 73, 2);
+  --orange-hover: rgba(247, 71, 2, 0.8);
+  --blue: rgb(108, 151, 198);
+  --blue-hover: rgba(108, 151, 198, 0.8);
+  --green: rgb(14, 156, 7);
+  --green-hover: rgba(14, 156, 7, 0.8);
+  --pink: rgb(255, 105, 180);
+  --pink-hover: rgba(255, 105, 180, 0.8);
+  --grey: rgb(39, 39, 39);
+  --grey-hover: rgb(85, 85, 85);
+
+  --red-background: 237, 29, 34;
+  --orange-background: 247, 73, 2;
+  --blue-background: 108, 151, 198;
+  --green-background: 14, 156, 7;
+  --pink-background: 255, 105, 180;
+  --grey-background: 39, 39, 39;
+  --light-grey-background: 231, 231, 231;
 
   --background-grey: rgb(231, 231, 231);
 
-  --ballet-pink: #F0BBC1;
-  --ballet-blue: #A0CDD0;
-  --ballet-mulberry: #99135E;
+  --ballet-pink: #f0bbc1;
+  --ballet-blue: #a0cdd0;
+  --ballet-mulberry: #99135e;
   --ballet-black: #000;
-  --ballet-navy: #00275D;
-  --ballet-purple: #342A7B;
-  --ballet-lilac: #9396CB;
+  --ballet-navy: #00275d;
+  --ballet-purple: #342a7b;
+  --ballet-lilac: #9396cb;
   --ballet-honey: #d7aa5f;
   --ballet-white: #fff;
 
-  --messenger: #0695FF;
-  --messenger-hover: #0695FF;
-  --whatsapp: #25D366;
-  --whatsapp-hover: #25D366;
+  --messenger: #0695ff;
+  --messenger-hover: #0695ff;
+  --whatsapp: #25d366;
+  --whatsapp-hover: #25d366;
+}
+
+@font-face {
+  font-family: 'Racing Sans One', cursive;
+  src: url('/fonts/Racing_Sans_One/RacingSansOne-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato', sans-serif;
+  src: url('/fonts/Lato/Lato-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway', sans-serif;
+  src: url('/fonts/Raleway/Raleway-VariableFont_wght.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 
 html,
@@ -36,6 +74,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -47,6 +86,15 @@ a {
 * {
   box-sizing: border-box;
   overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -73,6 +121,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 2rem 0;
 }
 
 .react-multi-carousel-item {
@@ -99,11 +148,6 @@ a {
   font-weight: bold;
 }
 
-.mx-0 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.my-auto {
-  margin: 0 auto;
+.pointer {
+  cursor: pointer;
 }

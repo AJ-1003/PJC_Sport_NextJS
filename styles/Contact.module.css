@@ -1,0 +1,11 @@
+.textColour {
+  color: #e2e2e2;
+}
+
+.backgroundColour {
+  background: #e2e2e2;
+}
+
+.headingColour {
+  color: var(--grey);
+}

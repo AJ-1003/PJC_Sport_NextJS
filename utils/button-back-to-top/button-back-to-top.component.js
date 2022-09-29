@@ -1,7 +1,10 @@
 // React
 import React from 'react';
-import { FiChevronsUp } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
+import { FiChevronsUp } from 'react-icons/fi';
+
+// Next
+import { useRouter } from 'next/router';
 
 // Components
 
@@ -11,6 +14,12 @@ import { useEffect, useState } from 'react';
 
 // Styles
 import styled from 'styled-components';
+import homeStyles from '/styles/Home.module.css';
+import bicycleStyles from '/styles/Bicycles.module.css';
+import servicesStyles from '/styles/Services.module.css';
+import sportStyles from '/styles/Sport.module.css';
+import balletStyles from '/styles/Ballet.module.css';
+import contactStyles from '/styles/Contact.module.css';
 
 const BackToTopButton = styled.button`
   position: fixed;
@@ -33,6 +42,14 @@ const BackToTop = () => {
 
   const [backToTopBtn, setBackToTopBtn] = useState(false);
 
+  var router = useRouter();
+  var route;
+  if (router.route == '/') {
+    route = 'home';
+  } else {
+    route = router.route.substring(1);
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100) {
@@ -46,14 +63,23 @@ const BackToTop = () => {
   const scrollUp = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
     });
   };
 
   return (
     <>
       {backToTopBtn && (
-        <BackToTopButton onClick={scrollUp}>
+        <BackToTopButton
+          className={
+            route == 'home' ? homeStyles.backgroundColour :
+              route == 'bicycles' ? bicycleStyles.backgroundColour :
+                route == 'services' ? servicesStyles.backgroundColour :
+                  route == 'sport' ? sportStyles.backgroundColour :
+                    route == 'ballet' ? balletStyles.backgroundColour :
+                      route == 'contact' ? contactStyles.backgroundColour :
+                        ''
+          }
+          onClick={scrollUp}>
           <div className='icon'>
             <FiChevronsUp />
           </div>

@@ -15,6 +15,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
+  font-family: 'Montserrat', sans-serif;
   width: fit-content;
   padding: 8px 10px;
   background: var(${props => props.color});

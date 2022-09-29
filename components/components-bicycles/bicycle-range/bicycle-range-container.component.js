@@ -16,13 +16,10 @@ import BicycleRangeCard from './bicycle-range-card.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  padding: 20px;
   display : flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
-  /* gap: 10px; */
+  /* width: 90%; */
+  margin: 2rem auto;
 `;
 
 const BicycleRangeContainer = ({ content }) => {

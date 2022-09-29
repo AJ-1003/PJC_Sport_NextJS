@@ -16,13 +16,13 @@ import SpecialCard from '../special-card/special-card.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 2rem;
   display : flex;
   flex-flow: row wrap;
-  background:white;
-  gap: 10px;
+  background: white;
+  gap: 1rem;
   width: 90%;
-  margin: 1rem auto;
+  margin: 0 auto;
 `;
 
 const SpecialsContainer = ({ content }) => {

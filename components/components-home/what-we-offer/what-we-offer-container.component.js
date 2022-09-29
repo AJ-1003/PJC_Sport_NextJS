@@ -14,19 +14,15 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  width: 90%;
-  margin: 1rem auto;
 `
 
 const WhatWeOfferContainer = ({ content }) => {
   return (
     <Container>
-      {content.map(card => {
-        return (
-          <WhatWeOfferCard key={card.sys.id} cardDetails={card} />
-        )
-      })}
+      {content.map(card => (
+        <WhatWeOfferCard key={card.sys.id} cardDetails={card} />
+      )
+      )}
     </Container>
   );
 };

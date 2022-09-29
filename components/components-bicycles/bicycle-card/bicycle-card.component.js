@@ -181,7 +181,7 @@ const BicycleCard = ({ content }) => {
             </div>
           </div>
           <div className='view-more'>
-            <ButtonLink to={'/bicycles/' + name} color='--orange'>
+            <ButtonLink to={'/bicycles/' + name} color='--orange' fill={true}>
               View Bicycle
             </ButtonLink>
           </div>

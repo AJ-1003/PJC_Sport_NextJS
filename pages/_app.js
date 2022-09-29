@@ -18,15 +18,9 @@ import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <>
-      <Head>
-
-      </Head>
-
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 };
 

@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// Next
+import { useRouter } from 'next/router';
+
 // Components
 
 // Images
@@ -9,48 +12,62 @@ import React from 'react';
 
 // Styles
 import styled from 'styled-components';
+import homeStyles from '/styles/Home.module.css';
+import bicycleStyles from '/styles/Bicycles.module.css';
+import servicesStyles from '/styles/Services.module.css';
+import sportStyles from '/styles/Sport.module.css';
+import balletStyles from '/styles/Ballet.module.css';
+import contactStyles from '/styles/Contact.module.css';
 
 const Header = styled.section`
-  text-align: center;
   padding: 2rem 0;
   color: rgba(255,255,255,0);
   border-color: rgb(255,255,255);
-  background: #f5f5f5;
+  background: var(--background-grey);
+  font-family: 'Racing Sans One', serif;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
 
   .header-text-h2 {
-    background: rgba(255,255,255,0);
-    color: #ed1d22;
-    font-family: 'Racing Sans One', serif;
+    margin: 0;
+    font-size: 2rem;
   }
 
   .header-text-h3 {
-    background: rgba(255,255,255,0);
+    margin: 0;
     color: #ed1d22;
-    font-family: 'Racing Sans One', serif;
+    font-size: 1.5rem;
+    color: #000;
   }
 `;
 
-// style="text-align: center;padding: 2rem 0;color: rgba(255,255,255,0);border-color: rgb(255,255,255);background: #f5f5f5;"
-// style="background: rgba(255,255,255,0);color: #ed1d22;font-family: 'Racing Sans One', serif;"
-
-
-const SeperationHeader = ({ childrenLvl1, childrenLvl2 = '' }) => {
-  
-  const checkLevel2 = () => {
-    if (childrenLvl2 == '') {
-      return;
-    }
-    else {
-      return (<h3 className='header-text-h3'>{ childrenLvl2 }</h3>);
-    }
+const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
+  var router = useRouter();
+  var route;
+  if (router.route == '/') {
+    route = 'home';
+  } else {
+    route = router.route.substring(1);
   }
-  
   return (
-    <Header>
-      <h2 className='header-text-h2'>{ childrenLvl1 }</h2>
-      {checkLevel2()}
+    <Header id={id}>
+      <h2 className={`header-text-h2 ${
+        route == 'home' ? homeStyles.textColour :
+          route == 'bicycles' ? bicycleStyles.textColour :
+            route == 'services' ? servicesStyles.textColour :
+              route == 'sport' ? sportStyles.textColour :
+                route == 'ballet' ? balletStyles.textColour :
+                  route == 'contact' ? contactStyles.headingColour :
+                    ''
+        }`}>{childrenLvl1}</h2>
+      {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
+        ?
+        <h3 className='header-text-h3'>{childrenLvl2}</h3>
+        : null}
     </Header>
   );
 };

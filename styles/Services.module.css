@@ -1,0 +1,7 @@
+.textColour {
+  color: var(--blue);
+}
+
+.backgroundColour {
+  background: var(--blue);
+}

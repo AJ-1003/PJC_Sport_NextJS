@@ -17,51 +17,83 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
   background: rgb(51,58,64);
+  color: #fff;
+`;
 
-  .footer-content {
-    position: relative;
-    color: #fff;
-    margin: 0 auto;
-    padding: 1rem 0;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
+const Content = styled.div`
+  padding: 2rem;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+`;
+
+const ContentLeft = styled.div`
+  text-align: center;
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+    }
   }
+`;
+
+const ContentCenter = styled.div`
+  text-align: center;
+
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+`;
+
+const ContentRight = styled.div`
+  text-align: center;
 `;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <FooterContainer>
-      <div className='footer-content'>
-        <div>
+      <Content>
+        <ContentLeft>
           <Link href='contact'>
-            <h3>Contact us</h3>
+            <h3 className='pointer'>Contact us</h3>
           </Link>
           <ul>
             <li>012 653 1200</li>
-            <li>info@pjcsport.co.za</li>
+            <li>queries@pjcsport.co.za</li>
           </ul>
-        </div>
-        <div>
+        </ContentLeft>
+        <ContentCenter>
           <h3>Follow Us</h3>
           <div className='social-icons'>
             <Link href='https://www.facebook.com/pjcsport/'>
-              <a rel='noreferrer' target='_blank'>
+              <a rel='noopener noreferrer' target='_blank'>
                 <Facebook />
               </a>
             </Link>
             <Link href='https://www.instagram.com/pjcsportcenturion/?hl=en'>
-              <a rel='noreferrer' target='_blank'>
+              <a rel='noopener noreferrer' target='_blank'>
                 <Instagram />
               </a>
             </Link>
           </div>
-        </div>
-        <div>
+        </ContentCenter>
+        <ContentRight>
           <p>PJC Sport &amp; Cycles ©&nbsp;{currentYear}</p>
-        </div>
-      </div>
+        </ContentRight>
+      </Content>
     </FooterContainer>
   );
 };

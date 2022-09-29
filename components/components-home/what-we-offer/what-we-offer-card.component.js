@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+import { useRef } from 'react';
 
 // Next
 import Image from 'next/image';
@@ -12,56 +13,60 @@ import ButtonLink from '/utils/button-link/button-link.component';
 // Data
 
 // Styles
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Card = styled.div`
-  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: end;
   width: 25%;
+  height: 350px;
   margin: 0 auto;
-  padding: 5px;
-  background: lightgray;
+  padding: 2rem;
+  color: #fff;
+  background: linear-gradient(270deg, rgba(var(--grey-background),0.6) 60%, rgba(var(--grey-background),0.6) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+`;
 
-  .card-header {
-    width: auto;
+const CardHeader = styled.div`
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1.5rem;
+  text-align: center;
+`;
 
-    .card-image {
-      width: 50px;
-    }
-  }
+const CardBody = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  bottom: 0;
+  text-align: center;
+  min-height: 120px;
+`;
 
-  .card-body {
-    text-align: center;
-    min-height: 120px;
-  }
-
-  .card-footer {
-    text-align: center;
-    padding: 1rem;
-  }
-`
+const CardFooter = styled.div`
+  bottom: 0;
+  text-align: center;
+  padding: 2rem;
+`;
 
 const WhatWeOfferCard = ({ cardDetails }) => {
+  let ref = useRef(null);
 
-  const {title, contentText, altText, image, toPage} = cardDetails.fields;
+  const { title, contentText, altText, image, toPage } = cardDetails.fields;
 
   return (
-    <Card>
-      <div className='card-header'>
-        <Image className='card-image rounded-corners' src={'https:' + image.fields.file.url} alt={altText} width='50vw' height='50vh' layout='responsive' />
-      </div>
-      <div className='card-body'>
-        <div className='card-heading'>
-          <h4>{title}</h4>
-        </div>
-        <div className='card-content'>
-          <p>{contentText}</p>
-        </div>
-      </div>
-      <div className='card-footer'>
-        <ButtonLink to={toPage} color='--red'>
+    <Card
+      // className='rounded-corners'
+      backgroundImg={'https:' + image.fields.file.url}>
+      <CardHeader>
+        <h3>{title}</h3>
+      </CardHeader>
+      <CardBody>
+        <p>{contentText}</p>
+      </CardBody>
+      <CardFooter>
+        <ButtonLink to={toPage} color='--red' fill={true}>
           View More
         </ButtonLink>
-      </div>
+      </CardFooter>
     </Card>
   );
 };

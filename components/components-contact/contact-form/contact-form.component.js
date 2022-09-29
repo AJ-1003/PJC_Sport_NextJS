@@ -133,22 +133,24 @@ const ContactForm = () => {
             <RiMessengerFill className='contact-option-icon' color='#0695FF' />
             <h4>Messenger</h4>
           </ContactOptionHeading>
-          {isMobile ?
+          {isMobile
+            ?
             <ButtonLink to='https://m.facebook.com/messages/compose?ids=pjcsport' color='--messenger' fill={false}>
-              <a>Send a message</a>
+              Send a message
             </ButtonLink>
             :
             <ButtonLink to='https://m.me/pjcsport' color='--messenger' fill={false}>
-              <a>Send a message</a>
-            </ButtonLink>}
+              Send a message
+            </ButtonLink>
+          }
         </ContactOption>
         <ContactOption className='rounded-corners'>
           <ContactOptionHeading>
             <AiOutlineWhatsApp className='contact-option-icon' color='#25D366' />
             <h4>WhatsApp</h4>
           </ContactOptionHeading>
-          <ButtonLink to='https://api.whatsapp.com/send?phone=27824559060/?locale=en_US' color='--whatsapp' fill={false}>
-            <a>Send a message</a>
+          <ButtonLink to='https://api.whatsapp.com/send?phone=27824559060' color='--whatsapp' fill={false}>
+            Send a message
           </ButtonLink>
         </ContactOption>
       </MessageServices>

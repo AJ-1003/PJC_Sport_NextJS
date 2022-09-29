@@ -95,7 +95,6 @@ const DetailsSection = ({ content, panelContent, type }) => {
                   </ViewMoreButton>
                   : null} */}
 
-
               </SectionContainer>
             </Section>
             <PanelContent style={panelContentAnimatedStyle}>
