@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { RiMessengerFill } from 'react-icons/ri';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
+import { isMobile } from 'react-device-detect';
 
 // EmailJS
 import emailjs from 'emailjs-com';
@@ -132,17 +133,22 @@ const ContactForm = () => {
             <RiMessengerFill className='contact-option-icon' color='#0695FF' />
             <h4>Messenger</h4>
           </ContactOptionHeading>
-          <ButtonLink to='https://m.me/pjcsport' color='--messenger' fill={false}>
-            <a target='_blank' rel='noreferrer'>Send a message</a>
-          </ButtonLink>
+          {isMobile ?
+            <ButtonLink to='https://m.facebook.com/messages/compose?ids=pjcsport' color='--messenger' fill={false}>
+              <a>Send a message</a>
+            </ButtonLink>
+            :
+            <ButtonLink to='https://m.me/pjcsport' color='--messenger' fill={false}>
+              <a>Send a message</a>
+            </ButtonLink>}
         </ContactOption>
         <ContactOption className='rounded-corners'>
           <ContactOptionHeading>
             <AiOutlineWhatsApp className='contact-option-icon' color='#25D366' />
             <h4>WhatsApp</h4>
           </ContactOptionHeading>
-          <ButtonLink to='https://wa.me/+27824559060/?locale=en_US' color='--whatsapp' fill={false}>
-            <a target='_blank' rel='noreferrer'>Send a message</a>
+          <ButtonLink to='https://api.whatsapp.com/send?phone=27824559060/?locale=en_US' color='--whatsapp' fill={false}>
+            <a>Send a message</a>
           </ButtonLink>
         </ContactOption>
       </MessageServices>
