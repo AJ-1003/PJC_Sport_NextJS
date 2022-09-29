@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+import { useRef } from 'react';
 
 // Next
 import Head from 'next/head';
@@ -13,6 +14,7 @@ import WhatWeOfferContainer from '/components/components-home/what-we-offer/what
 import SpecialsContainer from '../components/components-home/specials-container/specials-container.component';
 import WeekendRides from '../components/components-home/weekend-rides/weekend-rides.component';
 import HeroImage from '../components/hero-image/hero-image.component';
+import ButtonLink from '../utils/button-link/button-link.component';
 
 // Images
 
@@ -26,32 +28,33 @@ export async function getStaticProps() {
   const resWwo = await client.getEntries({
     content_type: 'whatWeOffer'
   });
-
   const resultWwo = Array.from(resWwo.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
 
   const resSpecials = await client.getEntries({
     content_type: 'special'
   });
-
   const resultSpecials = Array.from(resSpecials.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
+
+  const resSpecialsBackground = await client.getEntry('q48L4ljzwH0AhEpgO92uo');
 
   const resHeaders = await client.getEntries({
     content_type: 'header'
   });
-
   const resultHeader = Array.from(resHeaders.items).filter(item => item.fields.route == '/');
 
   return {
     props: {
       whatWeOfferCards: resultWwo,
       specials: resultSpecials,
+      specialsBackground: resSpecialsBackground,
       header: resultHeader
     },
     revalidate: 1
   };
 };
 
-const Home = ({ whatWeOfferCards, specials, header }) => {
+const Home = ({ whatWeOfferCards, specials, header, specialsBackground }) => {
+  console.log(specialsBackground)
   return (
     <div>
       <Head>
@@ -61,11 +64,19 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
       </Head>
 
       <main>
-        <HeroImage content={header} />
+        <HeroImage
+          content={header}
+          buttons={
+            <ButtonLink to='#specials' color='--red' fill={true} >
+              View Specials
+            </ButtonLink>
+          }>
+        </HeroImage>
         <SeperationHeader
           childrenLvl1={'What We Offer'} />
         <WhatWeOfferContainer content={whatWeOfferCards} />
         <SeperationHeader
+          id='specials'
           childrenLvl1={monthName}
           childrenLvl2={'Specials'} />
         <SpecialsContainer content={specials} />
