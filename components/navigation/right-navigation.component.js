@@ -53,27 +53,27 @@ const RightNavigation = ({ open, closeSideNav }) => {
         </Link>
       </div>
       <div className='nav-link'>
-        <Link href='bicycles'>
+        <Link href='/bicycles'>
           <a onClick={closeSideNav}>Bicycles</a>
         </Link>
       </div>
       <div className='nav-link'>
-        <Link href='services'>
+        <Link href='/services'>
           <a onClick={closeSideNav}>Services</a>
         </Link>
       </div>
       <div className='nav-link'>
-        <Link href='sport'>
+        <Link href='/sport'>
           <a onClick={closeSideNav}>Sport</a>
         </Link>
       </div>
       <div className='nav-link'>
-        <Link href='ballet'>
+        <Link href='/ballet'>
           <a onClick={closeSideNav}>Ballet</a>
         </Link>
       </div>
       <div className='nav-link'>
-        <Link href='contact'>
+        <Link href='/contact'>
           <a onClick={closeSideNav}>Contact</a>
         </Link>
       </div>
