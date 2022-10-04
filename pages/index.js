@@ -35,8 +35,6 @@ export async function getStaticProps() {
   });
   const resultSpecials = Array.from(resSpecials.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
 
-  const resSpecialsBackground = await client.getEntry('q48L4ljzwH0AhEpgO92uo');
-
   const resHeaders = await client.getEntries({
     content_type: 'header'
   });
@@ -46,15 +44,13 @@ export async function getStaticProps() {
     props: {
       whatWeOfferCards: resultWwo,
       specials: resultSpecials,
-      specialsBackground: resSpecialsBackground,
       header: resultHeader
     },
     revalidate: 1
   };
 };
 
-const Home = ({ whatWeOfferCards, specials, header, specialsBackground }) => {
-  console.log(specialsBackground)
+const Home = ({ whatWeOfferCards, specials, header }) => {
   return (
     <div>
       <Head>
