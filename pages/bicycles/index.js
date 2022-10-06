@@ -71,9 +71,7 @@ export async function getStaticProps() {
 };
 
 const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, accessoriesGear }) => {
-
   const type = 'bicycles';
-
   return (
     <div>
       <Head>

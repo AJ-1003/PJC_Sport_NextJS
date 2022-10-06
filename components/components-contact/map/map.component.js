@@ -24,7 +24,7 @@ const MapLocation = () => {
       <iframe
         allowFullScreen
         style={{ border: '1px solid #31313140', borderRadius: '0.5rem' }}
-        src={'https://www.google.com/maps/embed/v1/place?key=' + `${process.env.API_KEY}` + '&q=183+Koedoe+street&zoom=15'}
+        src={'https://www.google.com/maps/embed/v1/place?key=' + `${process.env.NEXT_PUBLIC_API_KEY}` + '&q=183+Koedoe+street&zoom=15'}
         loading='lazy'
         width='600px'
         height='500px'>

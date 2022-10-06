@@ -18,8 +18,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   display : flex;
   flex-flow: row wrap;
-  /* width: 90%; */
-  margin: 2rem auto;
 `;
 
 const BicycleRangeContainer = ({ content }) => {

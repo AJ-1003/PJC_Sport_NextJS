@@ -78,9 +78,11 @@ const CardRight = styled.div`
         text-decoration: none;
         list-style: none;
         margin: 0 auto;
-        
+        padding-left: 5px;
+        width: fit-content;
+
         li {
-          padding: 0 5px;
+          padding-right: 5px;
         }
       }
     }
@@ -151,7 +153,7 @@ const BicycleCard = ({ content }) => {
         </CardLeft>
         <CardRight>
           <div className='heading'>
-            <span>{brand} {model}</span>
+            <h2>{brand} {model}</h2>
           </div>
           <div className='description'>
             <p>{description}</p>
@@ -172,8 +174,8 @@ const BicycleCard = ({ content }) => {
             <div className='price'>
               {onSpecial ?
                 <Price>
-                  <div className='price-now'>Now - R{priceNow}.00</div>
                   <div className='price-was'>Was - R{priceWas}.00</div>
+                  <div className='price-now'>Now - R{priceNow}.00</div>
                 </Price>
                 :
                 <span className='price-now'>R{priceNow}.00</span>

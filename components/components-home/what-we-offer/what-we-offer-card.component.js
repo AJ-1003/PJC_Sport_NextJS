@@ -49,9 +49,7 @@ const CardFooter = styled.div`
 
 const WhatWeOfferCard = ({ cardDetails }) => {
   let ref = useRef(null);
-
   const { title, contentText, altText, image, toPage } = cardDetails.fields;
-
   return (
     <Card
       // className='rounded-corners'

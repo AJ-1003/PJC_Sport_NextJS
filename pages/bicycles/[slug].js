@@ -66,31 +66,27 @@ const Main = styled.main`
   background: url(${props => props.backgroundImg}) top / 100% no-repeat;
 `;
 
-const Buffer = styled.div`
-  height: 80px;
-`;
-
 const Details = styled.div`
   position: relative;
   /* top: -3rem; */
 `;
 
 const DetailsContainer = styled.div`
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const DetailsHeading = styled.div`
   position: relative;
+  padding-top: 5rem;
   text-align: center;
   border-radius: 0.5rem 0.5rem 0 0;
-  bottom: -3.5rem;
-  /* z-index: 1; */
-  background: transparent;
   height: 100vh;
 
   h1 {
-    font-size: 10rem;
+    font-size: 6rem;
     margin: 0;
     color: rgba(235, 235, 235, 0.7);
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
@@ -101,8 +97,8 @@ const DetailsHeading = styled.div`
 const DetailsSection = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 0 0 0.5rem 0.5rem;
   background: #ffffff70;
+  padding: 2rem;
 `;
 
 const DetailsTopSection = styled.div`
@@ -113,8 +109,6 @@ const DetailsTopSection = styled.div`
     flex-direction: row;
     justify-content: center;
     margin: 0 auto;
-    /* padding: 3rem; */
-    /* background: #313131; */
 
     .image {
       height: fit-content;
@@ -122,10 +116,8 @@ const DetailsTopSection = styled.div`
   }
 
   .description-container {
-    /* padding: 0 0 1rem; */
     
     .description-text {
-      width: 90%;
       margin: 0 auto;
     }
   }
@@ -160,16 +152,6 @@ const DetailsBottomSection = styled.div`
         }
       }
     }
-
-    .price {
-      font-weight: 600;
-
-      .price-was {
-        font-weight: 400;
-        text-decoration: line-through;
-        color: #808080;
-      }
-    }
   }
 `;
 
@@ -178,6 +160,16 @@ const Price = styled.div`
   flex-direction: row;
   gap: 1rem;
   justify-content: space-between;
+
+  .price {
+    font-weight: 600;
+
+    .price-was {
+      font-weight: 400;
+      text-decoration: line-through;
+      color: #808080;
+    }
+  }
 `;
 
 const BicycleDetails = ({ bicycle }) => {
@@ -245,7 +237,7 @@ const BicycleDetails = ({ bicycle }) => {
   var sizes = '';
 
   availableSizes.map(size => {
-    sizes += size;
+    sizes += ' ' + size;
   });
 
   return (
@@ -258,45 +250,48 @@ const BicycleDetails = ({ bicycle }) => {
 
       <Main
         backgroundImg={'https:' + detailsImage.fields.file.url}>
-        <Buffer />
         <Details>
           <DetailsContainer>
             <DetailsHeading>
               <h1>{brand} {model}</h1>
             </DetailsHeading>
-            <DetailsSection>
+            <DetailsSection className='rounded-corners'>
               <DetailsTopSection>
                 {/* <div className='image-container'>
                   <Image className='rounded-corners' src={'https:' + detailsImage.fields.file.url} width={detailsImageWidth} height={detailsImageHeight} alt={altText} />
                 </div> */}
                 <div className='description-container'>
                   <div className='description-text'>
-                    <h3>Description</h3>
+                    <h2>Description</h2>
                     <p>{description}</p>
                   </div>
                 </div>
               </DetailsTopSection>
               <DetailsBottomSection>
                 <div className='top'>
-                  <h3>Details</h3>
+                  <h2>Details</h2>
                   <div className='available-sizes'>
                     <div>
-                      <span className='bold'>Avaialable sizes: {sizes}</span>
+                      <span>Avaialable sizes: {sizes}</span>
                     </div>
                   </div>
-                  <span className='bold'>Price:
+                  <Price>
                     {onSpecial ?
-                      <Price>
-                        <div className='price-now'> R{priceNow}.00</div>
+                      <>
+                        Price:
                         <div className='price-was'> R{priceWas}.00</div>
-                      </Price>
+                        <div className='price-now'> R{priceNow}.00</div>
+                      </>
                       :
-                      <span className='price-now'> R{priceNow}.00</span>
+                      <>
+                        Price:
+                        <span className='price-now'> R{priceNow}.00</span>
+                      </>
                     }
-                  </span>
+                  </Price>
                 </div>
                 <div className='bottom'>
-                  <h3>Specifications</h3>
+                  <h2>Specifications</h2>
                   <BicycleSpecifications content={specs} />
                 </div>
               </DetailsBottomSection>

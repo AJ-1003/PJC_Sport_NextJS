@@ -15,13 +15,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Header = styled.div`
+  font-family: 'Racing Sans One', cursive;
+  /* font-size: 1.5rem; */
+  text-align: center;
+  /* min-height: 110px; */
 
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
 `;
 
 const ServiceCardHeader = ({ content }) => {
   return (
     <Header>
-      {content}
+      <h3>{content}</h3>
+      <p></p>
     </Header>
   );
 };

@@ -15,21 +15,82 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Body = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+`;
+
+const Features = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  
+  &.left {
+    justify-content: start;
+  }
+
+  &.right {
+    justify-content: end;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+    text-align: left;
+  }
+`;
+
+const Left = styled.div`
+`;
+
+const Right = styled.div`
 
 `;
 
-const DetailsSectionBody = ({ description, features }) => {
+const DetailsSectionBody = ({ description, features, alignment }) => {
+  var left = [];
+  var right = [];
+
+  for (var i = 0; i < features.length; i++) {
+    if (i < features.length / 2) {
+      left[i] = features[i]
+    }
+    else {
+      right[i] = features[i]
+    }
+  }
   return (
-    <Body>
+    <Body className={alignment}>
       <p>{description}</p>
-      <ul>
-        {features.map(feature => (
-          <li key={feature}>{feature}</li>
-        ))}
-      </ul>
+      <Features className={alignment}>
+        <Left>
+          <ul>
+            {left.map(feature => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </Left>
+        <Right>
+          <ul>
+            {right.map(feature => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </Right>
+      </Features>
     </Body>
   );
 };
 
 export default DetailsSectionBody;
-

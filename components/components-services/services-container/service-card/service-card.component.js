@@ -19,18 +19,19 @@ import styled from 'styled-components';
 
 
 const Card = styled.div`
-  border: 1px solid black;
-  background: #ececec;
-  min-width:35%;
-  padding: 10px;
-  margin: auto;
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: end;
+  width: 25%;
+  /* height: 350px; */
+  margin: 0 auto;
+  padding: 2rem;
+  color: #000;
 `;
 
 const ServiceCard = ({ serviceDetails }) => {
-
   const { heading, serviceItems, price } = serviceDetails.fields;
-
   return (
     <Card>
       <ServiceCardHeader content={heading} />

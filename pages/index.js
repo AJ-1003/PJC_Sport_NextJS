@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRef } from 'react';
 
 // Next
@@ -51,6 +51,11 @@ export async function getStaticProps() {
 };
 
 const Home = ({ whatWeOfferCards, specials, header }) => {
+
+  useEffect(() => {
+    monthName;
+  },[]);
+
   return (
     <div>
       <Head>

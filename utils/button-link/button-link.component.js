@@ -19,7 +19,7 @@ const Button = styled.a`
   width: fit-content;
   padding: 10px 15px;
   border: none;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
 
@@ -45,12 +45,14 @@ const Button = styled.a`
   }
 `;
 
-const ButtonLink = ({ to, color, fill, children }) => {
+const ButtonLink = ({ to, color, fill, children, target, rel }) => {
   return (
     <Link href={to}>
       <Button
         className={`rounded-corners ${fill ? 'fill' : 'outline'}`}
-        color={color}>
+        color={color}
+        target={target}
+        rel={rel}>
         {children}
       </Button>
     </Link>

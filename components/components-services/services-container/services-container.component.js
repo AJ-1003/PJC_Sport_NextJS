@@ -16,15 +16,11 @@ import ServiceCard from './service-card/service-card.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  padding: 20px;
-  display : flex;
-  flex-flow: row wrap;
-  background:white;
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ServicesContainer = ({ content }) => {
-  console.log(content)
   return (
     <Container>
       {content.map(service => {

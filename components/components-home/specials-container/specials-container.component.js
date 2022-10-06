@@ -26,7 +26,7 @@ const Content = styled.div`
   display : flex;
   flex-flow: row wrap;
   gap: 1rem;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 `;
 

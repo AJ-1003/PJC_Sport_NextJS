@@ -106,7 +106,7 @@ const ContactForm = () => {
   };
 
   return (
-    <ContactSection>
+    <ContactSection id='contact-us'>
       <Form ref={form} onSubmit={sendEmail}>
         <TextInput className='rounded-corners' type='text' name='from_name' placeholder='Your Full Name' required />
         <TextInput className='rounded-corners' type='email' name='from_email' placeholder='Your Email' required />
@@ -124,8 +124,8 @@ const ContactForm = () => {
             <AiOutlineMail className='contact-option-icon' color='#ED1D22' />
             <h4>Email</h4>
           </ContactOptionHeading>
-          <ButtonLink to='mailto:queries@pjcsport.co.za' color='--red' fill={false}>
-            <a target='_blank' rel='noreferrer'>Send a message</a>
+          <ButtonLink to='mailto:queries@pjcsport.co.za' color='--red' fill={false} target='_blank' rel='noopener norefferer'>
+            Send a message
           </ButtonLink>
         </ContactOption>
         <ContactOption className='rounded-corners'>
@@ -135,11 +135,11 @@ const ContactForm = () => {
           </ContactOptionHeading>
           {isMobile
             ?
-            <ButtonLink to='https://m.facebook.com/messages/compose?ids=pjcsport' color='--messenger' fill={false}>
+            <ButtonLink to='https://m.facebook.com/messages/compose?ids=pjcsport' color='--messenger' fill={false} target='_blank' rel='noopener norefferer'>
               Send a message
             </ButtonLink>
             :
-            <ButtonLink to='https://m.me/pjcsport' color='--messenger' fill={false}>
+            <ButtonLink to='https://m.me/pjcsport' color='--messenger' fill={false} target='_blank' rel='noopener norefferer'>
               Send a message
             </ButtonLink>
           }
@@ -149,7 +149,7 @@ const ContactForm = () => {
             <AiOutlineWhatsApp className='contact-option-icon' color='#25D366' />
             <h4>WhatsApp</h4>
           </ContactOptionHeading>
-          <ButtonLink to='https://api.whatsapp.com/send?phone=27824559060' color='--whatsapp' fill={false}>
+          <ButtonLink to='https://api.whatsapp.com/send?phone=27824559060' color='--whatsapp' fill={false} target='_blank' rel='noopener norefferer'>
             Send a message
           </ButtonLink>
         </ContactOption>

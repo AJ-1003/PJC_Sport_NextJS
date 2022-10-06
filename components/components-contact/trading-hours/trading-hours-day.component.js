@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+import { useEffect } from 'react';
 
 // Next
 
@@ -35,8 +36,10 @@ const Underline = styled.div`
 `;
 
 const TradingHoursDay = ({ content }) => {
+  useEffect(() => {
+    today;
+  },[]);
   const { weekday, openTime, closingTime } = content.fields;
-  console.log(today);
   return (
     <>
       <Day className={today == weekday ? 'bold' : ''}>

@@ -67,7 +67,7 @@ const Footer = () => {
     <FooterContainer>
       <Content>
         <ContentLeft>
-          <Link href='contact'>
+          <Link href='contact/#contact-us'>
             <h3 className='pointer'>Contact us</h3>
           </Link>
           <ul>

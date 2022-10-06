@@ -24,6 +24,7 @@ const HeaderTextContainer = styled.div`
   width: 60%;
   font-family: 'Racing Sans One', cursive;
   color: #ffffff;
+  align-items: center;
   
   h1 {
     font-weight: bold;

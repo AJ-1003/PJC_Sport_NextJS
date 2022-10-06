@@ -4,6 +4,7 @@ import useMeasure from 'react-use-measure';
 import { useSpring, animated } from 'react-spring';
 
 // Next
+import { useRouter } from 'next/router';
 
 // Contentful
 
@@ -22,11 +23,26 @@ import ItemCard from '../item-card/item-card.component';
 import styled from 'styled-components';
 
 const Section = styled.div`
-  background: linear-gradient(270deg, rgba(3,2,2,0.5) 50%, rgba(237,29,34,0.7) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+  min-height: 350px;
+  background: linear-gradient(0deg, rgba(var(--dark-grey-background),0.9) 60%, rgba(var(--dark-grey-background),0.5) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+  display: flex;
+  align-items: center;
 `;
 
 const SectionContainer = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  
+  &.align-left {
+    text-align: left;
+  }
 
+  &.align-right {
+    text-align: right;
+  }
 `;
 
 const ViewMoreButton = styled.div`
@@ -45,6 +61,14 @@ const DetailsSection = ({ content, panelContent, type }) => {
 
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [ref, bounds] = useMeasure();
+  var router = useRouter();
+
+  var route;
+  if (router.route == '/') {
+    route = 'home';
+  } else {
+    route = router.route.substring(1);
+  }
 
   const toggleWrapperAnimatedStyle = useSpring({
     transform: isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)'
@@ -60,32 +84,45 @@ const DetailsSection = ({ content, panelContent, type }) => {
   return (
     <>
       {content.map(sectionDetails => {
-        const { heading, colouredHeading, description, features, items, image, colouredFootnote, footnote, id, hasContent } = sectionDetails.fields;
+        const { heading, colouredHeading, description, features, items, image, colouredFootnote, footnote, id, hasContent, order } = sectionDetails.fields;
+        var alignment;
+        if (order % 2 == 0) {
+          alignment = 'left';
+        }
+        else {
+          alignment = 'right';
+        }
+        console.log(alignment)
         return (
           <>
             <Section
-              key={sectionDetails.sys.id}
+              key={id}
               id={id}
-              backgroundImg={'https:' + image.fields.file.url}>
+              backgroundImg={'https:' + image.fields.file.url}
+              className={route}>
               <SectionContainer>
                 <DetailsSectionHeader
                   heading={heading}
-                  colouredHeading={colouredHeading} />
+                  colouredHeading={colouredHeading}
+                  alignment={alignment} />
 
                 <DetailsSectionBody
                   description={description}
-                  features={features ? features : items} />
+                  features={features ? features : items}
+                  alignment={alignment} />
 
                 {(footnote !== null && colouredFootnote !== null)
                   ?
                   <DetailsSectionFooter
                     colouredFootnote={colouredFootnote}
-                    footnote={footnote} />
+                    footnote={footnote}
+                    alignment={alignment} />
                   :
                   (footnote !== null && colouredFootnote == null)
                     ?
                     <DetailsSectionFooter
-                      footnote={footnote} />
+                      footnote={footnote}
+                      alignment={alignment} />
                     : null}
 
                 {/* {hasContent

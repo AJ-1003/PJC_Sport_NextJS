@@ -26,7 +26,6 @@ const TradingHourDays = styled.div`
 `;
 
 const TradingHoursBody = ({ content }) => {
-  console.log(content)
   return (
     <Body>
       <TradingHourDays>

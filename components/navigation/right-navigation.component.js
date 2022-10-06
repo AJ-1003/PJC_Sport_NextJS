@@ -28,6 +28,7 @@ const RightNav = styled.div`
   padding-right: 20px;
   color: #fff;
   text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 
   .nav-link {
     padding: 10px 15px;

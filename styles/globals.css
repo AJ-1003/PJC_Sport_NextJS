@@ -12,6 +12,7 @@
   --pink: rgb(255, 105, 180);
   --pink-hover: rgba(255, 105, 180, 0.8);
   --grey: rgb(39, 39, 39);
+  --dark-grey: rgb(27, 27, 27);
   --grey-hover: rgb(85, 85, 85);
 
   --red-background: 237, 29, 34;
@@ -20,6 +21,7 @@
   --green-background: 14, 156, 7;
   --pink-background: 255, 105, 180;
   --grey-background: 39, 39, 39;
+  --dark-grey-background: 27, 27, 27;
   --light-grey-background: 231, 231, 231;
 
   --background-grey: rgb(231, 231, 231);

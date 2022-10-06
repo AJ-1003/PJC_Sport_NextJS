@@ -35,8 +35,12 @@ const Heading = styled.h2`
 
 const Content = styled.div`
   text-align: center;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
+
+  p {
+    padding: 0 1rem;
+  }
 `;
 
 const ContactUsLink = styled.span`
@@ -52,7 +56,7 @@ const WeekendRides = () => {
           All rides starts and ends at the shop.
           Anyone is welcome to join us on weekends for a ride with coffee and doughnuts/snacks at the shop after the ride.
           Start time may vary between Summer and Winter.
-          For more up-to-date information, please ask in-stores to be added to the WhatsApp group or <Link href='contact'>
+          For more up-to-date information, please ask in-stores to be added to the WhatsApp group or <Link href='contact/#contact-us'>
             <ContactUsLink className='bold pointer'>
               Contact Us
             </ContactUsLink>
