@@ -68,7 +68,6 @@ const Main = styled.main`
 
 const Details = styled.div`
   position: relative;
-  /* top: -3rem; */
 `;
 
 const DetailsContainer = styled.div`
@@ -76,6 +75,14 @@ const DetailsContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  
+  h2 {
+    color: var(--grey);
+  }
+
+  h3 {
+    color: var(--orange);
+  }
 `;
 
 const DetailsHeading = styled.div`
@@ -97,79 +104,56 @@ const DetailsHeading = styled.div`
 const DetailsSection = styled.div`
   display: flex;
   flex-direction: column;
-  background: #ffffff70;
+  background: rgba(231, 231, 231, 0.9);
   padding: 2rem;
 `;
 
 const DetailsTopSection = styled.div`
 
-  .image-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
+`;
 
-    .image {
-      height: fit-content;
-    }
-  }
-
-  .description-container {
-    
-    .description-text {
-      margin: 0 auto;
-    }
-  }
+const DescriptionContainer = styled.div`
+  margin: 0 auto;
 `;
 
 const DetailsBottomSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
 
-  .top {
-    padding-top: 2rem;
+const Top = styled.div`
+  padding-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+`;
 
-    .available-sizes {
-      display: flex;
-      flex-direction: row;
-      
-      .sizes {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        text-decoration: none;
-        list-style: none;
-        margin: 0;
-        
-        li {
-          padding: 0 5px;
-          margin: 0;
-        }
-      }
-    }
+const BicycleBrandModel = styled.span`
+
+`;
+
+const AvailableSizes = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+    
+  li {
+    padding: 0 5px;
+    margin: 0;
   }
+`;
+
+const Bottom = styled.div`
+
 `;
 
 const Price = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  justify-content: space-between;
-
-  .price {
-    font-weight: 600;
-
-    .price-was {
-      font-weight: 400;
-      text-decoration: line-through;
-      color: #808080;
-    }
-  }
+  gap: 5px;
+  justify-content: flex-start;
 `;
 
 const BicycleDetails = ({ bicycle }) => {
@@ -257,43 +241,40 @@ const BicycleDetails = ({ bicycle }) => {
             </DetailsHeading>
             <DetailsSection className='rounded-corners'>
               <DetailsTopSection>
-                {/* <div className='image-container'>
-                  <Image className='rounded-corners' src={'https:' + detailsImage.fields.file.url} width={detailsImageWidth} height={detailsImageHeight} alt={altText} />
-                </div> */}
-                <div className='description-container'>
-                  <div className='description-text'>
-                    <h2>Description</h2>
-                    <p>{description}</p>
-                  </div>
-                </div>
+                <DescriptionContainer>
+                  <h2>Description</h2>
+                  <p>{description}</p>
+                </DescriptionContainer>
               </DetailsTopSection>
               <DetailsBottomSection>
-                <div className='top'>
+                <Top>
                   <h2>Details</h2>
-                  <div className='available-sizes'>
-                    <div>
-                      <span>Avaialable sizes: {sizes}</span>
-                    </div>
-                  </div>
-                  <Price>
+                  <BicycleBrandModel className='bold'>
+                    {brand} {model}
+                  </BicycleBrandModel>
+                  <AvailableSizes>
+                    <span className='bold'>Avaialable sizes: </span>
+                    <span>{sizes}</span>
+                  </AvailableSizes>
+                  <div>
                     {onSpecial ?
-                      <>
-                        Price:
-                        <div className='price-was'> R{priceWas}.00</div>
-                        <div className='price-now'> R{priceNow}.00</div>
-                      </>
+                      <Price>
+                        <span className='bold'>Price:</span>
+                        <div className='price-was'>Was - R{priceWas}.00</div>
+                        <div className='price'>Now - R{priceNow}.00</div>
+                      </Price>
                       :
-                      <>
-                        Price:
-                        <span className='price-now'> R{priceNow}.00</span>
-                      </>
+                      <Price>
+                        <span className='bold'>Price:</span>
+                        <span className='price'>R{priceNow}.00</span>
+                      </Price>
                     }
-                  </Price>
-                </div>
-                <div className='bottom'>
+                  </div>
+                </Top>
+                <Bottom>
                   <h2>Specifications</h2>
                   <BicycleSpecifications content={specs} />
-                </div>
+                </Bottom>
               </DetailsBottomSection>
             </DetailsSection>
           </DetailsContainer>

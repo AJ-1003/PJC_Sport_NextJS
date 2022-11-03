@@ -33,7 +33,6 @@ const ServiceCardHeader = ({ content }) => {
   return (
     <Header>
       <h3>{content}</h3>
-      <p></p>
     </Header>
   );
 };

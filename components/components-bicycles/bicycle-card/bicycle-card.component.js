@@ -86,16 +86,6 @@ const CardRight = styled.div`
         }
       }
     }
-
-    .price {
-      font-weight: 600;
-
-      .price-was {
-        font-weight: 400;
-        text-decoration: line-through;
-        color: #808080;
-      }
-    }
   }
 
   .view-more {

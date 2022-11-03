@@ -31,7 +31,7 @@ const Card = styled.div`
 `;
 
 const ServiceCard = ({ serviceDetails }) => {
-  const { heading, serviceItems, price } = serviceDetails.fields;
+  const { heading, subHeading, serviceItems, price } = serviceDetails.fields;
   return (
     <Card>
       <ServiceCardHeader content={heading} />

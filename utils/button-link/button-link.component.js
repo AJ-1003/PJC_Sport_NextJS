@@ -47,14 +47,12 @@ const Button = styled.a`
 
 const ButtonLink = ({ to, color, fill, children, target, rel }) => {
   return (
-    <Link href={to}>
-      <Button
-        className={`rounded-corners ${fill ? 'fill' : 'outline'}`}
-        color={color}
-        target={target}
-        rel={rel}>
-        {children}
-      </Button>
+    <Link href={to}
+      className={`rounded-corners ${fill ? 'fill' : 'outline'}`}
+      color={color}
+      target={target}
+      rel={rel}>
+      {children}
     </Link>
   )
 }
