@@ -18,12 +18,21 @@ import styled from 'styled-components';
 const Spec = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 const SpecContent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 60%;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: auto;
 `;
 
 const Heading = styled.span`
@@ -36,7 +45,9 @@ const Specification = ({ image, heading, spec }) => {
       {spec !== '' || spec !== null || typeof spec !== 'undefined'
         ?
         <Spec>
-          <Image src={image} width='50px' height='50px' alt={spec} />
+          <ImageContainer>
+            <Image src={image} width='50' height='50' alt={spec} />
+          </ImageContainer>
           <SpecContent>
             <Heading>{heading}</Heading>
             <span>{spec}</span>

@@ -73,11 +73,12 @@ const BackToTop = () => {
           className={
             route == 'home' ? homeStyles.backgroundColour :
               route == 'bicycles' ? bicycleStyles.backgroundColour :
-                route == 'services' ? servicesStyles.backgroundColour :
-                  route == 'sport' ? sportStyles.backgroundColour :
-                    route == 'ballet' ? balletStyles.backgroundColour :
-                      route == 'contact' ? contactStyles.backgroundColour :
-                        ''
+                route == 'bicycles/[slug]' ? bicycleStyles.backgroundColour :
+                  route == 'services' ? servicesStyles.backgroundColour :
+                    route == 'sport' ? sportStyles.backgroundColour :
+                      route == 'ballet' ? balletStyles.backgroundColour :
+                        route == 'contact' ? contactStyles.backgroundColour :
+                          ''
           }
           onClick={scrollUp}>
           <div className='icon'>

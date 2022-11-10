@@ -58,34 +58,40 @@ const RightNavigation = ({ open, closeSideNav }) => {
   }
   return (
     <RightNav open={open}>
-      <div className='nav-link'>
-        <Link href='/'>
-          <a className={`bold ${route == 'home' ? homeStyles.textColour : ''}`} onClick={closeSideNav}>Home</a>
+      <div className={`nav-link bold ${route == 'home' ? homeStyles.textColour : ''}`}>
+        <Link
+          href='/'>
+          <a onClick={closeSideNav}>Home</a>
         </Link>
       </div>
-      <div className='nav-link'>
-        <Link href='/bicycles'>
-          <a className={`bold ${route == 'bicycles' ? bicycleStyles.textColour : ''}`} onClick={closeSideNav}>Bicycles</a>
+      <div className={`nav-link bold ${route == 'bicycles' || route == 'bicycles/[slug]' ? bicycleStyles.textColour : ''}`}>
+        <Link
+          href='/bicycles'>
+          <a onClick={closeSideNav}>Bicycles</a>
         </Link>
       </div>
-      <div className='nav-link'>
-        <Link href='/services'>
-          <a className={`bold ${route == 'services' ? servicesStyles.textColour : ''}`} onClick={closeSideNav}>Services</a>
+      <div className={`nav-link bold ${route == 'services' ? servicesStyles.textColour : ''}`}>
+        <Link
+          href='/services'>
+          <a onClick={closeSideNav}>Services</a>
         </Link>
       </div>
-      <div className='nav-link'>
-        <Link href='/sport'>
-          <a className={`bold ${route == 'sport' ? sportStyles.textColour : ''}`} onClick={closeSideNav}>Sport</a>
+      <div className={`nav-link bold ${route == 'sport' ? sportStyles.textColour : ''}`}>
+        <Link
+          href='/sport'>
+          <a onClick={closeSideNav}>Sport</a>
         </Link>
       </div>
-      <div className='nav-link'>
-        <Link href='/ballet'>
-          <a className={`bold ${route == 'ballet' ? balletStyles.textColour : ''}`} onClick={closeSideNav}>Ballet</a>
+      <div className={`nav-link bold ${route == 'ballet' ? balletStyles.textColour : ''}`}>
+        <Link
+          href='/ballet'>
+          <a onClick={closeSideNav}>Ballet</a>
         </Link>
       </div>
-      <div className='nav-link'>
-        <Link href='/contact'>
-          <a className={`bold ${route == 'contact' ? contactStyles.textColour : ''}`} onClick={closeSideNav}>Contact</a>
+      <div className={`nav-link bold ${route == 'contact' ? contactStyles.textColour : ''}`}>
+        <Link
+          href='/contact'>
+          <a onClick={closeSideNav}>Contact</a>
         </Link>
       </div>
     </RightNav>

@@ -25,6 +25,8 @@ import rearShockImg from '/assets/bicycles/spec-icons/rearShock.png';
 import chainImg from '/assets/bicycles/spec-icons/chain.png';
 import stemImg from '/assets/bicycles/spec-icons/stem.png';
 import seatPostImg from '/assets/bicycles/spec-icons/seatPost.png';
+import cassetteImg from '/assets/bicycles/spec-icons/cassette.png';
+import speedImg from '/assets/bicycles/spec-icons/speed.png';
 
 // Data
 
@@ -33,8 +35,33 @@ import styled from 'styled-components';
 
 const SpecsContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h3 {
+    color: var(--orange);
+  }
+`;
+
+const Left = styled.div`
+  display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 50%;
+`;
+
+const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+`;
+
+const LineBreak = styled.div`
+  background: #313131;
+  height: 1px;
+  width: 100%;
+  margin: 5px auto;
 `;
 
 const BicycleSpecifications = ({ content }) => {
@@ -70,28 +97,34 @@ const BicycleSpecifications = ({ content }) => {
 
   return (
     <SpecsContainer>
-      <h3>Frameset</h3>
-      <Specification image={frameMaterialImg} heading='Frame Material' spec={frameMaterial} />
-      <h3>Suspension</h3>
-      <Specification image={forkImg} heading='Fork' spec={fork} />
-      <Specification image={rearShockImg} heading='Rear Shock' spec={rearShock} />
-      <h3>Drivetrain</h3>
-      <Specification image={frontDerailleurImg} heading='Front Derailleur' spec={frontDerailleur} />
-      <Specification image={rearDerailleurImg} heading='Rear Derailleur' spec={rearDerailleur} />
-      <Specification image={bottomBracketImg} heading='Bottom Bracket' spec={bottomBracket} />
-      <Specification image={crankImg} heading='Crank' spec={chainwheel} />
-      <Specification image={chainImg} heading='Chain' spec={chain} />
-      <Specification image={shiftersImg} heading='Shifters' spec={shifters} />
-      <h3>Brakes</h3>
-      <Specification image={brakesImg} heading='Brakes' spec={brakes} />
-      <h3>Wheels</h3>
-      <Specification image={frontHubImg} heading='Front Hub' spec={frontHub} />
-      <Specification image={rearHubImg} heading='Rear Hub' spec={rearHub} />
-      <Specification image={wheelsImg} heading='Wheels' spec={wheels} />
-      <Specification image={tyresImg} heading='Tyres' spec={tyres} />
-      <h3>Components</h3>
-      <Specification image={stemImg} heading='Stem' spec={stem} />
-      <Specification image={seatPostImg} heading='Seat Post' spec={seatPost} />
+      <Left>
+        <h3>Frameset</h3>
+        <Specification image={frameMaterialImg} heading='Frame Material' spec={frameMaterial} />
+        <h3>Suspension</h3>
+        <Specification image={forkImg} heading='Fork' spec={fork} />
+        <Specification image={rearShockImg} heading='Rear Shock' spec={rearShock} />
+        <h3>Drivetrain</h3>
+        <Specification image={frontDerailleurImg} heading='Front Derailleur' spec={frontDerailleur} />
+        <Specification image={rearDerailleurImg} heading='Rear Derailleur' spec={rearDerailleur} />
+        <Specification image={bottomBracketImg} heading='Bottom Bracket' spec={bottomBracket} />
+        <Specification image={crankImg} heading='Crank' spec={chainwheel} />
+        <Specification image={chainImg} heading='Chain' spec={chain} />
+        <Specification image={shiftersImg} heading='Shifters' spec={shifters} />
+        <Specification image={cassetteImg} heading='Cassette' spec={cassette} />
+        <Specification image={speedImg} heading='Speed' spec={speed} />
+      </Left>
+      <Right>
+        <h3>Brakes</h3>
+        <Specification image={brakesImg} heading='Brakes' spec={brakes} />
+        <h3>Wheels</h3>
+        <Specification image={frontHubImg} heading='Front Hub' spec={frontHub} />
+        <Specification image={rearHubImg} heading='Rear Hub' spec={rearHub} />
+        <Specification image={wheelsImg} heading='Wheels' spec={wheels} />
+        <Specification image={tyresImg} heading='Tyres' spec={tyres} />
+        <h3>Components</h3>
+        <Specification image={stemImg} heading='Stem' spec={stem} />
+        <Specification image={seatPostImg} heading='Seat Post' spec={seatPost} />
+      </Right>
     </SpecsContainer>
   );
 };

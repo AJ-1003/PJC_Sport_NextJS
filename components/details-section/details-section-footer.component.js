@@ -24,6 +24,7 @@ import contactStyles from '/styles/Contact.module.css';
 const Footer = styled.div`
   font-family: 'Racing Sans One', cursive;
   font-size: 1rem;
+  margin: 1rem 0;
 
   p {
     color: #fff;

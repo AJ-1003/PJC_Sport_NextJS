@@ -18,11 +18,11 @@ import TradingHoursHeader from './trading-hours-header.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 50%;
-  background: grey;
-  margin: auto;
+  width: 40%;
+  background: rgba(var(--grey-background), 0.2);
+  margin: 2rem auto;
   text-align: center;
-  padding: 2rem 0;
+  padding-top: 2rem;
 `;
 
 const TradingHours = ({ content }) => {
@@ -30,7 +30,7 @@ const TradingHours = ({ content }) => {
     <Container className='rounded-corners'>
       <TradingHoursHeader />
       <TradingHoursBody content={content} />
-      <TradingHoursFooter />
+      {/* <TradingHoursFooter /> */}
     </Container>
   );
 };

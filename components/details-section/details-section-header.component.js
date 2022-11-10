@@ -25,6 +25,7 @@ const Header = styled.div`
   font-family: 'Racing Sans One', cursive;
   font-size: 1.5rem;
   color: #fff;
+  margin: 1rem 0;
 
   &.left {
     text-align: left;

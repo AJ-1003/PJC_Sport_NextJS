@@ -21,7 +21,7 @@ const Card = styled.div`
   gap: 1rem;
   justify-content: end;
   width: 25%;
-  height: 350px;
+  min-height: 350px;
   margin: 0 auto;
   padding: 2rem;
   color: #fff;
@@ -43,7 +43,9 @@ const CardBody = styled.div`
 
 const CardFooter = styled.div`
   bottom: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding: 2rem;
 `;
 

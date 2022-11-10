@@ -21,22 +21,38 @@ import styled from 'styled-components';
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  justify-content: end;
+  justify-content: center;
   width: 25%;
-  /* height: 350px; */
   margin: 0 auto;
-  padding: 2rem;
   color: #000;
+  background: linear-gradient(60deg, rgba(var(--blue-background),0.5) 20%, rgba(var(--grey-background),0.8) 100%);
+`;
+
+const Header = styled.div`
+  padding: 2rem 0 1rem;
+`;
+
+const Body = styled.div`
+  padding: 0 1rem;
+`;
+
+const Footer = styled.div`
+  padding: 1rem 0 2rem;
 `;
 
 const ServiceCard = ({ serviceDetails }) => {
-  const { heading, serviceItems, price } = serviceDetails.fields;
+  const { heading, subHeading, serviceItems, price } = serviceDetails.fields;
   return (
     <Card>
-      <ServiceCardHeader content={heading} />
-      <ServiceCardBody content={serviceItems} />
-      <ServiceCardFooter content={price} />
+      <Header>
+        <ServiceCardHeader heading={heading} subHeading={subHeading} />
+      </Header>
+      <Body>
+        <ServiceCardBody content={serviceItems} />
+      </Body>
+      <Footer>
+        <ServiceCardFooter content={price} />
+      </Footer>
     </Card>
   );
 };

@@ -16,13 +16,21 @@ import styled from 'styled-components';
 import TradingHoursDay from './trading-hours-day.component';
 
 const Body = styled.div`
-  margin: 0 20%;
+  margin: 0 10%;
+  font-family: "Montserrat", sans-serif;
 `;
 
 const TradingHourDays = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+`;
+
+const Address = styled.div`
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const TradingHoursBody = ({ content }) => {
@@ -35,10 +43,10 @@ const TradingHoursBody = ({ content }) => {
           )
         })}
       </TradingHourDays>
-      <div className='address'>
-        <h3>183 Koedoe Street</h3>
-        <h4>Wierda Park, Centurion</h4>
-      </div>
+      <Address>
+        <h4>183 Koedoe Street</h4>
+        <h5>Wierda Park, Centurion</h5>
+      </Address>
     </Body>
   );
 };

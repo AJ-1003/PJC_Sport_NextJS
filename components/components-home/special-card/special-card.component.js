@@ -37,6 +37,8 @@ const Heading = styled.div`
 `;
 
 const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   width: 70%;
 `;
@@ -69,7 +71,7 @@ const SpecialCard = ({ specialDetails }) => {
         <h2>{title}</h2>
       </Heading>
       <ImageContainer>
-        <Image className='rounded-corners' src={'https:' + image.fields.file.url} alt={altText} width='50vw' height='50vh' layout='responsive' />
+        <Image className='rounded-corners' src={'https:' + image.fields.file.url} alt={altText} width='350' height='350' responsive='true' />
       </ImageContainer>
       <DescriptionContainer className='rounded-corners'>
         {documentToReactComponents(description)}

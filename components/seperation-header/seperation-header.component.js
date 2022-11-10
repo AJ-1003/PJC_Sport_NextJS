@@ -32,6 +32,10 @@ const Header = styled.section`
   align-items: center;
   text-transform: uppercase;
 
+  .ballet-text {
+    font-family: 'Raleway', sans-serif;
+  }
+
   .header-text-h2 {
     margin: 0;
     font-size: 2rem;
@@ -63,7 +67,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
                 route == 'ballet' ? balletStyles.textColour :
                   route == 'contact' ? contactStyles.headingColour :
                     ''
-        }`}>{childrenLvl1}</h2>
+        } ${route == 'ballet' ? 'ballet-text' : ''}`}>{childrenLvl1}</h2>
       {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
         ?
         <h3 className='header-text-h3'>{childrenLvl2}</h3>

@@ -41,20 +41,21 @@ const ContentLeft = styled.div`
 
     li {
       list-style: none;
+      margin: 5px 0;
     }
   }
 `;
 
 const ContentCenter = styled.div`
   text-align: center;
+`;
 
-  .social-icons {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: space-between;
-    margin: 0 auto;
-  }
+const SocialIcons = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+  margin: 0 auto;
 `;
 
 const ContentRight = styled.div`
@@ -67,7 +68,7 @@ const Footer = () => {
     <FooterContainer>
       <Content>
         <ContentLeft>
-          <Link href='contact/#contact-us'>
+          <Link href='contact/#contact-us' legacyBehavior>
             <h3 className='pointer'>Contact us</h3>
           </Link>
           <ul>
@@ -77,18 +78,20 @@ const Footer = () => {
         </ContentLeft>
         <ContentCenter>
           <h3>Follow Us</h3>
-          <div className='social-icons'>
-            <Link href='https://www.facebook.com/pjcsport/'>
-              <a rel='noopener noreferrer' target='_blank'>
-                <Facebook />
-              </a>
+          <SocialIcons>
+            <Link
+              href='https://www.facebook.com/pjcsport/'
+              rel='noopener noreferrer'
+              target='_blank'>
+              <Facebook />
             </Link>
-            <Link href='https://www.instagram.com/pjcsportcenturion/?hl=en'>
-              <a rel='noopener noreferrer' target='_blank'>
-                <Instagram />
-              </a>
+            <Link
+              href='https://www.instagram.com/pjcsportcenturion/?hl=en'
+              rel='noopener noreferrer'
+              target='_blank'>
+              <Instagram />
             </Link>
-          </div>
+          </SocialIcons>
         </ContentCenter>
         <ContentRight>
           <p>PJC Sport &amp; Cycles ©&nbsp;{currentYear}</p>

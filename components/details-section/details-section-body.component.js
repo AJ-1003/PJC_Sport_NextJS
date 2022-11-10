@@ -17,6 +17,7 @@ import styled from 'styled-components';
 const Body = styled.div`
   font-family: 'Montserrat', sans-serif;
   color: #fff;
+  margin: 1rem 0;
 
   &.left {
     text-align: left;
@@ -46,8 +47,8 @@ const Features = styled.div`
   }
 
   li {
-    list-style: none;
     text-align: left;
+    padding: 3px 0;
   }
 `;
 

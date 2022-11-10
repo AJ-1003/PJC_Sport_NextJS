@@ -69,18 +69,15 @@ const CarouselSlider = ({ content }) => {
               key={brandName.sys.id}>
               {typeof websiteLink !== 'undefined'
                 ?
-                <Link
-                  href={websiteLink}>
-                  <a
-                    target='_blank'
-                    rel='noreferrer'>
-                    <Image src={'https:' + image.fields.file.url} width={width} height={height} alt={brand} />
-                  </a>
+                <Link href={websiteLink} target='_blank' rel='noreferrer'>
+
+                  <Image src={'https:' + image.fields.file.url} width={width} height={height} alt={brand} />
+
                 </Link>
                 :
                 <Image src={'https:' + image.fields.file.url} width={width} height={height} alt={brand} />}
             </CarouselItem>
-          )
+          );
         })}
       </Carousel>
     </div>

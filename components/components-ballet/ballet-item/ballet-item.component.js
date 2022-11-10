@@ -17,16 +17,26 @@ import ItemColor from '../../item-color/item-color-dot.component';
 import styled from 'styled-components';
 
 const Item = styled.div`
-  border: 1px solid black;
-  background: #ececec;
+  /* border: 1px solid black; */
+  /* background: #ececec; */
   min-width: 25%;
-  padding: 10px;
+  padding: 0.5rem;
   margin: auto;
   flex: 1;
 `;
 
 const ImageContainer = styled.div`
   text-align: center;
+  padding: 2rem;
+
+  .hover {
+    transition: 0.3s;
+  }
+
+  .hover:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
 `;
 
 const DescriptionContainer = styled.div`
@@ -47,7 +57,7 @@ const BalletItem = ({ content }) => {
   return (
     <Item>
       <ImageContainer>
-        <Image className='round-image' src={'https:' + image.fields.file.url} width='200px' height='200px' alt={'item-' + order} />
+        <Image className='round-image' src={'https:' + image.fields.file.url} width='200' height='200' alt={'item-' + order} />
       </ImageContainer>
       <DescriptionContainer>
         <p>{description}</p>

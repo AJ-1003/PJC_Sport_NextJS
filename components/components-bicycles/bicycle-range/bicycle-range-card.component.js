@@ -25,13 +25,12 @@ const Card = styled.div`
   padding: 10px;
   margin: auto;
   height: 200px;
-  cursor: pointer;
   color: #ffffff;
   font-family: 'Racing Sans One', cursive;
   font-size: 2.5rem;
   transition: 0.2s;
 
-  a:hover {
+  &:hover {
     color: var(--orange);
     transition: 0.2s;
   }
@@ -40,12 +39,13 @@ const Card = styled.div`
 const BicycleRangeCard = ({ bicycleRangeDetails }) => {
   const { title, image, linkToSection } = bicycleRangeDetails.fields;
   return (
-    <Link href={'#' + linkToSection}>
-      <Card
-        backgroundImg={'https:' + image.fields.file.url}>
-        <a>{title}</a>
-      </Card>
-    </Link>
+    <Card
+      backgroundImg={'https:' + image.fields.file.url}>
+      <Link href={'#' + linkToSection} legacyBehavior>
+        {title}
+      </Link>
+    </Card>
+
   );
 };
 

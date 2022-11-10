@@ -16,25 +16,31 @@ import styled from 'styled-components';
 
 const Body = styled.div`
   font-family: 'Montserrat', sans-serif;
-  bottom: 0;
-  text-align: center;
-  min-height: 220px;
-  
+  min-height: 300px;
+`;
+
+const Items = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  gap: 10px;
+
   li {
     list-style: none;
+    text-align: center;
   }
 `;
 
 const ServiceCardBody = ({ content }) => {
   return (
     <Body>
-      <ul>
+      <Items>
         {content.map(item => {
           return (
             <li key={item}>{item}</li>
           )
         })}
-      </ul>
+      </Items>
     </Body>
   );
 };

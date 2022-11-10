@@ -31,10 +31,63 @@ const CardContent = styled.div`
 `;
 
 const CardLeft = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: center;
+`;
 
+const CardRight = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(var(--grey-background), 0.1);
+  padding: 0 1rem;
+`;
 
-  .bicycle-card-img {
-    
+const Heading = styled.div`
+  height: 15%;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+`;
+
+const Description = styled.div`
+  height: 40%;
+  display: flex;
+  /* align-items: center; */
+  margin: 0.5rem 0;
+
+  p {
+    margin: 0;
+  }
+`;
+
+const Details = styled.div`
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+`;
+
+const AvailableSizes = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Sizes = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  list-style: none;
+  margin: 0 auto;
+  padding-left: 5px;
+  width: fit-content;
+
+  li {
+    padding-right: 5px;
   }
 `;
 
@@ -42,69 +95,8 @@ const Overlay = styled.div`
   background: linear-gradient(270deg, rgba(31,31,31,0.5) 50%, rgba(71,71,71,0.7) 100%), url(${props => props.backgroundImg}) center / cover no-repeat;
 `;
 
-const CardRight = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+const PriceContainer = styled.div`
   
-  
-  .heading{ 
-    height: 15%;
-    display: flex;
-    align-items: center;
-  }
-
-  .description {
-    height: 40%;
-    display: flex;
-    align-items: center;
-  }
-
-  .details {
-    height: 15%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    .available-sizes {
-      display: flex;
-      flex-direction: row;
-      
-      .sizes {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        text-decoration: none;
-        list-style: none;
-        margin: 0 auto;
-        padding-left: 5px;
-        width: fit-content;
-
-        li {
-          padding-right: 5px;
-        }
-      }
-    }
-
-    .price {
-      font-weight: 600;
-
-      .price-was {
-        font-weight: 400;
-        text-decoration: line-through;
-        color: #808080;
-      }
-    }
-  }
-
-  .view-more {
-    height: 20%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-  }
 `;
 
 const Price = styled.div`
@@ -114,7 +106,30 @@ const Price = styled.div`
   justify-content: space-between;
 `;
 
-export const LineBreak = styled.div`
+const PriceWas = styled.div`
+  font-weight: 400;
+  text-decoration: line-through;
+  color: #808080;
+`;
+
+const PriceNow = styled.div`
+  
+`;
+
+const ViewMore = styled.div`
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+`;
+
+const TsCs = styled.span`
+  font-size: 10px;
+`;
+
+const LineBreak = styled.div`
   background: #313131;
   height: 1px;
   width: 80%;
@@ -151,42 +166,43 @@ const BicycleCard = ({ content }) => {
             </Overlay>
           }
         </CardLeft>
-        <CardRight>
-          <div className='heading'>
+        <CardRight className='rounded-corners'>
+          <Heading>
             <h2>{brand} {model}</h2>
-          </div>
-          <div className='description'>
+          </Heading>
+          <Description>
             <p>{description}</p>
-          </div>
-          <div className='details'>
-            <div className='available-sizes'>
+          </Description>
+          <Details>
+            <AvailableSizes>
               <div>
-                <span>Avaialable sizes: </span>
+                <span className='bold'>Avaialable sizes: </span>
               </div>
-              <ul className='sizes'>
+              <Sizes>
                 {availableSizes.map(size => {
                   return (
                     <li key={size}>{size}</li>
                   )
                 })}
-              </ul>
-            </div>
-            <div className='price'>
+              </Sizes>
+            </AvailableSizes>
+            <PriceContainer>
               {onSpecial ?
                 <Price>
-                  <div className='price-was'>Was - R{priceWas}.00</div>
-                  <div className='price-now'>Now - R{priceNow}.00</div>
+                  <PriceWas>Was - R{priceWas}.00</PriceWas>
+                  <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
                 </Price>
                 :
-                <span className='price-now'>R{priceNow}.00</span>
+                <PriceNow className='bold'>R{priceNow}.00</PriceNow>
               }
-            </div>
-          </div>
-          <div className='view-more'>
+            </PriceContainer>
+          </Details>
+          <ViewMore>
+            <TsCs>Other models available. T&apos;s &amp; C&apos;s apply</TsCs>
             <ButtonLink to={'/bicycles/' + name} color='--orange' fill={true}>
               View Bicycle
             </ButtonLink>
-          </div>
+          </ViewMore>
         </CardRight>
       </CardContent>
       <LineBreak />

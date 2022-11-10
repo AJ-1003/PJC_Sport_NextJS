@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+// import { Tooltip } from '@nextui-org/react';
 
 // Next
 
@@ -22,9 +23,11 @@ const Color = styled.div`
 
 const ItemColor = ({ color }) => {
   return (
-    <Color
-      className='round-image'
-      color={color} />
+    // <Tooltip content={color}>
+      <Color
+        className='round-image'
+        color={color} />
+    // </Tooltip>
   );
 };
 

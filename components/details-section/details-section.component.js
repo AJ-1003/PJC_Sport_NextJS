@@ -23,7 +23,7 @@ import ItemCard from '../item-card/item-card.component';
 import styled from 'styled-components';
 
 const Section = styled.div`
-  min-height: 350px;
+  min-height: 400px;
   background: linear-gradient(0deg, rgba(var(--dark-grey-background),0.9) 60%, rgba(var(--dark-grey-background),0.5) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
   display: flex;
   align-items: center;
@@ -32,9 +32,10 @@ const Section = styled.div`
 const SectionContainer = styled.div`
   width: 80%;
   margin: 0 auto;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  /* padding-top: 2rem;
+  padding-bottom: 2rem; */
   position: relative;
+  padding: 1rem 0;
   
   &.align-left {
     text-align: left;

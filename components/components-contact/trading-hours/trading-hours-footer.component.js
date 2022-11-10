@@ -18,6 +18,10 @@ const Footer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  p {
+    margin: 0;
+  }
 `;
 
 const TradingHoursFooter = () => {

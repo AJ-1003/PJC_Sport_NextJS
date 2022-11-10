@@ -1,5 +1,5 @@
 // React
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { RiMessengerFill } from 'react-icons/ri';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
@@ -9,20 +9,25 @@ import { isMobile } from 'react-device-detect';
 import emailjs from 'emailjs-com';
 
 // Next
+import Link from 'next/link';
 
 // Contentful
 
 // Components
 import ButtonSubmit from '../../../utils/button-submit/button-submit.component';
+import ButtonLink from '../../../utils/button-link/button-link.component';
+import ConfirmationMessage from '../../../utils/confirmation-message/confirmation-message.component';
 
 // Images
+import Email from '/assets/footer/icons8-circled-envelope-48.png';
+import WhatsApp from '/assets/footer/icons8-whatsapp.svg';
+import Messenger from '/assets/footer/icons8-facebook-messenger.svg';
 
 // Data
 
 // Styles
 import styled from 'styled-components';
-import ButtonLink from '../../../utils/button-link/button-link.component';
-import { LineBreak } from '../../components-bicycles/bicycle-card/bicycle-card.component';
+import Image from 'next/image';
 
 const ContactSection = styled.div`
   display: flex;
@@ -41,29 +46,38 @@ const Form = styled.form`
 `;
 
 const ButtonSection = styled.div`
-  text-align: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 1rem;
 `;
 
 const TextInput = styled.input`
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
   height: 2.5rem;
   padding: 0.5rem;
   border: 1px solid #31313140;
 `;
 
 const TextArea = styled.textarea`
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
   resize: none;
   border: 1px solid #31313140;
   padding: 0.5rem;
 `;
 
-const BreakLine = styled.div`
-  width: 80%;
-  height: 1px;
-  background: #31313140;
-  margin: 0 auto;
+const MessageServices = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-const MessageServices = styled.div`
+const MessageServicesHeading = styled.h4`
+  text-align: center;
+`;
+
+const MessageServiceOptions = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -82,25 +96,42 @@ const ContactOption = styled.div`
   }
 `;
 
-const ContactOptionHeading = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  
+const LineBreak = styled.div`
+  background: #313131;
+  height: 1px;
+  width: 90%;
+  margin: 5px auto;
 `;
 
 const ContactForm = () => {
   const form = useRef();
+  const [messageState, setMessageState] = useState(false);
+  const [messageSentState, setMessageSentState] = useState(false);
+
+  function openMessage() {
+    var runtime = 0;
+    setMessageState(!messageState);
+    var interval = setInterval(function () {
+      runtime += 1;
+      console.log(runtime);
+      if (runtime == 5) {
+        clearInterval(interval);
+        setMessageState(false);
+      }
+    }, 1000);
+  }
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_p607xol', 'template_6is8rjq', form.current, 'fNeFj7Gwd4AFaJ1vt')
+    emailjs.sendForm(`${process.env.NEXT_PUBLIC_SERVICE_ID}`, `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`, form.current, `${process.env.NEXT_PUBLIC_USER_ID}`)
       .then((result) => {
         console.log(result.text);
+        setMessageSentState(!messageSentState);
+        openMessage();
       }, (error) => {
         console.log(error.text);
+        openMessage();
       });
     e.target.reset();
   };
@@ -112,6 +143,7 @@ const ContactForm = () => {
         <TextInput className='rounded-corners' type='email' name='from_email' placeholder='Your Email' required />
         <TextArea className='rounded-corners' name='message' rows='10' placeholder='Your Message' required />
         <ButtonSection>
+          <ConfirmationMessage messageState={messageState} success={messageSentState} />
           <ButtonSubmit color='--grey' fill={true}>
             Send Message
           </ButtonSubmit>
@@ -119,40 +151,37 @@ const ContactForm = () => {
       </Form>
       <LineBreak />
       <MessageServices>
-        <ContactOption className='rounded-corners'>
-          <ContactOptionHeading>
-            <AiOutlineMail className='contact-option-icon' color='#ED1D22' />
-            <h4>Email</h4>
-          </ContactOptionHeading>
-          <ButtonLink to='mailto:queries@pjcsport.co.za' color='--red' fill={false} target='_blank' rel='noopener norefferer'>
-            Send a message
-          </ButtonLink>
-        </ContactOption>
-        <ContactOption className='rounded-corners'>
-          <ContactOptionHeading>
-            <RiMessengerFill className='contact-option-icon' color='#0695FF' />
-            <h4>Messenger</h4>
-          </ContactOptionHeading>
-          {isMobile
-            ?
-            <ButtonLink to='https://m.facebook.com/messages/compose?ids=pjcsport' color='--messenger' fill={false} target='_blank' rel='noopener norefferer'>
-              Send a message
-            </ButtonLink>
-            :
-            <ButtonLink to='https://m.me/pjcsport' color='--messenger' fill={false} target='_blank' rel='noopener norefferer'>
-              Send a message
-            </ButtonLink>
-          }
-        </ContactOption>
-        <ContactOption className='rounded-corners'>
-          <ContactOptionHeading>
-            <AiOutlineWhatsApp className='contact-option-icon' color='#25D366' />
-            <h4>WhatsApp</h4>
-          </ContactOptionHeading>
-          <ButtonLink to='https://api.whatsapp.com/send?phone=27824559060' color='--whatsapp' fill={false} target='_blank' rel='noopener norefferer'>
-            Send a message
-          </ButtonLink>
-        </ContactOption>
+        <MessageServicesHeading>Or contact us via:</MessageServicesHeading>
+        <MessageServiceOptions>
+          <ContactOption>
+            <Link
+              href='mailto:queries@pjcsport.co.za'
+              rel='noopener noreferrer'
+              target='_blank'>
+              <Image src={Email} width='50' height='50' alt='email' />
+            </Link>
+          </ContactOption>
+          <ContactOption>
+            {isMobile
+              ?
+              <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'>
+                <Messenger />
+              </Link>
+              :
+              <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'>
+                <Messenger />
+              </Link>
+            }
+          </ContactOption>
+          <ContactOption>
+            <Link
+              href='https://api.whatsapp.com/send?phone=27824559060'
+              rel='noopener noreferrer'
+              target='_blank'>
+              <WhatsApp />
+            </Link>
+          </ContactOption>
+        </MessageServiceOptions>
       </MessageServices>
     </ContactSection>
   );

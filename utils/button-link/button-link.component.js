@@ -15,7 +15,7 @@ import Link from 'next/link';
 // Styles
 import styled from 'styled-components';
 
-const Button = styled.a`
+const Button = styled.div`
   width: fit-content;
   padding: 10px 15px;
   border: none;
@@ -47,15 +47,11 @@ const Button = styled.a`
 
 const ButtonLink = ({ to, color, fill, children, target, rel }) => {
   return (
-    <Link href={to}>
-      <Button
-        className={`rounded-corners ${fill ? 'fill' : 'outline'}`}
-        color={color}
-        target={target}
-        rel={rel}>
+    <Button className={`rounded-corners ${fill ? 'fill' : 'outline'}`} color={color}>
+      <Link href={to} target={target} rel={rel}>
         {children}
-      </Button>
-    </Link>
+      </Link>
+    </Button>
   )
 }
 

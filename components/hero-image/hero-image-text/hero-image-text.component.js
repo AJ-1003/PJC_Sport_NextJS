@@ -22,7 +22,7 @@ const HeaderTextContainer = styled.div`
   background: #ffffff20;
   padding: 2rem;
   width: 60%;
-  font-family: 'Racing Sans One', cursive;
+  font-family: 'Racing Sans One', sans-serif;
   color: #ffffff;
   align-items: center;
   
@@ -41,6 +41,15 @@ const HeaderTextContainer = styled.div`
   p {
     font-family: "Montserrat", sans-serif;
   }
+
+  .ballet-text {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .ballet-text-p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+  }
 `;
 
 const HeroImageText = ({ colouredHeading, heading, contentText, route, buttons }) => {
@@ -48,30 +57,28 @@ const HeroImageText = ({ colouredHeading, heading, contentText, route, buttons }
     <HeaderTextContainer className='rounded-corners'>
       {heading == null || heading == undefined || heading == ''
         ?
-        <h1 className={
-          route == 'home' ? homeStyles.textColour :
+        <h1 className={`${route == 'home' ? homeStyles.textColour :
             route == 'bicycles' ? bicycleStyles.textColour :
               route == 'services' ? servicesStyles.textColour :
                 route == 'sport' ? sportStyles.textColour :
                   route == 'ballet' ? balletStyles.textColour :
                     route == 'contact' ? contactStyles.textColour :
-                      ''
-        }>{colouredHeading}</h1>
+                      ''}
+                      ${route == 'ballet' ? 'ballet-text' : ''}`}>{colouredHeading}</h1>
         :
         <>
-          <h1 className={
-            route == 'home' ? homeStyles.textColour :
+          <h1 className={`${route == 'home' ? homeStyles.textColour :
               route == 'bicycles' ? bicycleStyles.textColour :
                 route == 'services' ? servicesStyles.textColour :
                   route == 'sport' ? sportStyles.textColour :
                     route == 'ballet' ? balletStyles.textColour :
                       route == 'contact' ? contactStyles.textColour :
-                        ''
-          }>{colouredHeading}</h1>
-          <h2>{heading}</h2>
+                        ''}
+          ${route == 'ballet' ? 'ballet-text' : ''}`}>{colouredHeading}</h1>
+          <h2 className={`${route == 'ballet' ? 'ballet-text' : ''}`}>{heading}</h2>
         </>
       }
-      <p>{contentText}</p>
+      <p  className={`${route == 'ballet' ? 'ballet-text-p' : ''}`}>{contentText}</p>
       {buttons}
     </HeaderTextContainer>
   );

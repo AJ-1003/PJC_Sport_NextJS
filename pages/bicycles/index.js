@@ -51,7 +51,7 @@ export async function getStaticProps() {
     if (a.firstname > b.firstname) { return 1; }
     return 0;
   });
-
+  
   const resAccessoriesGear = await client.getEntries({
     content_type: 'accessoriesAndGearSection'
   });

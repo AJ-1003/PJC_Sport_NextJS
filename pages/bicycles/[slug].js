@@ -68,7 +68,6 @@ const Main = styled.main`
 
 const Details = styled.div`
   position: relative;
-  /* top: -3rem; */
 `;
 
 const DetailsContainer = styled.div`
@@ -97,79 +96,77 @@ const DetailsHeading = styled.div`
 const DetailsSection = styled.div`
   display: flex;
   flex-direction: column;
-  background: #ffffff70;
+  background: rgba(var(--grey-background), 0.05);
   padding: 2rem;
+  margin-bottom: 2rem;
 `;
 
 const DetailsTopSection = styled.div`
 
-  .image-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
+`;
 
-    .image {
-      height: fit-content;
-    }
-  }
-
-  .description-container {
-    
-    .description-text {
-      margin: 0 auto;
-    }
-  }
+const DescriptionText = styled.div`
+  margin: 0 auto;
 `;
 
 const DetailsBottomSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
 
-  .top {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+const Top = styled.div`
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
-    .available-sizes {
-      display: flex;
-      flex-direction: row;
-      
-      .sizes {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        text-decoration: none;
-        list-style: none;
-        margin: 0;
-        
-        li {
-          padding: 0 5px;
-          margin: 0;
-        }
-      }
-    }
+const TopContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const AvailableSizes = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Sizes = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  
+  li {
+    padding: 0 5px;
+    margin: 0;
   }
+`;
+
+const PriceContainer = styled.div`
+  
 `;
 
 const Price = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: end;
+`;
 
-  .price {
-    font-weight: 600;
+const PriceWas = styled.div`
+  font-weight: 400;
+  text-decoration: line-through;
+  color: #808080;
+`;
 
-    .price-was {
-      font-weight: 400;
-      text-decoration: line-through;
-      color: #808080;
-    }
-  }
+const PriceNow = styled.div`
+  
 `;
 
 const BicycleDetails = ({ bicycle }) => {
@@ -257,39 +254,43 @@ const BicycleDetails = ({ bicycle }) => {
             </DetailsHeading>
             <DetailsSection className='rounded-corners'>
               <DetailsTopSection>
-                {/* <div className='image-container'>
-                  <Image className='rounded-corners' src={'https:' + detailsImage.fields.file.url} width={detailsImageWidth} height={detailsImageHeight} alt={altText} />
-                </div> */}
-                <div className='description-container'>
-                  <div className='description-text'>
-                    <h2>Description</h2>
-                    <p>{description}</p>
-                  </div>
-                </div>
+                <DescriptionText>
+                  <h2>Description</h2>
+                  <p>{description}</p>
+                </DescriptionText>
               </DetailsTopSection>
               <DetailsBottomSection>
-                <div className='top'>
+                <Top>
                   <h2>Details</h2>
-                  <div className='available-sizes'>
-                    <div>
-                      <span>Avaialable sizes: {sizes}</span>
-                    </div>
-                  </div>
-                  <Price>
-                    {onSpecial ?
-                      <>
-                        Price:
-                        <div className='price-was'> R{priceWas}.00</div>
-                        <div className='price-now'> R{priceNow}.00</div>
-                      </>
-                      :
-                      <>
-                        Price:
-                        <span className='price-now'> R{priceNow}.00</span>
-                      </>
-                    }
-                  </Price>
-                </div>
+                  <TopContent>
+                    <AvailableSizes>
+                      <div>
+                        <span className='bold'>Avaialable sizes: </span>
+                      </div>
+                      <Sizes>
+                        {availableSizes.map(size => {
+                          return (
+                            <li key={size}>{size}</li>
+                          )
+                        })}
+                      </Sizes>
+                    </AvailableSizes>
+                    <PriceContainer>
+                      {onSpecial ?
+                        <Price>
+                          <span className='bold'>Price: </span>
+                          <PriceWas>Was - R{priceWas}.00</PriceWas>
+                          <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
+                        </Price>
+                        :
+                        <Price>
+                          <span className='bold'>Price: </span>
+                          <PriceNow className='bold'>R{priceNow}.00</PriceNow>
+                        </Price>
+                      }
+                    </PriceContainer>
+                  </TopContent>
+                </Top>
                 <div className='bottom'>
                   <h2>Specifications</h2>
                   <BicycleSpecifications content={specs} />

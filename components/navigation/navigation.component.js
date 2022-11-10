@@ -39,12 +39,9 @@ const Nav = styled.nav`
 
     .logo_container {
       width: 200px;
+      height: auto;
       padding-left: 20px;
-
-      .logo {
-        width: 100%;
-        cursor: pointer;
-      }
+      cursor: pointer;
     }
   }
 `;
@@ -54,25 +51,21 @@ const Navigation = () => {
   const router = useRouter();
   const route = router.pathname.substring(1);
 
-  return (
-    <>
-      <header>
-          <Nav>
-            <div className='navigation_container'>
-              <div className='logo_container'>
-                <Link href='/'>
-                  <div className='logo'>
-                    <Image src={logo} alt='logo-img' />
-                  </div>
-                </Link>
-              </div>
-              <BurgerToggle />
-            </div>
-          </Nav>
-      </header>
-      {/* <Outlet /> */}
-    </>
-  );
+  return <>
+    <header>
+      <Nav>
+        <div className='navigation_container'>
+          <div className='logo_container'>
+            <Link href='/'>
+              <Image src={logo} alt='logo-img' width='180' height='75' />
+            </Link>
+          </div>
+          <BurgerToggle />
+        </div>
+      </Nav>
+    </header>
+    {/* <Outlet /> */}
+  </>;
 };
 
 export default Navigation;
