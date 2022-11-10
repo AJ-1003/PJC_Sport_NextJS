@@ -153,7 +153,7 @@ const ContactForm = () => {
       <MessageServices>
         <MessageServicesHeading>Or contact us via:</MessageServicesHeading>
         <MessageServiceOptions>
-          <ContactOption>
+          <ContactOption className='pointer'>
             <Link
               href='mailto:queries@pjcsport.co.za'
               rel='noopener noreferrer'
@@ -161,7 +161,7 @@ const ContactForm = () => {
               <Image src={Email} width='50' height='50' alt='email' />
             </Link>
           </ContactOption>
-          <ContactOption>
+          <ContactOption className='pointer'>
             {isMobile
               ?
               <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'>
@@ -173,7 +173,7 @@ const ContactForm = () => {
               </Link>
             }
           </ContactOption>
-          <ContactOption>
+          <ContactOption className='pointer'>
             <Link
               href='https://api.whatsapp.com/send?phone=27824559060'
               rel='noopener noreferrer'
