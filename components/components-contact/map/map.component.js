@@ -15,20 +15,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Map = styled.div`
-  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  height: 500px;
+  width: 600px;
+
+  .gmap_canvas {
+    overflow: hidden;
+    background: none;
+    height: 500px;
+    width: 600px;
+    border: 1px 1px solid;
+  }
 `;
 
 const MapLocation = () => {
   return (
     <Map className='rounded-corners'>
-      <iframe
-        allowFullScreen
-        style={{ border: '1px solid #31313140', borderRadius: '0.5rem' }}
-        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}&q=183+Koedoe+street&zoom=15`}
-        loading='lazy'
-        width='600px'
-        height='500px'>
-      </iframe>
+      <div className='gmap_canvas'>
+        <iframe width='600' height='500' id='gmap_canvas' src='https://maps.google.com/maps?q=183%20Koedoe&t=&z=17&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no'>
+        </iframe>
+      </div>
     </Map>
   );
 };
