@@ -32,7 +32,7 @@ const ContactSection = styled.div`
   width: 40%;
   margin: 0 auto;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) and (max-width: 1080px) {
     width: 50%;
     gap: 0.5rem;
   }
@@ -159,9 +159,9 @@ const ContactForm = () => {
   return (
     <ContactSection id='contact-us'>
       <Form ref={form} onSubmit={sendEmail}>
-        <TextInput className='rounded-corners' type='text' name='from_name' placeholder='Your Full Name' required />
-        <TextInput className='rounded-corners' type='email' name='from_email' placeholder='Your Email' required />
-        <TextArea className='rounded-corners' name='message' rows='10' placeholder='Your Message' required />
+        <TextInput className='rounded-corners' type='text' name='from_name' placeholder='Enter your name' required />
+        <TextInput className='rounded-corners' type='email' name='from_email' placeholder='Enter your email' required />
+        <TextArea className='rounded-corners' name='message' rows='10' placeholder='Message' required />
         <ButtonSection>
           <ConfirmationMessage messageState={messageState} success={messageSentState} />
           <ButtonSubmit color='--grey' fill={true}>
