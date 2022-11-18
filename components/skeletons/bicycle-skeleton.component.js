@@ -25,10 +25,10 @@ const BicycleSkeleton = () => {
       <style jsx>{`
         .skeleton {
           max-width: 1200px;
-          margin: 20px auto;
+          margin: 10% auto;
         }
         .skeleton > div {
-          background: #a1a099;
+          background: #a1a09940;
           border-radius: 4px;
           margin: 20px 0;
         }

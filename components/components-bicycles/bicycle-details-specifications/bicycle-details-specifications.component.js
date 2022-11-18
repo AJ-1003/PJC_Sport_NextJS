@@ -27,6 +27,7 @@ import stemImg from '/assets/bicycles/spec-icons/stem.png';
 import seatPostImg from '/assets/bicycles/spec-icons/seatPost.png';
 import cassetteImg from '/assets/bicycles/spec-icons/cassette.png';
 import speedImg from '/assets/bicycles/spec-icons/speed.png';
+import extrasImg from '/assets/bicycles/spec-icons/extras.png';
 
 // Data
 
@@ -41,6 +42,10 @@ const SpecsContainer = styled.div`
   h3 {
     color: var(--orange);
   }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const Left = styled.div`
@@ -48,6 +53,10 @@ const Left = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Right = styled.div`
@@ -55,6 +64,10 @@ const Right = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const LineBreak = styled.div`
@@ -65,7 +78,6 @@ const LineBreak = styled.div`
 `;
 
 const BicycleSpecifications = ({ content }) => {
-
   const {
     frameMaterial,
     fork,
@@ -87,14 +99,10 @@ const BicycleSpecifications = ({ content }) => {
     seatPost,
     extras
   } = content;
-
   let entries = Object.entries(content)
   let data = entries.map(([key, val] = entry) => {
     return `The ${key} is ${val}`;
   });
-
-  console.log(data)
-
   return (
     <SpecsContainer>
       <Left>
@@ -124,6 +132,15 @@ const BicycleSpecifications = ({ content }) => {
         <h3>Components</h3>
         <Specification image={stemImg} heading='Stem' spec={stem} />
         <Specification image={seatPostImg} heading='Seat Post' spec={seatPost} />
+        {extras !== null && typeof extras !== 'undefined'
+          ?
+          <>
+            <h3>Extras</h3>
+            <Specification image={extrasImg} heading='Extras' spec={extras} />
+          </>
+          :
+          null
+        }
       </Right>
     </SpecsContainer>
   );

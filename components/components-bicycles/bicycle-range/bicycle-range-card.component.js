@@ -29,10 +29,16 @@ const Card = styled.div`
   font-family: 'Racing Sans One', cursive;
   font-size: 2.5rem;
   transition: 0.2s;
+  text-align: center;
 
   &:hover {
     color: var(--orange);
     transition: 0.2s;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0;
+    min-height: 150px;
   }
 `;
 

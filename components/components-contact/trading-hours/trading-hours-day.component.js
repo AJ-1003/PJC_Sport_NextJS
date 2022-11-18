@@ -20,6 +20,10 @@ const Day = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  &.red {
+    color: var(--red);
+  }
 `;
 
 const Weekday = styled.div`
@@ -42,7 +46,7 @@ const TradingHoursDay = ({ content }) => {
   const { weekday, openTime, closingTime } = content.fields;
   return (
     <>
-      <Day className={today == weekday ? 'bold' : ''}>
+      <Day className={today == weekday ? 'bold red' : ''}>
         <Weekday>
           {weekday}
         </Weekday>

@@ -26,6 +26,7 @@ const Nav = styled.nav`
   width: 100%;
   background-color: rgba(133, 133, 133, 0.2);
   position: absolute;
+  z-index: 1;
 
   .navigation_container {
     height: 100px;
@@ -35,7 +36,6 @@ const Nav = styled.nav`
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
-    z-index: 1;
 
     .logo_container {
       width: 200px;

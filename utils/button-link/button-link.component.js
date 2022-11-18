@@ -48,7 +48,7 @@ const Button = styled.div`
 const ButtonLink = ({ to, color, fill, children, target, rel }) => {
   return (
     <Button className={`rounded-corners ${fill ? 'fill' : 'outline'}`} color={color}>
-      <Link href={to} target={target} rel={rel}>
+      <Link href={to} target={target} rel={rel} scroll={true}>
         {children}
       </Link>
     </Button>

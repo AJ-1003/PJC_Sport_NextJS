@@ -20,9 +20,6 @@ const LayoutContainer = styled.div`
 `;
 
 const Layout = ({ children }) => {
-
-
-
   return (
     <LayoutContainer>
       <Navigation />

@@ -22,7 +22,18 @@ const Item = styled.div`
   min-width: 25%;
   padding: 0.5rem;
   margin: auto;
-  flex: 1;
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    min-width: 50%;
+  }
+
+  @media screen and (max-width: 767px) {
+
+  }
 `;
 
 const ImageContainer = styled.div`

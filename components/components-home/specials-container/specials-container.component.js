@@ -17,8 +17,7 @@ import SpecialCard from '../special-card/special-card.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  /* background: url('../../../assets/home/specials.webp'); */
-  /* background: linear-gradient(270deg, rgba(var(--grey-background),0.6) 10%, rgba(var(--grey-background),0.5) 100%); */
+  
 `;
 
 const Content = styled.div`
@@ -28,6 +27,22 @@ const Content = styled.div`
   gap: 1rem;
   width: 80%;
   margin: 0 auto;
+
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    display : flex;
+    flex-flow: column wrap;
+    padding: 0;
+    gap: 0;
+  }
 `;
 
 const SpecialsContainer = ({ content }) => {

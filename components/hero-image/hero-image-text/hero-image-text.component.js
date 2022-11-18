@@ -26,20 +26,36 @@ const HeaderTextContainer = styled.div`
   color: #ffffff;
   align-items: center;
   
+  @media screen and (max-width: 767px) {
+    width: 80%;
+  }
+
   h1 {
     font-weight: bold;
     font-size: 3rem;
     text-transform: uppercase;
+
+    @media screen and (max-width: 767px) {
+      font-size: 2rem;
+    }
   }
 
   h2 {
     font-weight: 400;
     font-size: 2rem;
     text-transform: uppercase;
+
+    @media screen and (max-width: 767px) {
+      font-size: 2rem;
+    }
   }
 
   p {
     font-family: "Montserrat", sans-serif;
+
+    @media screen and (max-width: 767px) {
+      font-size: 1rem;
+    }
   }
 
   .ballet-text {

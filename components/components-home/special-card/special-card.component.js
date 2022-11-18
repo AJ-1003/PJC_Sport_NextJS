@@ -17,23 +17,61 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styled from 'styled-components';
 
 const Card = styled.div`
-  min-width:35%;
+  min-width: 35%;
   padding: 10px;
   /* margin: 0 auto; */
   flex: 1;
+
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0;
+    width: 100%;
+  }
 `;
 
 const Heading = styled.div`
   margin: 0 auto 0 5%;
   position: relative;
   top: 15px;
-  font-family: 'Racing Sans One', cursive;
+  font-family: 'Racing Sans One', sans-serif;
   font-size: 1.5rem;
   color: var(--red);
   background: rgba(var(--light-grey-background), 0.7);
   width: fit-content;
   padding: 1rem;
   z-index: 1;
+
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    font-size: 1.2rem;
+    left: 5%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 1rem;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 1rem;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -41,9 +79,27 @@ const ImageContainer = styled.div`
   justify-content: center;
   margin: 0 auto;
   width: 70%;
+  border-radius: 0.5rem;
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
 `;
 
 const DescriptionContainer = styled.div`
+  font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   position: relative;
   bottom: 10px;
@@ -53,6 +109,39 @@ const DescriptionContainer = styled.div`
   z-index: 1;
   text-align: center;
   color: #fff;
+
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+`;
+
+const DescriptionText = styled.div`
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    min-height: 70px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 0.8rem;
+    min-height: 70px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const TsCs = styled.div`
@@ -62,19 +151,24 @@ const TsCs = styled.div`
 `;
 
 const SpecialCard = ({ specialDetails }) => {
-
   const { title, image, altText, description } = specialDetails.fields;
-
   return (
     <Card>
       <Heading className='rounded-corners'>
         <h2>{title}</h2>
       </Heading>
       <ImageContainer>
-        <Image className='rounded-corners' src={'https:' + image.fields.file.url} alt={altText} width='350' height='350' responsive='true' />
+        <Image 
+        src={'https:' + image.fields.file.url} 
+        alt={altText} 
+        width='500' 
+        height='500' 
+        responsive='true' />
       </ImageContainer>
       <DescriptionContainer className='rounded-corners'>
-        {documentToReactComponents(description)}
+        <DescriptionText>
+          {documentToReactComponents(description)}
+        </DescriptionText>
         <TsCs>
           <span>T&apos;s & C&apos;s Apply</span>
         </TsCs>

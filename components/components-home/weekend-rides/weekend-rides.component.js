@@ -41,6 +41,18 @@ const Content = styled.div`
   p {
     padding: 0 1rem;
   }
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const ContactUsLink = styled.span`

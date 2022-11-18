@@ -26,6 +26,18 @@ const Card = styled.div`
   margin: 0 auto;
   color: #000;
   background: linear-gradient(60deg, rgba(var(--blue-background),0.5) 20%, rgba(var(--grey-background),0.8) 100%);
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Header = styled.div`

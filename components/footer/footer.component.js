@@ -30,6 +30,14 @@ const Content = styled.div`
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+    
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const ContentLeft = styled.div`

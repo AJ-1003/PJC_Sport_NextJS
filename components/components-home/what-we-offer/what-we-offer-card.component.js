@@ -20,12 +20,23 @@ const Card = styled.div`
   flex-direction: column;
   gap: 1rem;
   justify-content: end;
-  width: 25%;
   min-height: 350px;
   margin: 0 auto;
   padding: 2rem;
   color: #fff;
   background: linear-gradient(270deg, rgba(var(--grey-background),0.6) 60%, rgba(var(--grey-background),0.6) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+
+  @media screen and (min-width: 1024px) {
+    width: 25%;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const CardHeader = styled.div`

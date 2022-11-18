@@ -1,8 +1,5 @@
 // React
 import React, { useRef, useState } from 'react';
-import { AiOutlineMail } from 'react-icons/ai';
-import { RiMessengerFill } from 'react-icons/ri';
-import { AiOutlineWhatsApp } from 'react-icons/ai';
 import { isMobile } from 'react-device-detect';
 
 // EmailJS
@@ -10,12 +7,12 @@ import emailjs from 'emailjs-com';
 
 // Next
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Contentful
 
 // Components
 import ButtonSubmit from '../../../utils/button-submit/button-submit.component';
-import ButtonLink from '../../../utils/button-link/button-link.component';
 import ConfirmationMessage from '../../../utils/confirmation-message/confirmation-message.component';
 
 // Images
@@ -27,7 +24,6 @@ import Messenger from '/assets/footer/icons8-facebook-messenger.svg';
 
 // Styles
 import styled from 'styled-components';
-import Image from 'next/image';
 
 const ContactSection = styled.div`
   display: flex;
@@ -35,6 +31,19 @@ const ContactSection = styled.div`
   gap: 1rem;
   width: 40%;
   margin: 0 auto;
+
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+    gap: 0.5rem;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Form = styled.form`
@@ -50,6 +59,18 @@ const ButtonSection = styled.div`
   flex-direction: row;
   justify-content: end;
   gap: 1rem;
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  }
+
+  @media screen and (max-width: 767px) {
+
+  }
 `;
 
 const TextInput = styled.input`
@@ -81,7 +102,7 @@ const MessageServiceOptions = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0 0.5rem;
 `;
 
@@ -113,7 +134,6 @@ const ContactForm = () => {
     setMessageState(!messageState);
     var interval = setInterval(function () {
       runtime += 1;
-      console.log(runtime);
       if (runtime == 5) {
         clearInterval(interval);
         setMessageState(false);

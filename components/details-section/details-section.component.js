@@ -93,7 +93,6 @@ const DetailsSection = ({ content, panelContent, type }) => {
         else {
           alignment = 'right';
         }
-        console.log(alignment)
         return (
           <>
             <Section
@@ -140,19 +139,20 @@ const DetailsSection = ({ content, panelContent, type }) => {
                 {panelContent !== null && typeof panelContent !== 'undefined'
                   ?
                   <>
-                    {panelContent.filter(section => section.fields.forSection == id).map(item => {
-                      return (
-                        <>
-                          {
-                            type == 'bicycles'
-                              ?
-                              <BicycleCard key={item.sys.id} content={item} />
-                              :
-                              <ItemCard key={item.sys.id} content={item} />
-                          }
-                        </>
-                      )
-                    })}
+                    {panelContent.filter(section => section.fields.forSection == id)
+                      .map(item => {
+                        return (
+                          <>
+                            {
+                              type == 'bicycles'
+                                ?
+                                <BicycleCard key={item.sys.id} content={item} />
+                                :
+                                <ItemCard key={item.sys.id} content={item} />
+                            }
+                          </>
+                        )
+                      })}
                   </>
                   : null}
               </PanelContentInner>

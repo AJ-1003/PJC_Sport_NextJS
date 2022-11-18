@@ -15,6 +15,7 @@ import Layout from '../components/layout/layout.component';
 
 // Styles
 import '../styles/globals.css';
+import '../styles/404.styles.css';
 
 const MyApp = ({ Component, pageProps }) => {
   return (

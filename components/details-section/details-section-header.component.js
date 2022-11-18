@@ -34,6 +34,18 @@ const Header = styled.div`
   &.right {
     text-align: right;
   }
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const DetailsSectionHeader = ({ heading, colouredHeading, alignment }) => {

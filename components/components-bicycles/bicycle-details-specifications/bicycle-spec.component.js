@@ -25,6 +25,16 @@ const SpecContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    text-align: left;
+    padding: 3px 0;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -40,6 +50,8 @@ const Heading = styled.span`
 `;
 
 const Specification = ({ image, heading, spec }) => {
+
+  console.log(spec)
   return (
     <>
       {spec !== '' || spec !== null || typeof spec !== 'undefined'
@@ -50,7 +62,15 @@ const Specification = ({ image, heading, spec }) => {
           </ImageContainer>
           <SpecContent>
             <Heading>{heading}</Heading>
-            <span>{spec}</span>
+            {typeof spec == 'object'
+              ?
+              <ul>
+                {spec.map(extra => (
+                  <li key={extra}>{extra}</li>
+                ))}
+              </ul>
+              :
+              <span>{spec}</span>}
           </SpecContent>
         </Spec>
         : null}

@@ -23,11 +23,27 @@ const Container = styled.div`
   margin: 2rem auto;
   text-align: center;
   padding-top: 2rem;
+  border-radius: 0.5rem;
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    border-radius: 0;
+    padding-top: 2rem;
+    margin: 0;
+  }
 `;
 
 const TradingHours = ({ content }) => {
   return (
-    <Container className='rounded-corners'>
+    <Container>
       <TradingHoursHeader />
       <TradingHoursBody content={content} />
       {/* <TradingHoursFooter /> */}

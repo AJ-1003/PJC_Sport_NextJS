@@ -34,7 +34,7 @@ const RightNav = styled.div`
     padding: 10px 15px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     flex-flow: column nowrap;
     background-color: #313131;
     position: fixed;
@@ -49,7 +49,7 @@ const RightNav = styled.div`
 `;
 
 const RightNavigation = ({ open, closeSideNav }) => {
-  var router = useRouter();
+  const router = useRouter();
   var route;
   if (router.route == '/') {
     route = 'home';
@@ -60,37 +60,43 @@ const RightNavigation = ({ open, closeSideNav }) => {
     <RightNav open={open}>
       <div className={`nav-link bold ${route == 'home' ? homeStyles.textColour : ''}`}>
         <Link
-          href='/'>
+          href='/'
+          scroll={true}>
           <a onClick={closeSideNav}>Home</a>
         </Link>
       </div>
       <div className={`nav-link bold ${route == 'bicycles' || route == 'bicycles/[slug]' ? bicycleStyles.textColour : ''}`}>
         <Link
-          href='/bicycles'>
+          href='/bicycles'
+          scroll={true}>
           <a onClick={closeSideNav}>Bicycles</a>
         </Link>
       </div>
       <div className={`nav-link bold ${route == 'services' ? servicesStyles.textColour : ''}`}>
         <Link
-          href='/services'>
+          href='/services'
+          scroll={true}>
           <a onClick={closeSideNav}>Services</a>
         </Link>
       </div>
       <div className={`nav-link bold ${route == 'sport' ? sportStyles.textColour : ''}`}>
         <Link
-          href='/sport'>
+          href='/sport'
+          scroll={true}>
           <a onClick={closeSideNav}>Sport</a>
         </Link>
       </div>
       <div className={`nav-link bold ${route == 'ballet' ? balletStyles.textColour : ''}`}>
         <Link
-          href='/ballet'>
+          href='/ballet'
+          scroll={true}>
           <a onClick={closeSideNav}>Ballet</a>
         </Link>
       </div>
       <div className={`nav-link bold ${route == 'contact' ? contactStyles.textColour : ''}`}>
         <Link
-          href='/contact'>
+          href='/contact'
+          scroll={true}>
           <a onClick={closeSideNav}>Contact</a>
         </Link>
       </div>
