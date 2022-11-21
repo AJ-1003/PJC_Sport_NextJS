@@ -172,12 +172,12 @@ const ContactForm = () => {
           <ContactOption className='pointer'>
             {isMobile
               ?
-              <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'>
+              <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'>
+              {/* <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'> */}
                 <Messenger />
               </Link>
               :
-              <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'>
-              {/* <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'> */}
+              <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'>
                 <Messenger />
               </Link>
             }
