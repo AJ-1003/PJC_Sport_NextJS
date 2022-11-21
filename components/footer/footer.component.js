@@ -96,7 +96,7 @@ const Footer = () => {
               </Link>
             </BrowserView>
             <MobileView>
-              <Link href='fb://facewebmodal/f?href=https://www.facebook.com/pjcsport'>
+              <Link href='fb://page/pjcsport'>
                 <a rel='noopener noreferrer' target='_blank'>
                   <Facebook />
                 </a>
