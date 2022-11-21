@@ -57,7 +57,7 @@ const Form = styled.form`
 const ButtonSection = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-between;
   gap: 1rem;
 `;
 
@@ -162,32 +162,22 @@ const ContactForm = () => {
         <MessageServicesHeading>Or contact us via:</MessageServicesHeading>
         <MessageServiceOptions>
           <ContactOption className='pointer'>
-            <Link
-              href='mailto:queries@pjcsport.co.za'
-              rel='noopener noreferrer'
-              target='_blank'>
+            <Link href='mailto:queries@pjcsport.co.za' rel='noopener noreferrer' target='_blank'>
               <Image src={Email} width='50' height='50' alt='email' />
             </Link>
           </ContactOption>
           <ContactOption className='pointer'>
-            {isMobile
-              ?
-              <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'>
-              {/* <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'> */}
+            <Link href='https://m.me/pjcsport'>
+              <a target='_blank' rel='noopener norefferer'>
                 <Messenger />
-              </Link>
-              :
-              <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'>
-                <Messenger />
-              </Link>
-            }
+              </a>
+            </Link>
           </ContactOption>
           <ContactOption className='pointer'>
-            <Link
-              href='https://api.whatsapp.com/send?phone=27824559060'
-              rel='noopener noreferrer'
-              target='_blank'>
-              <WhatsApp />
+            <Link href='https://api.whatsapp.com/send?phone=27824559060'>
+              <a target='_blank' rel='noopener noreferrer'>
+                <WhatsApp />
+              </a>
             </Link>
           </ContactOption>
         </MessageServiceOptions>

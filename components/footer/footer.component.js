@@ -14,6 +14,7 @@ import Instagram from '/assets/footer/icons8-instagram.svg';
 
 // Styles
 import styled from 'styled-components';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 const FooterContainer = styled.footer`
   background: rgb(51,58,64);
@@ -87,12 +88,20 @@ const Footer = () => {
         <ContentCenter>
           <h3>Follow Us</h3>
           <SocialIcons>
-            <Link
-              href='https://www.facebook.com/pjcsport/'
-              rel='noopener noreferrer'
-              target='_blank'>
-              <Facebook />
-            </Link>
+            <BrowserView>
+              <Link href='https://www.facebook.com/pjcsport'>
+                <a rel='noopener noreferrer' target='_blank'>
+                  <Facebook />
+                </a>
+              </Link>
+            </BrowserView>
+            <MobileView>
+              <Link href='fb://facewebmodal/f?href=https://www.facebook.com/pjcsport'>
+                <a rel='noopener noreferrer' target='_blank'>
+                  <Facebook />
+                </a>
+              </Link>
+            </MobileView>
             <Link
               href='https://www.instagram.com/pjcsportcenturion/?hl=en'
               rel='noopener noreferrer'

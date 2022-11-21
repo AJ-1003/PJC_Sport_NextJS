@@ -42,8 +42,8 @@ const ConfirmationMessage = (props) => {
   return (
     <MessageContainer className={`rounded-corners ${props.success ? 'success' : 'error'} ${props.messageState ? 'active' : ''}`}>
       {props.success ?
-        <span>Email sent successfully</span>
-        : <span>Email not sent</span>}
+        <span>Email sent successfully.</span>
+        : <span>Email not sent. Please try again.</span>}
     </MessageContainer>
   );
 };
