@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
-    "@emailjs/browser": "^3.7.0",
+    "@emailjs/browser": "^3.9.1",
     "babel-eslint": "^10.1.0",
     "chalk": "^5.0.1",
     "contentful": "^9.1.34",

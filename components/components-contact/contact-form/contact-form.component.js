@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 
 // EmailJS
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 // Next
 import Link from 'next/link';
@@ -59,18 +59,6 @@ const ButtonSection = styled.div`
   flex-direction: row;
   justify-content: end;
   gap: 1rem;
-
-  @media screen and (min-width: 1024px) {
-
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-
-  }
-
-  @media screen and (max-width: 767px) {
-
-  }
 `;
 
 const TextInput = styled.input`
@@ -144,7 +132,7 @@ const ContactForm = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(`${process.env.NEXT_PUBLIC_SERVICE_ID}`, `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`, form.current, `${process.env.NEXT_PUBLIC_USER_ID}`)
+    emailjs.sendForm(`${process.env.NEXT_PUBLIC_SERVICE_ID}`, `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`, form.current, `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`)
       .then((result) => {
         console.log(result.text);
         setMessageSentState(!messageSentState);
@@ -158,7 +146,7 @@ const ContactForm = () => {
 
   return (
     <ContactSection id='contact-us'>
-      <Form ref={form} onSubmit={sendEmail}>
+      <Form id='contact-us-form' ref={form} onSubmit={sendEmail}>
         <TextInput className='rounded-corners' type='text' name='from_name' placeholder='Enter your name' required />
         <TextInput className='rounded-corners' type='email' name='from_email' placeholder='Enter your email' required />
         <TextArea className='rounded-corners' name='message' rows='10' placeholder='Message' required />
@@ -188,7 +176,8 @@ const ContactForm = () => {
                 <Messenger />
               </Link>
               :
-              <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'>
+              <Link href='https://m.facebook.com/messages/compose?ids=pjcsport' target='_blank' rel='noopener norefferer'>
+              {/* <Link href='https://m.me/pjcsport' target='_blank' rel='noopener norefferer'> */}
                 <Messenger />
               </Link>
             }

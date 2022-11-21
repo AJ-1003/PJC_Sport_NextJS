@@ -11,6 +11,7 @@ import client from '/contentful/contentful.data';
 // Components
 import BicycleSpecifications from '../../components/components-bicycles/bicycle-details-specifications/bicycle-details-specifications.component';
 import BicycleSkeleton from '../../components/skeletons/bicycle-skeleton.component';
+import SeperationHeader from '../../components/seperation-header/seperation-header.component';
 
 // Images
 
@@ -72,8 +73,8 @@ const Main = styled.main`
 `;
 
 const ImageContainer = styled.div`
-  object-position: top;
-  position: relative;
+  /* object-position: top; */
+  /* position: relative; */
   /* top: 2rem; */
 `;
 
@@ -177,6 +178,11 @@ const TopContent = styled.div`
 const AvailableSizes = styled.div`
   display: flex;
   flex-direction: row;
+  width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Sizes = styled.ul`
@@ -195,14 +201,18 @@ const Sizes = styled.ul`
 `;
 
 const PriceContainer = styled.div`
-  
+  width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Price = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  justify-content: end;
+  justify-content: start;
 `;
 
 const PriceWas = styled.div`
@@ -287,6 +297,8 @@ const BicycleDetails = ({ bicycle }) => {
     sizes += ' ' + size;
   });
 
+  const header = `${brand} ${model}`;
+
   return (
     <>
       <Head>
@@ -296,12 +308,8 @@ const BicycleDetails = ({ bicycle }) => {
       </Head>
 
       <Main>
-        <ImageContainer>
-          <Image src={'https:' + detailsImage.fields.file.url} objectFit='contain' objectPosition='top' width='1920' height='1080' responsive={true} alt={altText} />
-          <DetailsHeading>
-            <h1>{brand} {model}</h1>
-          </DetailsHeading>
-        </ImageContainer>
+        <Image src={'https:' + detailsImage.fields.file.url} objectFit='cover' objectPosition='top' width='1920' height='1080' responsive={true} alt={altText} />
+        <SeperationHeader childrenLvl1={header} />
         <Details>
           <DetailsContainer>
             <DetailsSection>

@@ -31,6 +31,7 @@ const Header = styled.section`
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  text-align: center;
 
   .ballet-text {
     font-family: 'Raleway', sans-serif;
@@ -59,14 +60,14 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   }
   return (
     <Header id={id}>
-      <h2 className={`header-text-h2 ${
-        route == 'home' ? homeStyles.textColour :
+      <h2 className={`header-text-h2 ${route == 'home' ? homeStyles.textColour :
           route == 'bicycles' ? bicycleStyles.textColour :
-            route == 'services' ? servicesStyles.textColour :
-              route == 'sport' ? sportStyles.textColour :
-                route == 'ballet' ? balletStyles.textColour :
-                  route == 'contact' ? contactStyles.headingColour :
-                    ''
+            route == 'bicycles/[slug]' ? bicycleStyles.textColour :
+              route == 'services' ? servicesStyles.textColour :
+                route == 'sport' ? sportStyles.textColour :
+                  route == 'ballet' ? balletStyles.textColour :
+                    route == 'contact' ? contactStyles.headingColour :
+                      ''
         } ${route == 'ballet' ? 'ballet-text' : ''}`}>{childrenLvl1}</h2>
       {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
         ?
