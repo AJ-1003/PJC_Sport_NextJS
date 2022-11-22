@@ -21,7 +21,7 @@ import ButtonLink from '../../../utils/button-link/button-link.component';
 
 /* ---------------< Larger than mobile >--------------- */
 const Card = styled.div`
-  
+  height: auto;
 `;
 
 const CardContent = styled.div`
@@ -31,8 +31,9 @@ const CardContent = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  height: auto;
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     width: 90%;
     margin: 1rem auto;
   }
@@ -55,7 +56,7 @@ const CardLeft = styled.div`
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    width: 40%;
+    width: 60%;
   }
 
   @media screen and (max-width: 767px) {
@@ -149,12 +150,16 @@ const Description = styled.div`
   display: flex;
   /* align-items: center; */
   margin: 0.5rem 0;
-  white-space: nowrap;
+  white-space: wrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
 
   p {
     margin: 0;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    display: none;
   }
 
   @media screen and (max-width: 767px) {
@@ -167,17 +172,20 @@ const Details = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 2rem;
   margin: 0.5rem 0;
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     font-size: 14px;
+    height: 25%;
   }
 
   @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    height: 25%;
   }
 `;
 
@@ -213,7 +221,8 @@ const Price = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: start;
+  align-items: center;
 `;
 
 const PriceWas = styled.div`
@@ -226,8 +235,27 @@ const PriceNow = styled.div`
   
 `;
 
+const PriceValues = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  @media screen and (max-width: 767px) {
+
+  }
+`;
+
 const ViewMore = styled.div`
-  height: 20%;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -272,17 +300,36 @@ const BicycleCard = ({ content }) => {
     altText,
     inStock,
     onSpecial } = content.fields;
+
+  var getDescriptionText = (desc) => {
+    if (typeof window !== 'undefined') {
+      var w = window.innerWidth;
+    } else {
+      console.log('You are on the server')
+    }
+        
+    var shortDescription;
+    if (w >= 1024 && w < 1280 && desc.length > 130) {
+      shortDescription = desc.substr(0, 135) + '...';
+    } else if (desc.lenght > 200) {
+      shortDescription = desc.substr(0, 200) + '...';
+    } else {
+      return desc;
+    }
+    return shortDescription;
+  }
+
   return (
     <Card>
       <CardContent>
         <CardLeft>
           {inStock ?
             <>
-              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} />
+              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} loading='eager' />
             </>
             :
-            <Overlay backgroundImg={'https:' + cardImage.fields.file.url} >
-              <Image className='rounded-corners' src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} />
+            <Overlay className='rounded-corners' backgroundImg={'https:' + cardImage.fields.file.url} >
+              <Image src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} />
             </Overlay>
           }
         </CardLeft>
@@ -296,7 +343,7 @@ const BicycleCard = ({ content }) => {
             <h2>{brand} {model}</h2>
           </Heading>
           <Description>
-            {description}
+            {getDescriptionText(description)}
           </Description>
           <Details>
             <AvailableSizes>
@@ -315,8 +362,10 @@ const BicycleCard = ({ content }) => {
               {onSpecial ?
                 <Price>
                   <span className='bold'>Price: </span>
-                  <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
-                  <PriceWas>Was - R{priceWas}.00</PriceWas>
+                  <PriceValues>
+                    <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
+                    <PriceWas>Was - R{priceWas}.00</PriceWas>
+                  </PriceValues>
                 </Price>
                 :
                 <Price>

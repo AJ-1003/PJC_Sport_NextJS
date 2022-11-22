@@ -263,7 +263,7 @@ const BicycleDetails = ({ bicycle }) => {
     extras,
     priceNow,
     priceWas,
-    detailsImage,
+    cardImage,
     detailsImageWidth,
     detailsImageHeight,
     altText,
@@ -308,7 +308,7 @@ const BicycleDetails = ({ bicycle }) => {
       </Head>
 
       <Main>
-        <Image src={'https:' + detailsImage.fields.file.url} objectFit='cover' objectPosition='top' width='1920' height='1080' responsive={true} alt={altText} />
+        <Image src={'https:' + cardImage.fields.file.url} objectFit='cover' objectPosition='top' width={detailsImageWidth} height={detailsImageHeight} responsive={true} alt={altText} priority={true} quality={100} />
         <SeperationHeader childrenLvl1={header} />
         <Details>
           <DetailsContainer>

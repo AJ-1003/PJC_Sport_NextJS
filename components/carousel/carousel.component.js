@@ -43,7 +43,6 @@ const CarouselItem = styled.div`
 `;
 
 const CarouselSlider = ({ content }) => {
-  console.log(content)
   return (
     <div>
       <Carousel

@@ -50,8 +50,6 @@ const Heading = styled.span`
 `;
 
 const Specification = ({ image, heading, spec }) => {
-
-  console.log(spec)
   return (
     <>
       {spec !== '' || spec !== null || typeof spec !== 'undefined'
