@@ -304,8 +304,6 @@ const BicycleCard = ({ content }) => {
   var getDescriptionText = (desc) => {
     if (typeof window !== 'undefined') {
       var w = window.innerWidth;
-    } else {
-      console.log('You are on the server')
     }
         
     var shortDescription;

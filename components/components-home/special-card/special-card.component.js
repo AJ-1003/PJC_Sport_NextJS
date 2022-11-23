@@ -170,7 +170,7 @@ const SpecialCard = ({ specialDetails }) => {
           {documentToReactComponents(description)}
         </DescriptionText>
         <TsCs>
-          <span>T&apos;s & C&apos;s Apply</span>
+          <span>Offer only valid from 25/11/2022 - 03/12/2022. T&apos;s & C&apos;s Apply</span>
         </TsCs>
       </DescriptionContainer>
     </Card>
