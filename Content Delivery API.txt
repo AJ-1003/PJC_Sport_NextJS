@@ -1,14 +1,1 @@
-Space Name
-PJC Sport
 
-Space Id
-9zvg6qgqy85w
-
-Content Delivery API
-wt9-MZxP8cIT8pcQUezyyxm8R2Tilnr3CEBZLYUk5po
-
-Content Preview API
-6RLSsZpvcK_wnEXtdQ_40XH0zhkXLps1RqnTc4u2-mw
-
-OAuth token
-CFPAT-c2UclO_Zbu396e2DH7UmAZecev0inPhkR2GG7DqLKHc
