@@ -163,7 +163,8 @@ const SpecialCard = ({ specialDetails }) => {
         alt={altText} 
         width='500' 
         height='500' 
-        responsive='true' />
+        responsive='true'
+        title={altText} />
       </ImageContainer>
       <DescriptionContainer className='rounded-corners'>
         <DescriptionText>

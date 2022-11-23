@@ -60,7 +60,7 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
     <>
       <Head>
         <title>Bicycles | Bicycle Services | School Sports | Ballet</title>
-        <meta name="description" content="PJC SPort & Cycles is a local bicycle store that caters for the entire familiy. We offer a wide range of mountain bikes for adults and kids.
+        <meta name="description" content="PJC Sport & Cycles is a local bicycle store that caters for the entire familiy. We offer a wide range of mountain bikes for adults and kids.
         We also stock most school sports equipment along with ballet outfits." />
         <meta name="robots" content="index,follow"></meta>
         <link rel="canonical" href="https://www.pjcsport.co.za"></link>

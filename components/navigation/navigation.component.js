@@ -57,7 +57,7 @@ const Navigation = () => {
         <div className='navigation_container'>
           <div className='logo_container'>
             <Link href='/'>
-              <Image src={logo} alt='logo-img' width='180' height='75' />
+              <Image src={logo} alt='logo-img' width='180' height='75' title='Logo' />
             </Link>
           </div>
           <BurgerToggle />
