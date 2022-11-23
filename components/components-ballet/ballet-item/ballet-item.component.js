@@ -68,7 +68,7 @@ const BalletItem = ({ content }) => {
   return (
     <Item>
       <ImageContainer>
-        <Image className='round-image' src={'https:' + image.fields.file.url} width='200' height='200' alt={'item-' + order} />
+        <Image className='round-image' src={'https:' + image.fields.file.url} width='200' height='200' alt={'item-' + order} title={description} />
       </ImageContainer>
       <DescriptionContainer>
         <p>{description}</p>

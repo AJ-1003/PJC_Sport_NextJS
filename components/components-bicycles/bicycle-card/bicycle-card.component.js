@@ -323,11 +323,11 @@ const BicycleCard = ({ content }) => {
         <CardLeft>
           {inStock ?
             <>
-              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} loading='eager' />
+              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} loading='eager' />
             </>
             :
             <Overlay className='rounded-corners' backgroundImg={'https:' + cardImage.fields.file.url} >
-              <Image src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} />
+              <Image src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} />
             </Overlay>
           }
         </CardLeft>
