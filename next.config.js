@@ -19,7 +19,15 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     });
     return config;
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ]
   }
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
