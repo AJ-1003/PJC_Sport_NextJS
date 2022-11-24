@@ -17,7 +17,7 @@ import SpecialCard from '../special-card/special-card.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  
+  background: var(--grey);
 `;
 
 const Content = styled.div`

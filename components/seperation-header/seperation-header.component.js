@@ -60,7 +60,8 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   }
   return (
     <Header id={id}>
-      <h2 className={`header-text-h2 ${route == 'home' ? homeStyles.textColour :
+      <h2 className={`header-text-h2 
+      ${route == 'home' ? homeStyles.textColour :
           route == 'bicycles' ? bicycleStyles.textColour :
             route == 'bicycles/[slug]' ? bicycleStyles.textColour :
               route == 'services' ? servicesStyles.textColour :

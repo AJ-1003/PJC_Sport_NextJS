@@ -17,7 +17,7 @@ import styled from 'styled-components';
 
 const WeekendRidesContainer = styled.div`
   font-family: 'Montserrat', sans-serif;
-  background: var(--grey);
+  background: var(--dark-grey);
   padding: 2rem;
   color: #fff;
 `;
