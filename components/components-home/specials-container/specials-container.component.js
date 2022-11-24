@@ -17,6 +17,7 @@ import SpecialCard from '../special-card/special-card.component';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  // Uncomment only for Black Friday //
   background: var(--grey);
 `;
 

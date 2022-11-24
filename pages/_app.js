@@ -14,8 +14,10 @@ import Layout from '../components/layout/layout.component';
 // Data
 
 // Styles
-import '../styles/globals.css';
-import '../styles/404.styles.css';
+import '/styles/globals.css';
+import '/styles/404.styles.css';
+import '/styles/christmas-lights.styles.scss';
+import '/styles/black-friday.styles.scss';
 
 const MyApp = ({ Component, pageProps }) => {
   return (

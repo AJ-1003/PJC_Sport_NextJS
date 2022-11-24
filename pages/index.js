@@ -21,6 +21,7 @@ import ButtonLink from '../utils/button-link/button-link.component';
 // Data
 import monthName from '../functions/home.functions';
 import CustomSeperationHeader from '../components/seperation-header/custom-seperation-header.component';
+import ChristmasSeperationHeader from '../components/seperation-header/christmas-seperation-header.component';
 
 // Styles
 
@@ -85,6 +86,7 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
           childrenLvl1={monthName}
           childrenLvl2={'Specials'} /> */}
         <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2='Offer only valid from 25/11/2022 - 03/12/2022.' />
+        {/* <ChristmasSeperationHeader id='specials' childrenLvl1='Christmas' childrenLvl2='Offer only valid from 25/11/2022 - 03/12/2022.' /> */}
         <SpecialsContainer content={specials} />
         <WeekendRides />
       </main>

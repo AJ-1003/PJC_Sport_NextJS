@@ -12,37 +12,12 @@ import { useRouter } from 'next/router';
 
 // Styles
 import styled from 'styled-components';
-import homeStyles from '/styles/Home.module.css';
-import bicycleStyles from '/styles/Bicycles.module.css';
-import servicesStyles from '/styles/Services.module.css';
-import sportStyles from '/styles/Sport.module.css';
-import balletStyles from '/styles/Ballet.module.css';
-import contactStyles from '/styles/Contact.module.css';
 
 const Header = styled.div`
   font-family: 'Lato', sans-serif;
   background: var(--dark-grey);
   padding: 1rem 0;
-
-  .black-friday {
-    position: relative;
-    width: 100%;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 3rem;
-    font-weight: 300;
-    letter-spacing: 0.5rem;
-    text-shadow: 0 0 10px #00b3ff,
-    0 0 20px #00b3ff,
-    0 0 30px #00b3ff,
-    0 0 40px #00b3ff,
-    0 0 60px #00b3ff,
-    0 0 70px #00b3ff;
-  }
-
+  
   h3 {
     color: #fff;
     position: relative;
@@ -76,7 +51,9 @@ const CustomSeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   return (
     <Header id={id}>
       <h2 className='black-friday'>
-        {childrenLvl1}
+        {/* {childrenLvl1} */}
+        Bla<span className='delay1'>c</span>k
+        Fr<span className='delay2'>i</span>da<span className='delay3'>y</span>
       </h2>
       {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
         ?

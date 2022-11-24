@@ -23,7 +23,10 @@ const Header = styled.section`
   padding: 2rem 0;
   color: rgba(255,255,255,0);
   border-color: rgb(255,255,255);
+  // Comment for Christmas
   background: var(--background-grey);
+  // Uncomment for Christmas
+  /* background: var(--grey); */
   font-family: 'Racing Sans One', serif;
   display: flex;
   flex-direction: column;
@@ -59,22 +62,62 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
     route = router.route.substring(1);
   }
   return (
-    <Header id={id}>
-      <h2 className={`header-text-h2 
+    <>
+      {/* <ul className='lightrope'>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul> */}
+      <Header id={id}>
+        <h2 className={`header-text-h2 
       ${route == 'home' ? homeStyles.textColour :
-          route == 'bicycles' ? bicycleStyles.textColour :
-            route == 'bicycles/[slug]' ? bicycleStyles.textColour :
-              route == 'services' ? servicesStyles.textColour :
-                route == 'sport' ? sportStyles.textColour :
-                  route == 'ballet' ? balletStyles.textColour :
-                    route == 'contact' ? contactStyles.headingColour :
-                      ''
-        } ${route == 'ballet' ? 'ballet-text' : ''}`}>{childrenLvl1}</h2>
-      {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
-        ?
-        <h3 className='header-text-h3'>{childrenLvl2}</h3>
-        : null}
-    </Header>
+            route == 'bicycles' ? bicycleStyles.textColour :
+              route == 'bicycles/[slug]' ? bicycleStyles.textColour :
+                route == 'services' ? servicesStyles.textColour :
+                  route == 'sport' ? sportStyles.textColour :
+                    route == 'ballet' ? balletStyles.textColour :
+                      route == 'contact' ? contactStyles.headingColour :
+                        ''
+          } ${route == 'ballet' ? 'ballet-text' : ''}`}>{childrenLvl1}</h2>
+        {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
+          ?
+          <h3 className='header-text-h3'>{childrenLvl2}</h3>
+          : null}
+      </Header>
+    </>
   );
 };
 

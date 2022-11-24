@@ -264,12 +264,21 @@ const ViewMore = styled.div`
 
   @media screen and (max-width: 767px) {
     height: 25%;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
   }
 `;
 
 const TsCs = styled.span`
   font-size: 10px;
+  width: 80%;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 60%;
+  }
 `;
 
 const LineBreak = styled.div`
@@ -374,7 +383,7 @@ const BicycleCard = ({ content }) => {
             </PriceContainer>
           </Details>
           <ViewMore>
-            <TsCs>Other models available. T&apos;s &amp; C&apos;s apply</TsCs>
+            <TsCs>Bicycle specifications may vary from manufacturer website. Other models available. T&apos;s &amp; C&apos;s apply</TsCs>
             <ButtonLink to={'/bicycles/' + name} color='--orange' fill={true}>
               View Bicycle
             </ButtonLink>
