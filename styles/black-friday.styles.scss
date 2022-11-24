@@ -2,8 +2,8 @@
   text-transform: uppercase;
   position: relative;
   width: 100%;
-  height: 140px;
-  padding: 2rem;
+  height: 125px;
+  padding-top: 2rem;
   text-align: center;
   color: #fff;
   font-size: 3rem;
@@ -26,6 +26,10 @@
 
   .delay3 {
     animation-delay: 4.2s;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: 200px;
   }
 }
 

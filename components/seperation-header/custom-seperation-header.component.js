@@ -22,7 +22,7 @@ const Header = styled.div`
     color: #fff;
     position: relative;
     width: 100%;
-    height: 90px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
