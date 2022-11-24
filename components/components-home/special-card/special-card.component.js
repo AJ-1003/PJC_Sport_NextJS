@@ -160,7 +160,6 @@ const SpecialCard = ({ specialDetails }) => {
       </Heading>
       <ImageContainer>
         <Image 
-        className='rounded-corners'
         src={'https:' + image.fields.file.url} 
         alt={altText} 
         width='500' 

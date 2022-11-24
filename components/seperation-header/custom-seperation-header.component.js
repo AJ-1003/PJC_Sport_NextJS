@@ -22,6 +22,7 @@ import contactStyles from '/styles/Contact.module.css';
 const Header = styled.div`
   font-family: 'Lato', sans-serif;
   background: var(--dark-grey);
+  padding: 1rem 0;
 
   .black-friday {
     position: relative;
@@ -55,6 +56,12 @@ const Header = styled.div`
     0 0 20px #00b3ff,
     0 0 30px #00b3ff;
     text-align: center;
+
+    @media screen and (max-width: 767px) {
+      width: 90%;
+      height: 100px;
+      margin: 0 auto;
+    }
   }
 `;
 
