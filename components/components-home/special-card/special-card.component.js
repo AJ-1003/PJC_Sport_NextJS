@@ -109,6 +109,7 @@ const DescriptionContainer = styled.div`
   z-index: 1;
   text-align: center;
   color: #fff;
+  border-radius: 0.5rem;
 
   @media screen and (min-width: 1024px) and (max-width: 1535px) {
     
@@ -159,6 +160,7 @@ const SpecialCard = ({ specialDetails }) => {
       </Heading>
       <ImageContainer>
         <Image 
+        className='rounded-corners'
         src={'https:' + image.fields.file.url} 
         alt={altText} 
         width='500' 

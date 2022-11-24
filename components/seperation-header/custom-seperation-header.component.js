@@ -54,6 +54,7 @@ const Header = styled.div`
     text-shadow: 0 0 10px #00b3ff,
     0 0 20px #00b3ff,
     0 0 30px #00b3ff;
+    text-align: center;
   }
 `;
 
