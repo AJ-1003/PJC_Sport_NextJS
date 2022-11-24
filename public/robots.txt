@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://pjcsport.co.za/sitemap.xml
+Sitemap: https://www.pjcsport.co.za/sitemap.xml
