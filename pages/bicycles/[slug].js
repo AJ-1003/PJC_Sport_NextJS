@@ -64,12 +64,11 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Main = styled.main`
-  background: url(${props => props.backgroundImg}) top / 100% no-repeat;
+  /* background: url(${props => props.backgroundImg}) top / 100% no-repeat; */
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
-
 `;
 
 const ImageContainer = styled.div`

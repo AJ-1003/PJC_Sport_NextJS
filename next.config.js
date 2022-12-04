@@ -12,10 +12,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  webpack(config, { isServer }) {
-    if (isServer) {
-      require('./scripts/generate-sitemap')
-    }
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
@@ -23,15 +20,7 @@ const nextConfig = {
     });
 
     return config;
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ]
   }
 }
 
-export default nextConfig;
+module.exports = nextConfig;
