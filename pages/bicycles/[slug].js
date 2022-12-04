@@ -302,7 +302,7 @@ const BicycleDetails = ({ bicycle }) => {
     <>
       <Head>
         <title>PJC Sport & Cycles - {brand} {model}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={`${brand} ${model}. ${description}`} />
         <meta name="robots" content="index,follow"></meta>
         <link rel="canonical" href="https://www.pjcsport.co.za"></link>
         <link rel="icon" href="/favicon.ico" />
