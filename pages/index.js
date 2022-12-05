@@ -81,12 +81,12 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
         <SeperationHeader
           childrenLvl1={'What We Offer'} />
         <WhatWeOfferContainer content={whatWeOfferCards} />
-        {/* <SeperationHeader
+        <SeperationHeader
           id='specials'
           childrenLvl1={monthName}
-          childrenLvl2={'Specials'} /> */}
-        <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2='Offer only valid from 25/11/2022 - 03/12/2022.' />
-        {/* <ChristmasSeperationHeader id='specials' childrenLvl1='Christmas' childrenLvl2='Offer only valid from 25/11/2022 - 03/12/2022.' /> */}
+          childrenLvl2={'Specials'} />
+        {/* <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2='Offer only valid from 25/11/2022 - 03/12/2022.' /> */}
+        {/* <ChristmasSeperationHeader id='specials' childrenLvl1='Christmas' childrenLvl2='Offer only valid from 05/12/2022 - 03/12/2022.' /> */}
         <SpecialsContainer content={specials} />
         <WeekendRides />
       </main>

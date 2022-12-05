@@ -24,7 +24,7 @@ const Header = styled.section`
   color: rgba(255,255,255,0);
   border-color: rgb(255,255,255);
   // Comment for Christmas
-  background: var(--background-grey);
+  background: var(--light-grey);
   // Uncomment for Christmas
   /* background: var(--grey); */
   font-family: 'Racing Sans One', serif;
@@ -63,7 +63,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   }
   return (
     <>
-      {/* <ul className='lightrope'>
+      <ul className='lightrope'>
         <li></li>
         <li></li>
         <li></li>
@@ -100,7 +100,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
         <li></li>
         <li></li>
         <li></li>
-      </ul> */}
+      </ul>
       <Header id={id}>
         <h2 className={`header-text-h2 
       ${route == 'home' ? homeStyles.textColour :

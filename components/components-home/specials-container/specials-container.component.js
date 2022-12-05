@@ -18,7 +18,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   // Uncomment only for Black Friday //
-  background: var(--grey);
+  /* background: var(--grey); */
 `;
 
 const Content = styled.div`
