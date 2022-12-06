@@ -63,64 +63,68 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   }
   return (
     <>
-      <ul className='lightrope'>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-        <li/>
-      </ul>
+      {route != 'bicycles/[slug]'
+        ?
+        <ul className='lightrope'>
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+          <li />
+        </ul>
+        :
+        null}
       <Header id={id}>
         <h2 className={`header-text-h2 
       ${route == 'home' ? homeStyles.textColour :

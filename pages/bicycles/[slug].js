@@ -309,7 +309,7 @@ const BicycleDetails = ({ bicycle }) => {
       </Head>
 
       <Main>
-        <Image src={'https:' + cardImage.fields.file.url} objectFit='cover' objectPosition='top' width={detailsImageWidth} height={detailsImageHeight} responsive={true} alt={altText} priority={true} quality={100} />
+        <Image src={'https:' + cardImage.fields.file.url} objectFit='cover' objectPosition='top' width={detailsImageWidth} height={detailsImageHeight} responsive="true" alt={altText} priority={true} quality={100} />
         <SeperationHeader childrenLvl1={header} />
         <Details>
           <DetailsContainer>
