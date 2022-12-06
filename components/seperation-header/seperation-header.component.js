@@ -63,7 +63,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   }
   return (
     <>
-      {/* <ul className='lightrope'>
+      <ul className='lightrope'>
         <li/>
         <li/>
         <li/>
@@ -97,7 +97,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
         <li/>
         <li/>
         <li/>
-      </ul> */}
+      </ul>
       <Header id={id}>
         <h2 className={`header-text-h2 
       ${route == 'home' ? homeStyles.textColour :
