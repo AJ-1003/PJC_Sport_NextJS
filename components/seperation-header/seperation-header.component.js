@@ -97,6 +97,29 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
         <li/>
         <li/>
         <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
+        <li/>
       </ul>
       <Header id={id}>
         <h2 className={`header-text-h2 
