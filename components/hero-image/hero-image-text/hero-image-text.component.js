@@ -19,7 +19,7 @@ import contactStyles from '/styles/Contact.module.css';
 const HeaderTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: #ffffff20;
+  background: #ffffff40;
   padding: 2rem;
   width: 60%;
   font-family: 'Racing Sans One', sans-serif;

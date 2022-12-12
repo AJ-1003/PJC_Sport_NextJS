@@ -27,7 +27,7 @@ const Button = styled.div`
     border: 1px solid var(${props => props.color});
     background: var(${props => props.color});
     color: #fff;
-    transition: 0.3s;
+    transition: 0.5s;
   }
 
   &.outline {
@@ -40,8 +40,9 @@ const Button = styled.div`
     border: 1px solid var(${props => props.color + '-hover'});
     /* background: transparent; */
     background: var(${props => props.color + '-hover'});
-    transition: 0.3s;
-    color: var(--grey);
+    transition: 0.5s;
+    /* color: var(--grey); */
+    font-weight: bold;
   }
 `;
 

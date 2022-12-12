@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // Next
 
@@ -25,11 +25,32 @@ const Header = styled.div`
 `;
 
 const TradingHoursHeader = () => {
+
+  const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
+  const januaryDays = [1, 2, 3];
+  const todayMonth = useRef(0);
+  const todayDay = useRef(0);
+  
+  useEffect(() => {
+    var date = new Date();
+    todayMonth.current = date.getMonth();
+    todayDay.current = date.getDate();
+  }, []);
+
   return (
     <Header>
-      <h4>Come on in</h4>
-      <h2>We&apos;re open</h2>
-      <h4>Times may vary on public holidays</h4>
+      {(todayMonth.current == 11 && decemberDays.includes(todayDay.current)) || (todayMonth.current == 0 && januaryDays.includes(todayDay.current))
+        ?
+        <>
+          <h4>Please take note of our times for</h4>
+          <h2>December</h2>
+        </>
+        :
+        <>
+          <h4>Come on in</h4>
+          <h2>We&apos;re open</h2>
+          <h4>Times may vary on public holidays</h4>
+        </>}
     </Header>
   );
 };

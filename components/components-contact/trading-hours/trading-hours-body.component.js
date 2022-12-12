@@ -1,11 +1,13 @@
 // React
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // Next
 
 // Contentful
 
 // Components
+import TradingHoursDay from './trading-hours-day.component';
+import TradingHoursDecemberDay from './trading-hours-december-day.component';
 
 // Images
 
@@ -13,7 +15,6 @@ import React from 'react';
 
 // Styles
 import styled from 'styled-components';
-import TradingHoursDay from './trading-hours-day.component';
 
 const Body = styled.div`
   margin: 0 10%;
@@ -33,15 +34,52 @@ const Address = styled.div`
   gap: 10px;
 `;
 
+const Header = styled.div`
+  padding: 2rem 0;
+
+  h2 {
+    font-family: 'Racing Sans One', sans-serif;
+    color: var(--red);
+    font-size: 2rem;
+  }
+`;
+
 const TradingHoursBody = ({ content }) => {
+
+  const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
+  const januaryDays = [1, 2, 3];
+  const todayDay = useRef(0);
+  const todayMonth = useRef(0);
+
+  useEffect(() => {
+    var date = new Date();
+    todayDay.current = date.getDate();
+    todayMonth.current = date.getMonth();
+  }, []);
+
   return (
     <Body>
+
       <TradingHourDays>
-        {content.map(day => {
-          return (
-            <TradingHoursDay key={day.sys.id} content={day} />
-          )
-        })}
+        {(todayMonth.current == 11 && decemberDays.includes(todayDay.current)) || (todayMonth.current == 0 && januaryDays.includes(todayDay.current))
+          ?
+          <>
+            <TradingHoursDecemberDay date='24 December' openTime='8:30' closingTime='1:00' days={[24]} />
+            <TradingHoursDecemberDay date='25-27 December' openTime='' closingTime='' days={[25, 26, 27]} />
+            <TradingHoursDecemberDay date='28 December' openTime='9:00' closingTime='2:00' days={[28]} />
+            <TradingHoursDecemberDay date='29 December' openTime='9:00' closingTime='2:00' days={[29]} />
+            <TradingHoursDecemberDay date='30 December' openTime='9:00' closingTime='2:00' days={[30]} />
+            <TradingHoursDecemberDay date='31 Dec 2022 - 3 Jan 2023' openTime='' closingTime='' days={[31, 1, 2, 3]} />
+          </>
+          :
+          <>
+            {content.map(day => {
+              return (
+                <TradingHoursDay key={day.sys.id} content={day} />
+              )
+            })}
+          </>
+        }
       </TradingHourDays>
       <Address>
         <h4>183 Koedoe Street</h4>

@@ -29,7 +29,7 @@ const RightNav = styled.div`
   color: #fff;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
-
+  
   .nav-link {
     padding: 10px 15px;
   }

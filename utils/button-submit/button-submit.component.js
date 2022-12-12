@@ -21,7 +21,7 @@ const Button = styled.button`
   background: var(${props => props.color});
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
 
   &.fill {
     background: var(${props => props.color});
@@ -35,8 +35,9 @@ const Button = styled.button`
 
   &:hover {
     background: var(${props => props.color + '-hover'});
-    transition: 0.3s;
+    transition: 0.5s;
     color: #fff;
+    font-weight: bold;
   }
 `;
 
