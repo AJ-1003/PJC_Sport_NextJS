@@ -36,10 +36,12 @@ const Underline = styled.div`
 const TradingHoursDecemberDay = ({ date, openTime, closingTime, days }) => {
 
   const decemberDays = Array.from(days);
-  const todayDay = useRef(0);
+
+  const currentDate = new Date();
+  var todayDay = useRef(currentDate.getDate());
 
   useEffect(() => {
-    var date = new Date();
+    const date = new Date();
     todayDay.current = date.getDate();
   }, []);
 

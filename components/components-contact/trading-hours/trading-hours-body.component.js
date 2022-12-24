@@ -48,18 +48,19 @@ const TradingHoursBody = ({ content }) => {
 
   const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
   const januaryDays = [1, 2, 3];
-  const todayDay = useRef(0);
-  const todayMonth = useRef(0);
+  
+  const currentDate = new Date();
+  var todayMonth = useRef(currentDate.getMonth());
+  var todayDay = useRef(currentDate.getDate());
 
   useEffect(() => {
-    var date = new Date();
+    const date = new Date();
     todayDay.current = date.getDate();
     todayMonth.current = date.getMonth();
   }, []);
 
   return (
     <Body>
-
       <TradingHourDays>
         {(todayMonth.current == 11 && decemberDays.includes(todayDay.current)) || (todayMonth.current == 0 && januaryDays.includes(todayDay.current))
           ?
