@@ -81,11 +81,7 @@ const ImageContainer = styled.div`
   width: 70%;
   border-radius: 0.5rem;
 
-  @media screen and (min-width: 1024px) {
-
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     margin: 0;
     width: 100%;
     border-radius: 0;
@@ -111,11 +107,7 @@ const DescriptionContainer = styled.div`
   color: #fff;
   border-radius: 0.5rem;
 
-  @media screen and (min-width: 1024px) and (max-width: 1535px) {
-    
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     bottom: 0;
     width: 100%;
     margin: 0;
@@ -159,20 +151,24 @@ const SpecialCard = ({ specialDetails }) => {
         <h2>{title}</h2>
       </Heading>
       <ImageContainer>
-        <Image 
-        src={'https:' + image.fields.file.url} 
-        alt={altText} 
-        width='500' 
-        height='500' 
-        responsive='true'
-        title={altText} />
+        <Image
+          // className='rounded-corners'
+          src={'https:' + image.fields.file.url}
+          alt={altText}
+          width='500'
+          height='500'
+          responsive='true'
+          title={altText} />
       </ImageContainer>
       <DescriptionContainer className='rounded-corners'>
         <DescriptionText>
           {documentToReactComponents(description)}
         </DescriptionText>
         <TsCs>
-          <span>Offer only valid from 05/12/2022 - 30/12/2022. T&apos;s & C&apos;s Apply</span>
+          <span>
+            {/* Offer only valid from 05/12/2022 - 30/12/2022.  */}
+            T&apos;s & C&apos;s Apply
+          </span>
         </TsCs>
       </DescriptionContainer>
     </Card>

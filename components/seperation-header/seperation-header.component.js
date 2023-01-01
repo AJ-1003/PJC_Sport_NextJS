@@ -44,6 +44,7 @@ const Header = styled.section`
   .header-text-h2 {
     margin: 0;
     font-size: 2rem;
+    overflow: none;
   }
 
   .header-text-h3 {
@@ -64,7 +65,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   }
   return (
     <>
-      {route != 'bicycles/[slug]'
+      {/* {route != 'bicycles/[slug]'
         ?
         <ul className='lightrope'>
           <li />
@@ -125,7 +126,7 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
           <li />
         </ul>
         :
-        null}
+        null} */}
       <Header id={id}>
         <h2 className={`header-text-h2 
       ${route == 'home' ? homeStyles.textColour :
@@ -136,10 +137,14 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
                     route == 'ballet' ? balletStyles.textColour :
                       route == 'contact' ? contactStyles.headingColour :
                         ''
-          } ${route == 'ballet' ? 'ballet-text' : ''}`}>{childrenLvl1}</h2>
+          } ${route == 'ballet' ? 'ballet-text' : ''}`}>
+          {childrenLvl1}
+        </h2>
         {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
           ?
-          <h3 className='header-text-h3'>{childrenLvl2}</h3>
+          <h3 className='header-text-h3'>
+            {childrenLvl2}
+          </h3>
           : null}
       </Header>
     </>

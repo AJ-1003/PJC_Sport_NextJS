@@ -117,7 +117,6 @@ const ChristmasSeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
         <li></li>
       </ul>
       <Header id={id}>
-
         <h2 className='christmas'>
           {childrenLvl1}
         </h2>
