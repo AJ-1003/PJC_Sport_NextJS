@@ -62,7 +62,7 @@ const Services = ({ header, services, serviceSections, brands }) => {
         <meta name="description" content="Our services include tubeless conversions, full bicycle services, pivot services, suspension services on 
         selected suspension models, replacing components, and any other general maintenance work." />
         <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href="https://www.pjcsport.co.za"></link>
+        <link rel="canonical" href="https://www.pjcsport.co.za/services"></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

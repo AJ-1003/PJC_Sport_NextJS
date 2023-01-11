@@ -48,7 +48,7 @@ const Ballet = ({ header, ballet }) => {
         <meta name="description" content="We stock a variety of sizes and colours in ballet outfits including leotards, ballet shoes, anklets, stockings, tights, ballet jersies, ballet skirts and bags.
         Available accessories include hair gel (LaPebra), hair nets, hair pins (bobby pins) and ribbons." />
         <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href="https://www.pjcsport.co.za"></link>
+        <link rel="canonical" href="https://www.pjcsport.co.za/ballet"></link>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
 

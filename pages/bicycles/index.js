@@ -85,7 +85,7 @@ const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, ac
         <meta name="description" content='Looking for affordable and reliable mountain bikes? We stock a wide range of mountain bikes for both kids and adults ranging from 12" to 29".
         Including the following brands: Merida, Avalanche, Signal, Apex, Axis, Silverback, Titan Racing, Muna, Momsen.' />
         <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href="https://www.pjcsport.co.za"></link>
+        <link rel="canonical" href="https://www.pjcsport.co.za/bicycles"></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

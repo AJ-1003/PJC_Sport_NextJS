@@ -77,7 +77,7 @@ const Contact = ({ header, tradingHours }) => {
         <meta name="description" content="We have been serving the community with good advice, personal service and reliable products in the bicycle market over the past 30 years.
         Contact us for more information on the products and services that we offer." />
         <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href="https://www.pjcsport.co.za"></link>
+        <link rel="canonical" href="https://www.pjcsport.co.za/contact"></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
