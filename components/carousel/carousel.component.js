@@ -69,7 +69,7 @@ const CarouselSlider = ({ content }) => {
               {typeof websiteLink !== 'undefined'
                 ?
                 <Link href={websiteLink}>
-                  <a target='_blank' rel='noreferrer nofollow noopener'>
+                  <a target='_blank' rel='noreferrer noopener'>
                     <Image className='pointer' src={'https:' + image.fields.file.url} width={width} height={height} alt={brand} />
                   </a>
                 </Link>
