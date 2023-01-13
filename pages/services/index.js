@@ -70,6 +70,7 @@ const Services = ({ header, services, serviceSections, brands }) => {
         <HeroImage content={header} />
         <SeperationHeader childrenLvl1='Services Offered' />
         <ServicesContainer content={services} />
+        <SeperationHeader childrenLvl1='Other Services' />
         <DetailsSection content={serviceSections} />
         <CarouselSlider content={brands} />
       </main>
