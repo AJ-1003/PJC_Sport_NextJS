@@ -17,7 +17,7 @@ import styled from 'styled-components';
 const Footer = styled.div`
   bottom: 0;
   text-align: center;
-  /* padding: 2rem; */
+  font-size: 1.3rem;
 `;
 
 const ServiceCardFooter = ({ content }) => {
