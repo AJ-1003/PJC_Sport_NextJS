@@ -54,6 +54,7 @@ const Sport = ({ header, sportSections, brands }) => {
         <title>PJC Sport & Cycles - Sport</title>
         <meta name="description" content="PJC SPort & Cycles is a local bicycle store that caters for the entire familiy. We offer a wide range of mountain bikes for adults and kids.
         We also stock most school sports equipment along with ballet outfits." />
+        <meta name='keywords' content='school sport equipment centurion, school sport equipment wierda park, swimming, ballet, cricket, hockey, rugby, darts, table tennis, ping pong'></meta>
         <meta name="robots" content="index,follow"></meta>
         <link rel="canonical" href="https://www.pjcsport.co.za/sport"></link>
         <link rel="icon" href="/favicon.ico" />

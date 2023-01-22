@@ -62,11 +62,12 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
     <>
       <Head>
         <title>Bicycles | Bicycle Services | School Sports | Ballet</title>
-        <meta name="description" content="PJC Sport & Cycles is a local bicycle store that caters for the entire familiy. We offer a wide range of mountain bikes for adults and kids.
-        We also stock most school sports equipment along with ballet outfits." />
-        <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href="https://www.pjcsport.co.za"></link>
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='PJC Sport & Cycles is a local bicycle store that caters for the entire familiy. We offer a wide range of mountain bikes for adults and kids.
+        We also stock most school sports equipment along with ballet outfits.' />
+        <meta name='keywords' content='pjc, pjc sport, pjc sports, pj sport, pj sports, pjc cycles, pj cycles, pj cycle shop, pjc bike shop, pj bike shop, bicycle shop centurion, cycle shop centurion, bicycle shop wierda park, bike shop centurion, bike shop wierda park, sport cycles, sport & cycles, sport and cycles, cycling shop, bicycle shop, centurion cycles'></meta>
+        <meta name='robots' content='index,follow'></meta>
+        <link rel='canonical' href='https://www.pjcsport.co.za'></link>
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main>

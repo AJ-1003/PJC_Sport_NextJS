@@ -1,8 +1,8 @@
 // React
-import Head from 'next/head';
 import React from 'react';
 
 // Next
+import Head from 'next/head';
 
 // Contentful
 
@@ -23,6 +23,8 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.io" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

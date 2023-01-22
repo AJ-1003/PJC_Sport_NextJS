@@ -61,6 +61,7 @@ const Services = ({ header, services, serviceSections, brands }) => {
         <title>PJC Sport & Cycles - Services</title>
         <meta name="description" content="Our services include tubeless conversions, full bicycle services, pivot services, suspension services on 
         selected suspension models, replacing components, and any other general maintenance work." />
+        <meta name='keywords' content='bicycle service centurion, cycle service centurion, bike service centurion, bicycle service wierda park, cycle service wierda park, bike service wierda park, bike services, bicycle services, cycle services, wheel true, gears set, brakes set, brakes bleed'></meta>
         <meta name="robots" content="index,follow"></meta>
         <link rel="canonical" href="https://www.pjcsport.co.za/services"></link>
         <link rel="icon" href="/favicon.ico" />
