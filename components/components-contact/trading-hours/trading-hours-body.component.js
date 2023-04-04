@@ -15,12 +15,16 @@ import TradingHoursDecemberDay from './trading-hours-december-day.component';
 
 // Styles
 import styled from 'styled-components';
+<<<<<<< HEAD
+=======
+import TradingHoursNote from './trading-hours-note.component';
+>>>>>>> origin/main
 
 const TradingHoursBody = ({ content }) => {
 
   const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
   const januaryDays = [1, 2, 3];
-  
+
   const currentDate = new Date();
   var todayMonth = useRef(currentDate.getMonth());
   var todayDay = useRef(currentDate.getDate());
@@ -54,6 +58,7 @@ const TradingHoursBody = ({ content }) => {
           </>
         }
       </TradingHourDays>
+      <TradingHoursNote />
       <Address>
         <h4>183 Koedoe Street</h4>
         <h5>Wierda Park, Centurion</h5>
