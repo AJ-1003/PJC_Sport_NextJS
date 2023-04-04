@@ -14,25 +14,6 @@ import React, {useEffect, useRef} from 'react';
 // Styles
 import styled from 'styled-components';
 
-const Day = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  &.red {
-    color: var(--red);
-  }
-`;
-
-const Weekday = styled.div``;
-
-const Time = styled.div``;
-
-const Underline = styled.div`
-  height: 2px;
-  background: #31313107;
-`;
-
 const TradingHoursDecemberDay = ({ date, openTime, closingTime, days }) => {
 
   const decemberDays = Array.from(days);
@@ -65,3 +46,22 @@ const TradingHoursDecemberDay = ({ date, openTime, closingTime, days }) => {
 };
 
 export default TradingHoursDecemberDay;
+
+const Day = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &.red {
+    color: var(--red);
+  }
+`;
+
+const Weekday = styled.div``;
+
+const Time = styled.div``;
+
+const Underline = styled.div`
+  height: 2px;
+  background: #31313107;
+`;

@@ -7,7 +7,6 @@ import React from 'react';
 
 // Components
 import TradingHoursBody from './trading-hours-body.component';
-import TradingHoursFooter from './trading-hours-footer.component';
 import TradingHoursHeader from './trading-hours-header.component';
 
 // Images
@@ -16,6 +15,18 @@ import TradingHoursHeader from './trading-hours-header.component';
 
 // Styles
 import styled from 'styled-components';
+
+const TradingHours = ({ content }) => {
+  return (
+    <Container>
+      <TradingHoursHeader />
+      <TradingHoursBody content={content} />
+      {/* <TradingHoursFooter /> */}
+    </Container>
+  );
+};
+
+export default TradingHours;
 
 const Container = styled.div`
   width: 40%;
@@ -40,15 +51,3 @@ const Container = styled.div`
     margin: 0;
   }
 `;
-
-const TradingHours = ({ content }) => {
-  return (
-    <Container>
-      <TradingHoursHeader />
-      <TradingHoursBody content={content} />
-      {/* <TradingHoursFooter /> */}
-    </Container>
-  );
-};
-
-export default TradingHours;

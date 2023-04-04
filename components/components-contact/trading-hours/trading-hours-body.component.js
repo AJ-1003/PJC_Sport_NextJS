@@ -15,40 +15,13 @@ import TradingHoursDecemberDay from './trading-hours-december-day.component';
 
 // Styles
 import styled from 'styled-components';
-
-const Body = styled.div`
-  margin: 0 10%;
-  font-family: "Montserrat", sans-serif;
-`;
-
-const TradingHourDays = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
-
-const Address = styled.div`
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const Header = styled.div`
-  padding: 2rem 0;
-
-  h2 {
-    font-family: 'Racing Sans One', sans-serif;
-    color: var(--red);
-    font-size: 2rem;
-  }
-`;
+import TradingHoursNote from './trading-hours-note.component';
 
 const TradingHoursBody = ({ content }) => {
 
   const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
   const januaryDays = [1, 2, 3];
-  
+
   const currentDate = new Date();
   var todayMonth = useRef(currentDate.getMonth());
   var todayDay = useRef(currentDate.getDate());
@@ -82,6 +55,7 @@ const TradingHoursBody = ({ content }) => {
           </>
         }
       </TradingHourDays>
+      <TradingHoursNote />
       <Address>
         <h4>183 Koedoe Street</h4>
         <h5>Wierda Park, Centurion</h5>
@@ -91,3 +65,31 @@ const TradingHoursBody = ({ content }) => {
 };
 
 export default TradingHoursBody;
+
+const Body = styled.div`
+  margin: 0 10%;
+  font-family: "Montserrat", sans-serif;
+`;
+
+const TradingHourDays = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+const Address = styled.div`
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const Header = styled.div`
+  padding: 2rem 0;
+
+  h2 {
+    font-family: 'Racing Sans One', sans-serif;
+    color: var(--red);
+    font-size: 2rem;
+  }
+`;
