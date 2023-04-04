@@ -10,8 +10,8 @@ import client from '/contentful/contentful.data';
 
 // Components
 import BicycleSpecifications from '../../components/components-bicycles/bicycle-details-specifications/bicycle-details-specifications.component';
-import BicycleSkeleton from '../../components/skeletons/bicycle-skeleton.component';
 import SeperationHeader from '../../components/seperation-header/seperation-header.component';
+import BicycleSkeleton from '../../components/skeletons/bicycle-skeleton.component';
 
 // Images
 
@@ -62,6 +62,145 @@ export const getStaticProps = async ({ params }) => {
     revalidate: 1
   };
 };
+
+const BicycleDetails = ({ bicycle }) => {
+  if (!bicycle) {
+    return (
+      <BicycleSkeleton />
+    )
+  };
+
+  const {
+    name,
+    brand,
+    model,
+    description,
+    frameMaterial,
+    availableSizes,
+    fork,
+    rearShock,
+    chainwheel,
+    frontDerailleur,
+    rearDerailleur,
+    shifters,
+    chain,
+    cassette,
+    bottomBracket,
+    speed,
+    brakes,
+    wheels,
+    frontHub,
+    rearHub,
+    tyres,
+    stem,
+    seatPost,
+    extras,
+    priceNow,
+    priceWas,
+    cardImage,
+    detailsImageWidth,
+    detailsImageHeight,
+    altText,
+    onSpecial } = bicycle.fields;
+
+  var specs = {
+    frameMaterial,
+    fork,
+    rearShock,
+    chainwheel,
+    frontDerailleur,
+    rearDerailleur,
+    shifters,
+    chain,
+    cassette,
+    bottomBracket,
+    speed,
+    brakes,
+    wheels,
+    frontHub,
+    rearHub,
+    tyres,
+    stem,
+    seatPost,
+    extras
+  };
+
+  var sizes = '';
+
+  availableSizes.map(size => {
+    sizes += ' ' + size;
+  });
+
+  const header = `${brand} ${model}`;
+
+  return (
+    <>
+      <Head>
+        <title>PJC Sport & Cycles - {brand} {model}</title>
+        <meta name='description' content={`${brand} ${model}. ${description}`} />
+        <meta name='robots' content='index,follow'></meta>
+        <link rel='canonical' href={`https://www.pjcsport.co.za/${name}`}></link>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
+      <Main>
+        <Image src={'https:' + cardImage.fields.file.url} objectFit='cover' objectPosition='top' width={detailsImageWidth} height={detailsImageHeight} responsive='true' alt={altText} priority={true} quality={100} />
+        <SeperationHeader childrenLvl1={header} />
+        <Details>
+          <DetailsContainer>
+            <DetailsSection>
+              <DetailsTopSection>
+                <DescriptionText>
+                  <h2>Description</h2>
+                  <p>{description}</p>
+                </DescriptionText>
+              </DetailsTopSection>
+              <DetailsBottomSection>
+                <Top>
+                  <h2>Details</h2>
+                  <TopContent>
+                    <AvailableSizes>
+                      <div>
+                        <span className='bold'>Avaialable sizes: </span>
+                      </div>
+                      <Sizes>
+                        {availableSizes.map(size => {
+                          return (
+                            <li key={size}>{size}</li>
+                          )
+                        })}
+                      </Sizes>
+                    </AvailableSizes>
+                    <PriceContainer>
+                      {onSpecial ?
+                        <Price>
+                          <span className='bold'>Price: </span>
+                          <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
+                          <PriceWas>Was - R{priceWas}.00</PriceWas>
+                        </Price>
+                        :
+                        <Price>
+                          <span className='bold'>Price: </span>
+                          <PriceNow className='bold'>R{priceNow}.00</PriceNow>
+                        </Price>
+                      }
+                    </PriceContainer>
+                  </TopContent>
+                </Top>
+                <Bottom>
+                  <h2>Specifications</h2>
+                  <BicycleSpecifications content={specs} />
+                </Bottom>
+              </DetailsBottomSection>
+            </DetailsSection>
+          </DetailsContainer>
+        </Details>
+      </Main>
+    </>
+  );
+};
+
+export default BicycleDetails;
 
 const Main = styled.main`
   /* background: url(${props => props.backgroundImg}) top / 100% no-repeat; */
@@ -140,9 +279,7 @@ const DetailsSection = styled.div`
   }
 `;
 
-const DetailsTopSection = styled.div`
-
-`;
+const DetailsTopSection = styled.div``;
 
 const DescriptionText = styled.div`
   margin: 0 auto;
@@ -220,149 +357,6 @@ const PriceWas = styled.div`
   color: #808080;
 `;
 
-const PriceNow = styled.div`
-  
-`;
+const PriceNow = styled.div``;
 
-const Bottom = styled.div`
-
-`;
-
-const BicycleDetails = ({ bicycle }) => {
-  if (!bicycle) {
-    return (
-      <BicycleSkeleton />
-    )
-  };
-
-  const {
-    name,
-    brand,
-    model,
-    description,
-    frameMaterial,
-    availableSizes,
-    fork,
-    rearShock,
-    chainwheel,
-    frontDerailleur,
-    rearDerailleur,
-    shifters,
-    chain,
-    cassette,
-    bottomBracket,
-    speed,
-    brakes,
-    wheels,
-    frontHub,
-    rearHub,
-    tyres,
-    stem,
-    seatPost,
-    extras,
-    priceNow,
-    priceWas,
-    cardImage,
-    detailsImageWidth,
-    detailsImageHeight,
-    altText,
-    onSpecial } = bicycle.fields;
-
-  var specs = {
-    frameMaterial,
-    fork,
-    rearShock,
-    chainwheel,
-    frontDerailleur,
-    rearDerailleur,
-    shifters,
-    chain,
-    cassette,
-    bottomBracket,
-    speed,
-    brakes,
-    wheels,
-    frontHub,
-    rearHub,
-    tyres,
-    stem,
-    seatPost,
-    extras
-  };
-
-  var sizes = '';
-
-  availableSizes.map(size => {
-    sizes += ' ' + size;
-  });
-
-  const header = `${brand} ${model}`;
-
-  return (
-    <>
-      <Head>
-        <title>PJC Sport & Cycles - {brand} {model}</title>
-        <meta name="description" content={`${brand} ${model}. ${description}`} />
-        <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href={`https://www.pjcsport.co.za/${name}`}></link>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Main>
-        <Image src={'https:' + cardImage.fields.file.url} objectFit='cover' objectPosition='top' width={detailsImageWidth} height={detailsImageHeight} responsive="true" alt={altText} priority={true} quality={100} />
-        <SeperationHeader childrenLvl1={header} />
-        <Details>
-          <DetailsContainer>
-            <DetailsSection>
-              <DetailsTopSection>
-                <DescriptionText>
-                  <h2>Description</h2>
-                  <p>{description}</p>
-                </DescriptionText>
-              </DetailsTopSection>
-              <DetailsBottomSection>
-                <Top>
-                  <h2>Details</h2>
-                  <TopContent>
-                    <AvailableSizes>
-                      <div>
-                        <span className='bold'>Avaialable sizes: </span>
-                      </div>
-                      <Sizes>
-                        {availableSizes.map(size => {
-                          return (
-                            <li key={size}>{size}</li>
-                          )
-                        })}
-                      </Sizes>
-                    </AvailableSizes>
-                    <PriceContainer>
-                      {onSpecial ?
-                        <Price>
-                          <span className='bold'>Price: </span>
-                          <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
-                          <PriceWas>Was - R{priceWas}.00</PriceWas>
-                        </Price>
-                        :
-                        <Price>
-                          <span className='bold'>Price: </span>
-                          <PriceNow className='bold'>R{priceNow}.00</PriceNow>
-                        </Price>
-                      }
-                    </PriceContainer>
-                  </TopContent>
-                </Top>
-                <Bottom>
-                  <h2>Specifications</h2>
-                  <BicycleSpecifications content={specs} />
-                </Bottom>
-              </DetailsBottomSection>
-            </DetailsSection>
-          </DetailsContainer>
-        </Details>
-      </Main>
-    </>
-  );
-};
-
-export default BicycleDetails;
+const Bottom = styled.div``;

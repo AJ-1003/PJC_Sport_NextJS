@@ -14,16 +14,6 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
-const Footer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  p {
-    margin: 0;
-  }
-`;
-
 const TradingHoursFooter = () => {
   return (
     <Footer>
@@ -35,3 +25,13 @@ const TradingHoursFooter = () => {
 };
 
 export default TradingHoursFooter;
+
+const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  p {
+    margin: 0;
+  }
+`;

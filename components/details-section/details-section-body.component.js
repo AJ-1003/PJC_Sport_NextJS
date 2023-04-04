@@ -14,6 +14,43 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
+const DetailsSectionBody = ({ description, features, alignment }) => {
+  var left = [];
+  var right = [];
+
+  for (var i = 0; i < features.length; i++) {
+    if (i < features.length / 2) {
+      left[i] = features[i]
+    }
+    else {
+      right[i] = features[i]
+    }
+  }
+  return (
+    <Body className={alignment}>
+      <p>{description}</p>
+      <Features className={alignment}>
+        <Left>
+          <ul>
+            {left.map(feature => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </Left>
+        <Right>
+          <ul>
+            {right.map(feature => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </Right>
+      </Features>
+    </Body>
+  );
+};
+
+export default DetailsSectionBody;
+
 const Body = styled.div`
   font-family: 'Montserrat', sans-serif;
   color: #fff;
@@ -52,46 +89,6 @@ const Features = styled.div`
   }
 `;
 
-const Left = styled.div`
-`;
+const Left = styled.div``;
 
-const Right = styled.div`
-
-`;
-
-const DetailsSectionBody = ({ description, features, alignment }) => {
-  var left = [];
-  var right = [];
-
-  for (var i = 0; i < features.length; i++) {
-    if (i < features.length / 2) {
-      left[i] = features[i]
-    }
-    else {
-      right[i] = features[i]
-    }
-  }
-  return (
-    <Body className={alignment}>
-      <p>{description}</p>
-      <Features className={alignment}>
-        <Left>
-          <ul>
-            {left.map(feature => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
-        </Left>
-        <Right>
-          <ul>
-            {right.map(feature => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
-        </Right>
-      </Features>
-    </Body>
-  );
-};
-
-export default DetailsSectionBody;
+const Right = styled.div``;

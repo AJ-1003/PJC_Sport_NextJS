@@ -11,17 +11,6 @@ import WhatWeOfferCard from './what-we-offer-card.component';
 // Styles
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-  }
-`;
-
 const WhatWeOfferContainer = ({ content }) => {
   return (
     <Container>
@@ -34,3 +23,14 @@ const WhatWeOfferContainer = ({ content }) => {
 };
 
 export default WhatWeOfferContainer;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+`;

@@ -15,12 +15,6 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
-const Color = styled.div`
-  background: var(${props => props.color});
-  width: 15px;
-  height: 15px;
-`;
-
 const ItemColor = ({ color }) => {
   return (
     // <Tooltip content={color}>
@@ -32,3 +26,9 @@ const ItemColor = ({ color }) => {
 };
 
 export default ItemColor;
+
+const Color = styled.div`
+  background: var(${props => props.color});
+  width: 15px;
+  height: 15px;
+`;

@@ -1,6 +1,5 @@
 // React
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiChevronsUp } from 'react-icons/fi';
 
 // Next
@@ -14,45 +13,13 @@ import { useRouter } from 'next/router';
 
 // Styles
 import styled from 'styled-components';
-import homeStyles from '/styles/Home.module.css';
+import balletStyles from '/styles/Ballet.module.css';
 import bicycleStyles from '/styles/Bicycles.module.css';
+import contactStyles from '/styles/Contact.module.css';
+import homeStyles from '/styles/Home.module.css';
+import newsStyles from '/styles/News.module.css';
 import servicesStyles from '/styles/Services.module.css';
 import sportStyles from '/styles/Sport.module.css';
-import balletStyles from '/styles/Ballet.module.css';
-import contactStyles from '/styles/Contact.module.css';
-
-const BackToTopButton = styled.button`
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  font-size: 1.5rem;
-  z-index: 99;
-
-  .icon {
-    position: relative;
-    top: 5%;
-  }
-
-  @media screen and (min-width: 1024px) and (max-width: 1535px) {
-    bottom: 100px;
-    right: 50px;
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    bottom: 100px;
-    right: 50px;
-  }
-
-  @media screen and (max-width: 767px) {
-    bottom: 80px;
-    right: 50px;
-  }
-`;
 
 const BackToTop = () => {
 
@@ -95,7 +62,8 @@ const BackToTop = () => {
                     route == 'sport' ? sportStyles.backgroundColour :
                       route == 'ballet' ? balletStyles.backgroundColour :
                         route == 'contact' ? contactStyles.backgroundColour :
-                          ''
+                          route == 'news' ? newsStyles.backgroundColour :
+                            ''
           }
           onClick={scrollUp}>
           <div className='icon'>
@@ -108,3 +76,36 @@ const BackToTop = () => {
 };
 
 export default BackToTop;
+
+const BackToTopButton = styled.button`
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  font-size: 1.5rem;
+  z-index: 99;
+
+  .icon {
+    position: relative;
+    top: 5%;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    bottom: 100px;
+    right: 50px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    bottom: 100px;
+    right: 50px;
+  }
+
+  @media screen and (max-width: 767px) {
+    bottom: 80px;
+    right: 50px;
+  }
+`;

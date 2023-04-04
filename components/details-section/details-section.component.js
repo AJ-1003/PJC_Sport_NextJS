@@ -1,7 +1,7 @@
 // React
 import React, { useState } from 'react';
+import { useSpring } from 'react-spring';
 import useMeasure from 'react-use-measure';
-import { useSpring, animated } from 'react-spring';
 
 // Next
 import { useRouter } from 'next/router';
@@ -9,11 +9,11 @@ import { useRouter } from 'next/router';
 // Contentful
 
 // Components
-import DetailsSectionHeader from './details-section-header.component';
-import DetailsSectionBody from './details-section-body.component';
-import DetailsSectionFooter from './details-section-footer.component';
 import BicycleCard from '../components-bicycles/bicycle-card/bicycle-card.component';
 import ItemCard from '../item-card/item-card.component';
+import DetailsSectionBody from './details-section-body.component';
+import DetailsSectionFooter from './details-section-footer.component';
+import DetailsSectionHeader from './details-section-header.component';
 
 // Images
 
@@ -21,42 +21,6 @@ import ItemCard from '../item-card/item-card.component';
 
 // Styles
 import styled from 'styled-components';
-
-const Section = styled.div`
-  min-height: 400px;
-  background: linear-gradient(0deg, rgba(var(--dark-grey-background),0.9) 60%, rgba(var(--dark-grey-background),0.5) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
-  display: flex;
-  align-items: center;
-`;
-
-const SectionContainer = styled.div`
-  width: 80%;
-  margin: 0 auto;
-  /* padding-top: 2rem;
-  padding-bottom: 2rem; */
-  position: relative;
-  padding: 1rem 0;
-  
-  &.align-left {
-    text-align: left;
-  }
-
-  &.align-right {
-    text-align: right;
-  }
-`;
-
-const ViewMoreButton = styled.div`
-  cursor: pointer;
-`;
-
-const PanelContent = styled.div`
-
-`;
-
-const PanelContentInner = styled.div`
-
-`;
 
 const DetailsSection = ({ content, panelContent, type }) => {
 
@@ -165,3 +129,35 @@ const DetailsSection = ({ content, panelContent, type }) => {
 };
 
 export default DetailsSection;
+
+const Section = styled.div`
+  min-height: 400px;
+  background: linear-gradient(0deg, rgba(var(--dark-grey-background),0.9) 60%, rgba(var(--dark-grey-background),0.5) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+  display: flex;
+  align-items: center;
+`;
+
+const SectionContainer = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  /* padding-top: 2rem;
+  padding-bottom: 2rem; */
+  position: relative;
+  padding: 1rem 0;
+  
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+`;
+
+const ViewMoreButton = styled.div`
+  cursor: pointer;
+`;
+
+const PanelContent = styled.div``;
+
+const PanelContentInner = styled.div``;

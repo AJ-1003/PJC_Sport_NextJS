@@ -11,6 +11,28 @@ import RightNavigation from './right-navigation.component';
 // Styles
 import styled from 'styled-components';
 
+const BurgerToggle = () => {
+
+  const [open, setOpen] = useState(false);
+
+  const closeSideNav = () => {
+    setOpen(false);
+  };
+
+  return (
+    <>
+      <BurgerMenu open={open} onClick={() => setOpen(!open)}>
+        <div className='burger-line' />
+        <div className='burger-line' />
+        <div className='burger-line' />
+      </BurgerMenu>
+      <RightNavigation open={open} closeSideNav={closeSideNav} />
+    </>
+  );
+};
+
+export default BurgerToggle;
+
 const BurgerMenu = styled.div`
   width: 2rem;
   height: 2rem;
@@ -48,25 +70,3 @@ const BurgerMenu = styled.div`
     }
   }
 `;
-
-const BurgerToggle = () => {
-
-  const [open, setOpen] = useState(false);
-
-  const closeSideNav = () => {
-    setOpen(false);
-  };
-
-  return (
-    <>
-      <BurgerMenu open={open} onClick={() => setOpen(!open)}>
-        <div className='burger-line' />
-        <div className='burger-line' />
-        <div className='burger-line' />
-      </BurgerMenu>
-      <RightNavigation open={open} closeSideNav={closeSideNav} />
-    </>
-  );
-};
-
-export default BurgerToggle;

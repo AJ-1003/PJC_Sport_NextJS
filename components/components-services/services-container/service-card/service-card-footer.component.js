@@ -14,12 +14,6 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
-const Footer = styled.div`
-  bottom: 0;
-  text-align: center;
-  font-size: 1.3rem;
-`;
-
 const ServiceCardFooter = ({ content }) => {
   return (
     <Footer className='bold'>
@@ -29,3 +23,9 @@ const ServiceCardFooter = ({ content }) => {
 };
 
 export default ServiceCardFooter;
+
+const Footer = styled.div`
+  bottom: 0;
+  text-align: center;
+  font-size: 1.3rem;
+`;

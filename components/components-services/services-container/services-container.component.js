@@ -15,6 +15,20 @@ import ServiceCard from './service-card/service-card.component';
 // Styles
 import styled from 'styled-components';
 
+const ServicesContainer = ({ content }) => {
+  return (
+    <Container>
+      {content.map(service => {
+        return (
+          <ServiceCard key={service.sys.id} serviceDetails={service} />
+        )
+      })}
+    </Container>
+  );
+};
+
+export default ServicesContainer;
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -33,17 +47,3 @@ const Container = styled.div`
     flex-direction: column;
   }
 `;
-
-const ServicesContainer = ({ content }) => {
-  return (
-    <Container>
-      {content.map(service => {
-        return (
-          <ServiceCard key={service.sys.id} serviceDetails={service} />
-        )
-      })}
-    </Container>
-  );
-};
-
-export default ServicesContainer;

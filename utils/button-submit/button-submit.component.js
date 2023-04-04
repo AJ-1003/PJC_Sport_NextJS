@@ -37,7 +37,6 @@ const Button = styled.button`
     background: var(${props => props.color + '-hover'});
     transition: 0.5s;
     color: #fff;
-    font-weight: bold;
   }
 `;
 

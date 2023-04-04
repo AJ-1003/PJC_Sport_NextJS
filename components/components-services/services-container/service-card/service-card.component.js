@@ -17,6 +17,24 @@ import ServiceCardHeader from './service-card-header.component';
 // Styles
 import styled from 'styled-components';
 
+const ServiceCard = ({ serviceDetails }) => {
+  const { heading, subHeading, serviceItems, price } = serviceDetails.fields;
+  return (
+    <Card>
+      <Header>
+        <ServiceCardHeader heading={heading} subHeading={subHeading} />
+      </Header>
+      <Body>
+        <ServiceCardBody content={serviceItems} />
+      </Body>
+      <Footer>
+        <ServiceCardFooter content={price} />
+      </Footer>
+    </Card>
+  );
+};
+
+export default ServiceCard;
 
 const Card = styled.div`
   display: flex;
@@ -72,22 +90,3 @@ const Footer = styled.div`
     border-radius: 0;
   }
 `;
-
-const ServiceCard = ({ serviceDetails }) => {
-  const { heading, subHeading, serviceItems, price } = serviceDetails.fields;
-  return (
-    <Card>
-      <Header>
-        <ServiceCardHeader heading={heading} subHeading={subHeading} />
-      </Header>
-      <Body>
-        <ServiceCardBody content={serviceItems} />
-      </Body>
-      <Footer>
-        <ServiceCardFooter content={price} />
-      </Footer>
-    </Card>
-  );
-};
-
-export default ServiceCard;

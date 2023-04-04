@@ -21,6 +21,30 @@ import logo from '../../assets/navigation/Logo.png';
 // Styles
 import styled from 'styled-components';
 
+const Navigation = () => {
+
+  const router = useRouter();
+  const route = router.pathname.substring(1);
+
+  return <>
+    <header>
+      <Nav>
+        <div className='navigation_container'>
+          <div className='logo_container'>
+            <Link href='/'>
+              <Image src={logo} alt='logo-img' width='180' height='75' title='Logo' />
+            </Link>
+          </div>
+          <BurgerToggle />
+        </div>
+      </Nav>
+    </header>
+    {/* <Outlet /> */}
+  </>;
+};
+
+export default Navigation;
+
 const Nav = styled.nav`
   display: flex;
   width: 100%;
@@ -45,27 +69,3 @@ const Nav = styled.nav`
     }
   }
 `;
-
-const Navigation = () => {
-
-  const router = useRouter();
-  const route = router.pathname.substring(1);
-
-  return <>
-    <header>
-      <Nav>
-        <div className='navigation_container'>
-          <div className='logo_container'>
-            <Link href='/'>
-              <Image src={logo} alt='logo-img' width='180' height='75' title='Logo' />
-            </Link>
-          </div>
-          <BurgerToggle />
-        </div>
-      </Nav>
-    </header>
-    {/* <Outlet /> */}
-  </>;
-};
-
-export default Navigation;

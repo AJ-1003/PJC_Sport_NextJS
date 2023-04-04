@@ -14,6 +14,22 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
+const ServiceCardBody = ({ content }) => {
+  return (
+    <Body>
+      <Items>
+        {content.map(item => {
+          return (
+            <li key={item}>{item}</li>
+          )
+        })}
+      </Items>
+    </Body>
+  );
+};
+
+export default ServiceCardBody;
+
 const Body = styled.div`
   font-family: 'Montserrat', sans-serif;
   min-height: 300px;
@@ -30,19 +46,3 @@ const Items = styled.ul`
     text-align: center;
   }
 `;
-
-const ServiceCardBody = ({ content }) => {
-  return (
-    <Body>
-      <Items>
-        {content.map(item => {
-          return (
-            <li key={item}>{item}</li>
-          )
-        })}
-      </Items>
-    </Body>
-  );
-};
-
-export default ServiceCardBody;

@@ -16,6 +16,34 @@ import ItemColor from '../../item-color/item-color-dot.component';
 // Styles
 import styled from 'styled-components';
 
+const BalletItem = ({ content }) => {
+  const { description, image, colors, order } = content.fields;
+  return (
+    <Item>
+      <ImageContainer>
+        <Image className='round-image' src={'https:' + image.fields.file.url} width='200' height='200' alt={'item-' + order} title={description} />
+      </ImageContainer>
+      <DescriptionContainer>
+        <p>{description}</p>
+      </DescriptionContainer>
+      <ColorContainer>
+        {colors.map(color => {
+          return (
+            <>
+              {color !== 'Assorted colours'
+                ?
+                <ItemColor key={color} color={color} />
+                : <span>{color}</span>}
+            </>
+          )
+        })}
+      </ColorContainer>
+    </Item>
+  );
+};
+
+export default BalletItem;
+
 const Item = styled.div`
   /* border: 1px solid black; */
   /* background: #ececec; */
@@ -23,16 +51,8 @@ const Item = styled.div`
   padding: 0.5rem;
   margin: auto;
 
-  @media screen and (min-width: 1024px) {
-
-  }
-
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     min-width: 50%;
-  }
-
-  @media screen and (max-width: 767px) {
-
   }
 `;
 
@@ -62,31 +82,3 @@ const ColorContainer = styled.div`
   height: 20px;
   align-items: center;
 `;
-
-const BalletItem = ({ content }) => {
-  const { description, image, colors, order } = content.fields;
-  return (
-    <Item>
-      <ImageContainer>
-        <Image className='round-image' src={'https:' + image.fields.file.url} width='200' height='200' alt={'item-' + order} title={description} />
-      </ImageContainer>
-      <DescriptionContainer>
-        <p>{description}</p>
-      </DescriptionContainer>
-      <ColorContainer>
-        {colors.map(color => {
-          return (
-            <>
-              {color !== 'Assorted colours'
-                ?
-                <ItemColor key={color} color={color} />
-                : <span>{color}</span>}
-            </>
-          )
-        })}
-      </ColorContainer>
-    </Item>
-  );
-};
-
-export default BalletItem;

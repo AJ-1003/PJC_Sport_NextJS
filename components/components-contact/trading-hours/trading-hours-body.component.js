@@ -16,34 +16,6 @@ import TradingHoursDecemberDay from './trading-hours-december-day.component';
 // Styles
 import styled from 'styled-components';
 
-const Body = styled.div`
-  margin: 0 10%;
-  font-family: "Montserrat", sans-serif;
-`;
-
-const TradingHourDays = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
-
-const Address = styled.div`
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const Header = styled.div`
-  padding: 2rem 0;
-
-  h2 {
-    font-family: 'Racing Sans One', sans-serif;
-    color: var(--red);
-    font-size: 2rem;
-  }
-`;
-
 const TradingHoursBody = ({ content }) => {
 
   const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
@@ -91,3 +63,31 @@ const TradingHoursBody = ({ content }) => {
 };
 
 export default TradingHoursBody;
+
+const Body = styled.div`
+  margin: 0 10%;
+  font-family: "Montserrat", sans-serif;
+`;
+
+const TradingHourDays = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+const Address = styled.div`
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const Header = styled.div`
+  padding: 2rem 0;
+
+  h2 {
+    font-family: 'Racing Sans One', sans-serif;
+    color: var(--red);
+    font-size: 2rem;
+  }
+`;

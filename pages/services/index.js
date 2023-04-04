@@ -8,18 +8,17 @@ import Head from 'next/head';
 import client from '/contentful/contentful.data';
 
 // Components
-import HeroImage from '../../components/hero-image/hero-image.component';
-import SeperationHeader from '../../components/seperation-header/seperation-header.component';
-import DetailsSection from '../../components/details-section/details-section.component';
 import CarouselSlider from '../../components/carousel/carousel.component';
 import ServicesContainer from '../../components/components-services/services-container/services-container.component';
+import DetailsSection from '../../components/details-section/details-section.component';
+import HeroImage from '../../components/hero-image/hero-image.component';
+import SeperationHeader from '../../components/seperation-header/seperation-header.component';
 
 // Images
 
 // Data
 
 // Styles
-import styled from 'styled-components';
 
 export async function getStaticProps() {
 

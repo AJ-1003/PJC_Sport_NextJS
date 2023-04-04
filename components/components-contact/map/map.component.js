@@ -14,6 +14,19 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
+const MapLocation = () => {
+  return (
+    <Map className='rounded-corners'>
+      <div className='gmap_canvas rounded-corners'>
+        <iframe className='map rounded-corners' id='gmap_canvas' src='https://maps.google.com/maps?q=183%20Koedoe&t=&z=17&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no'>
+        </iframe>
+      </div>
+    </Map>
+  );
+};
+
+export default MapLocation;
+
 const Map = styled.div`
   position: relative;
   text-align: center;
@@ -75,16 +88,3 @@ const Map = styled.div`
     }
   }
 `;
-
-const MapLocation = () => {
-  return (
-    <Map className='rounded-corners'>
-      <div className='gmap_canvas rounded-corners'>
-        <iframe className='map rounded-corners' id='gmap_canvas' src='https://maps.google.com/maps?q=183%20Koedoe&t=&z=17&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no'>
-        </iframe>
-      </div>
-    </Map>
-  );
-};
-
-export default MapLocation;

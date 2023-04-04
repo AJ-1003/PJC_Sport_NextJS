@@ -15,6 +15,45 @@ import Instagram from '/assets/footer/icons8-instagram.svg';
 // Styles
 import styled from 'styled-components';
 
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  return (
+    <FooterContainer>
+      <Content>
+        <ContentLeft>
+          <Link href='contact/#contact-us' legacyBehavior>
+            <h3 className='pointer'>Contact us</h3>
+          </Link>
+          <ul>
+            <li>012 653 1200</li>
+            <li>queries@pjcsport.co.za</li>
+          </ul>
+        </ContentLeft>
+        <ContentCenter>
+          <h3>Follow Us</h3>
+          <SocialIcons>
+            <Link href='https://www.facebook.com/pjcsport/?hl=en'>
+              <a rel='noopener noreferrer' target='_blank'>
+                <Facebook />
+              </a>
+            </Link>
+            <Link href='https://www.instagram.com/pjcsportcenturion/?hl=en'>
+              <a rel='noopener noreferrer' target='_blank'>
+                <Instagram />
+              </a>
+            </Link>
+          </SocialIcons>
+        </ContentCenter>
+        <ContentRight>
+          <p>PJC Sport &amp; Cycles ©&nbsp;{currentYear}</p>
+        </ContentRight>
+      </Content>
+    </FooterContainer>
+  );
+};
+
+export default Footer;
+
 const FooterContainer = styled.footer`
   background: rgb(51,58,64);
   color: #fff;
@@ -69,42 +108,3 @@ const SocialIcons = styled.div`
 const ContentRight = styled.div`
   text-align: center;
 `;
-
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  return (
-    <FooterContainer>
-      <Content>
-        <ContentLeft>
-          <Link href='contact/#contact-us' legacyBehavior>
-            <h3 className='pointer'>Contact us</h3>
-          </Link>
-          <ul>
-            <li>012 653 1200</li>
-            <li>queries@pjcsport.co.za</li>
-          </ul>
-        </ContentLeft>
-        <ContentCenter>
-          <h3>Follow Us</h3>
-          <SocialIcons>
-            <Link href='https://www.facebook.com/pjcsport/?hl=en'>
-              <a rel='noopener noreferrer' target='_blank'>
-                <Facebook />
-              </a>
-            </Link>
-            <Link href='https://www.instagram.com/pjcsportcenturion/?hl=en'>
-              <a rel='noopener noreferrer' target='_blank'>
-                <Instagram />
-              </a>
-            </Link>
-          </SocialIcons>
-        </ContentCenter>
-        <ContentRight>
-          <p>PJC Sport &amp; Cycles ©&nbsp;{currentYear}</p>
-        </ContentRight>
-      </Content>
-    </FooterContainer>
-  );
-};
-
-export default Footer;
