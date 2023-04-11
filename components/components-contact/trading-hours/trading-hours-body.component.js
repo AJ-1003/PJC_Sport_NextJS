@@ -55,7 +55,7 @@ const TradingHoursBody = ({ content }) => {
           </>
         }
       </TradingHourDays>
-      <TradingHoursNote />
+      {/* <TradingHoursNote /> */}
       <Address>
         <h4>183 Koedoe Street</h4>
         <h5>Wierda Park, Centurion</h5>
