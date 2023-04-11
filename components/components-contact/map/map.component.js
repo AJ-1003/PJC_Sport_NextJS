@@ -59,10 +59,6 @@ const Map = styled.div`
       height: 500px;
       border: 1px solid #31313140;
 
-      @media screen and (min-width: 1024px) {
-
-      }
-
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         height: 500px;
         width: 100%;
@@ -80,7 +76,12 @@ const MapLocation = () => {
   return (
     <Map className='rounded-corners'>
       <div className='gmap_canvas rounded-corners'>
-        <iframe className='map rounded-corners' id='gmap_canvas' src='https://maps.google.com/maps?q=183%20Koedoe&t=&z=17&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no'>
+        <iframe
+          className='map rounded-corners'
+          id='gmap_canvas'
+          src='https://maps.google.com/maps?q=183%20Koedoe&t=&z=17&ie=UTF8&iwloc=&output=embed'
+          frameBorder='0'
+          scrolling='no'>
         </iframe>
       </div>
     </Map>
