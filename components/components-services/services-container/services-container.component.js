@@ -34,15 +34,7 @@ const Container = styled.div`
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
-
-  @media screen and (min-width: 1024px) {
-
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    
-  }
-
+  
   @media screen and (max-width: 767px) {
     flex-direction: column;
   }

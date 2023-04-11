@@ -8,6 +8,9 @@ import Head from 'next/head';
 import client from '/contentful/contentful.data';
 
 // Components
+import BrandOfMonthContainer from '../../components/components-news/brand-container/brand-container.component';
+import NewsContainer from '../../components/components-news/news-container/news-container.component';
+import TipsContainer from '../../components/components-news/tips-container/tips-container.component';
 import HeroImage from '../../components/hero-image/hero-image.component';
 import SeperationHeader from '/components/seperation-header/seperation-header.component';
 
@@ -64,9 +67,12 @@ const News = ({ header, news, tips, brand }) => {
 
       <main>
         <HeroImage content={header} />
-        <SeperationHeader childrenLvl1={'Latest News'} />
+        <SeperationHeader childrenLvl1={'Latest News & Events'} />
+        <NewsContainer content={news} />
         <SeperationHeader childrenLvl1={'Tips & Tricks'} />
+        <TipsContainer content={tips} />
         <SeperationHeader childrenLvl1={'Brand of the Month'} />
+        <BrandOfMonthContainer content={brand} />
       </main>
     </>
   );

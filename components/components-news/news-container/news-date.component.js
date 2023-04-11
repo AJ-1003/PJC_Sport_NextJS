@@ -12,13 +12,14 @@ import React from 'react';
 // Data
 
 // Styles
+import styled from 'styled-components';
 
-const NewsContainer = ({ content }) => {
+const NewsDate = ({ date }) => {
   return (
     <div>
-
+      <h4>{date}</h4>
     </div>
   );
 };
 
-export default NewsContainer;
+export default NewsDate;

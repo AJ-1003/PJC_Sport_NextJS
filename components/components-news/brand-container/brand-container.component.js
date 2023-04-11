@@ -12,6 +12,7 @@ import React from 'react';
 // Data
 
 // Styles
+import styled from 'styled-components';
 
 const BrandOfMonthContainer = ({ content }) => {
   return (

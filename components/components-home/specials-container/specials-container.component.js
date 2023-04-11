@@ -9,7 +9,6 @@ import React from 'react';
 import SpecialCard from '../special-card/special-card.component';
 
 // Images
-// import specialsParallax from '../../../assets/home/specials.webp';
 
 // Data
 
