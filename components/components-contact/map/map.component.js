@@ -78,10 +78,11 @@ const MapLocation = () => {
       <div className='gmap_canvas rounded-corners'>
         <iframe
           className='map rounded-corners'
-          id='gmap_canvas'
-          src='https://maps.google.com/maps?q=183%20Koedoe&t=&z=17&ie=UTF8&iwloc=&output=embed'
-          frameBorder='0'
-          scrolling='no'>
+          src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=183%20Koedoe%20str+(PJC%20Sport%20%26%20Cycles)&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed"
+          frameBorder="0"
+          scrolling="no"
+          marginHeight="0"
+          marginWidth="0">
         </iframe>
       </div>
     </Map>
