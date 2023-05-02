@@ -17,10 +17,15 @@ import styled from 'styled-components';
 
 const NewsDescription = ({ description }) => {
   return (
-    <div>
-      {documentToReactComponents(description)}
-    </div>
+    <Description>
+      <p>{documentToReactComponents(description)}</p>
+    </Description>
   );
 };
 
 export default NewsDescription;
+
+const Description = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+`;

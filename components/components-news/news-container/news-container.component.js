@@ -42,4 +42,10 @@ const NewsContainer = ({ content }) => {
 
 export default NewsContainer;
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1rem 0;
+`;

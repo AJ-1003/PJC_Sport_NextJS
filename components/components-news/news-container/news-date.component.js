@@ -16,10 +16,17 @@ import styled from 'styled-components';
 
 const NewsDate = ({ date }) => {
   return (
-    <div>
-      <h4>{date}</h4>
-    </div>
+    <Date>
+      <h4>Date: {date}</h4>
+    </Date>
   );
 };
 
 export default NewsDate;
+
+const Date = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding-right: 2rem;
+`;

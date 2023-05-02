@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Next
 import Head from 'next/head';
@@ -67,15 +67,27 @@ const News = ({ header, news, tips, brand }) => {
 
       <main>
         <HeroImage content={header} />
-        <SeperationHeader childrenLvl1={'Latest News & Events'} />
-        <NewsContainer content={news} />
-        <SeperationHeader childrenLvl1={'Tips & Tricks'} />
-        <TipsContainer content={tips} />
-        <SeperationHeader childrenLvl1={'Brand of the Month'} />
-        <BrandOfMonthContainer content={brand} />
+        {news == '' || news == null || typeof news == 'undefined'
+          ? null
+          : <>
+            <SeperationHeader childrenLvl1={'Latest News & Events'} />
+            <NewsContainer content={news} />
+          </>}
+        {tips == '' || tips == null || typeof tips == 'undefined'
+          ? null
+          : <>
+            <SeperationHeader childrenLvl1={'Tips & Tricks'} />
+            <TipsContainer content={tips} />
+          </>}
+        {brand == '' || brand == null || typeof brand == 'undefined'
+          ? null
+          : <>
+            <SeperationHeader childrenLvl1={'Brand of the Month'} />
+            <BrandOfMonthContainer content={brand} />
+          </>}
       </main>
     </>
   );
 };
 
-export default News
+export default News;

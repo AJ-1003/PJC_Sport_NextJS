@@ -16,10 +16,16 @@ import styled from 'styled-components';
 
 const NewsName = ({ name }) => {
   return (
-    <div>
+    <Heading>
       <h2>{name}</h2>
-    </div>
+    </Heading>
   );
 };
 
 export default NewsName;
+
+const Heading = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding: 1rem 0;
+`;
