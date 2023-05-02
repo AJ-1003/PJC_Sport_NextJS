@@ -18,8 +18,9 @@ import styled from 'styled-components';
 
 const Card = styled.div`
   min-width: 35%;
+  max-width: 50%;
   padding: 10px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   flex: 1;
 
   @media screen and (min-width: 1024px) and (max-width: 1535px) {
