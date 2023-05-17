@@ -23,17 +23,11 @@ const Card = styled.div`
   margin: 0 auto;
   flex: 1;
 
-  @media screen and (min-width: 1024px) and (max-width: 1535px) {
-    
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    
-  }
-
   @media screen and (max-width: 767px) {
     padding: 0;
     width: 100%;
+    margin: 0;
+    max-width: 100%;
   }
 `;
 
