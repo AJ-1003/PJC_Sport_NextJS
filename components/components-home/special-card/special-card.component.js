@@ -52,13 +52,16 @@ export default SpecialCard;
 
 const Card = styled.div`
   min-width: 35%;
+  max-width: 50%;
   padding: 10px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   flex: 1;
 
   @media screen and (max-width: 767px) {
     padding: 0;
     width: 100%;
+    margin: 0;
+    max-width: 100%;
   }
 `;
 
