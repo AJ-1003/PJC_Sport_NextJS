@@ -52,19 +52,9 @@ const Day = styled.div`
   }
 `;
 
-<<<<<<< HEAD
 const Weekday = styled.div``;
 
 const Time = styled.div``;
-=======
-const Weekday = styled.div`
-
-`;
-
-const Time = styled.div`
-
-`;
->>>>>>> origin/main
 
 const Underline = styled.div`
   height: 2px;
