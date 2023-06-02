@@ -108,18 +108,27 @@ const ImageContainer = styled.div`
   justify-content: center;
   margin: 0 auto;
   width: 70%;
-  border-radius: 0.5rem;
+
+  img {
+    border-radius: 0.5rem;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     margin: 0;
     width: 100%;
-    border-radius: 0;
+
+    img {
+      border-radius: 0;
+    }
   }
 
   @media screen and (max-width: 767px) {
     margin: 0;
     width: 100%;
-    border-radius: 0;
+    
+    img {
+      border-radius: 0;
+    }
   }
 `;
 

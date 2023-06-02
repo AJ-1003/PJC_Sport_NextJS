@@ -17,7 +17,7 @@ import Image from 'next/image';
 import 'react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
 
-const BrandImages = ({ images }) => {
+const EventsImages = ({ images }) => {
   return (
     <div>
       {images.length > 3 ?
@@ -58,7 +58,7 @@ const BrandImages = ({ images }) => {
   );
 };
 
-export default BrandImages;
+export default EventsImages;
 
 const responsive = {
   largeDesktop: {

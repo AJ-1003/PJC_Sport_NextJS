@@ -19,22 +19,38 @@ import NewsName from './news-name.component';
 import styled from 'styled-components';
 
 const NewsContainer = ({ content }) => {
+
+  var currentDate = new Date();
+  var currentMonth = currentDate.getMonth();
+  var previousMonth = currentDate.getMonth() - 1;
+
   return (
     <Container>
+      <Heading>
+        <HeadingText>
+          News
+        </HeadingText>
+      </Heading>
       {content.map(newsEvent => {
-        const { newsEventName, description, images, date } = newsEvent.fields;
+        const { newsName, description, images, date } = newsEvent.fields;
+        const dateParts = date.split('-');
         return (
-          <div key={newsEvent.sys.id}>
-            <div>
-              <NewsName name={newsEventName} />
-              <NewsDescription description={description} />
-              <NewsDate date={date} />
-            </div>
-            <div>
-              <NewsImages images={images} />
-            </div>
-          </div>
-        )
+          <>{dateParts[1] - 1 == previousMonth || dateParts[1] - 1 == currentMonth ?
+            <Content key={newsEvent.sys.id} className='rounded-corners'>
+              <div>
+                <NewsName name={newsEventName} />
+                <Underline />
+                <NewsDescription description={description} />
+                <NewsDate date={date} />
+              </div>
+              {images == '' || images == null || typeof images == 'undefined'
+                ? null
+                :
+                <>
+                  <NewsImages images={images} />
+                </>}
+            </Content> : null}</>
+        );
       })}
     </Container>
   );
@@ -46,6 +62,32 @@ const Container = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 2rem 0;
+`;
+
+const Content = styled.div`
+  background-color: var(--background-light-grey);
+  padding: 1rem;
+`;
+
+const Underline = styled.hr`
+  width: 90%;
+`;
+
+const LightUnderline = styled.hr`
+  width: 50%;
+  color: var(--background-grey);
+`;
+
+const Heading = styled.div`
+  text-align: center;
+`;
+
+const HeadingText = styled.span`
+  font-family: 'Racing Sans One', sans-serif;
+  font-size: 2rem;
+  color: var(--red);
+  padding: 0;
 `;

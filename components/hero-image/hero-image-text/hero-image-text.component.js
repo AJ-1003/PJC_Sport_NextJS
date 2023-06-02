@@ -109,4 +109,9 @@ const Buttons = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+
+  @media screen and (max-width: 767px) {
+    align-items: center;
+    flex-direction: column;
+  }
 `;

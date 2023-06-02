@@ -10,6 +10,7 @@ import client from '/contentful/contentful.data';
 // Components
 import BrandOfMonthContainer from '../../components/components-news/brand-container/brand-container.component';
 import NewsContainer from '../../components/components-news/news-container/news-container.component';
+import EventsContainer from '../../components/components-news/events-container/events-container.component';
 import TipsContainer from '../../components/components-news/tips-container/tips-container.component';
 import HeroImage from '../../components/hero-image/hero-image.component';
 import SeperationHeader from '/components/seperation-header/seperation-header.component';
@@ -27,8 +28,13 @@ export async function getStaticProps() {
   });
   const resultHeader = Array.from(resHeaders.items).filter(item => item.fields.route == '/news');
 
-  const resNews = await client.getEntries({
+  const resEvents = await client.getEntries({
     content_type: 'latestNewsAndEvents'
+  });
+  const resultEvents = Array.from(resEvents.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
+
+  const resNews = await client.getEntries({
+    content_type: 'news'
   });
   const resultNews = Array.from(resNews.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
 
@@ -46,6 +52,7 @@ export async function getStaticProps() {
     props: {
       header: resultHeader,
       news: resultNews,
+      events: resultEvents,
       tips: resultTips,
       brand: resultBrand
     },
@@ -53,7 +60,7 @@ export async function getStaticProps() {
   };
 };
 
-const News = ({ header, news, tips, brand }) => {
+const News = ({ header, news, events, tips, brand }) => {
   return (
     <>
       <Head>
@@ -61,7 +68,7 @@ const News = ({ header, news, tips, brand }) => {
         <meta name='description' content='' />
         <meta name='keywords' content=''></meta>
         <meta name='robots' content='index,follow'></meta>
-        <link rel='canonical' href='https://www.pjcsport.co.za/sport'></link>
+        <link rel='canonical' href='https://www.pjcsport.co.za/news'></link>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
@@ -70,8 +77,14 @@ const News = ({ header, news, tips, brand }) => {
         {news == '' || news == null || typeof news == 'undefined'
           ? null
           : <>
-            <SeperationHeader childrenLvl1={'Latest News & Events'} />
+            <SeperationHeader childrenLvl1={'Latest News'} />
             <NewsContainer content={news} />
+          </>}
+        {events == '' || events == null || typeof events == 'undefined'
+          ? null
+          : <>
+            <SeperationHeader childrenLvl1={'Events'} />
+            <EventsContainer content={events} />
           </>}
         {tips == '' || tips == null || typeof tips == 'undefined'
           ? null

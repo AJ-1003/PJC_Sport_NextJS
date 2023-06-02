@@ -15,7 +15,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 // Styles
 import styled from 'styled-components';
 
-const BrandDescription = ({ description }) => {
+const EventsDescription = ({ description }) => {
   return (
     <Description>
       <p>{documentToReactComponents(description)}</p>
@@ -23,7 +23,7 @@ const BrandDescription = ({ description }) => {
   );
 };
 
-export default BrandDescription;
+export default EventsDescription;
 
 const Description = styled.div`
   font-family: 'Montserrat', sans-serif;
