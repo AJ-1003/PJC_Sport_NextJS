@@ -17,7 +17,6 @@ import styled from 'styled-components';
 const TradingHoursDecemberDay = ({ date, openTime, closingTime, days }) => {
 
   const decemberDays = Array.from(days);
-
   const currentDate = new Date();
   var todayDay = useRef(currentDate.getDate());
 

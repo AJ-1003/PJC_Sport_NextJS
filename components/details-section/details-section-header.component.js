@@ -14,39 +14,10 @@ import { useRouter } from 'next/router';
 
 // Styles
 import styled from 'styled-components';
-import homeStyles from '/styles/Home.module.css';
 import bicycleStyles from '/styles/Bicycles.module.css';
+import homeStyles from '/styles/Home.module.css';
 import servicesStyles from '/styles/Services.module.css';
 import sportStyles from '/styles/Sport.module.css';
-import balletStyles from '/styles/Ballet.module.css';
-import contactStyles from '/styles/Contact.module.css';
-
-const Header = styled.div`
-  font-family: 'Racing Sans One', cursive;
-  font-size: 1.5rem;
-  color: #fff;
-  margin: 1rem 0;
-
-  &.left {
-    text-align: left;
-  }
-
-  &.right {
-    text-align: right;
-  }
-
-  @media screen and (min-width: 1024px) {
-
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-
-  }
-
-  @media screen and (max-width: 767px) {
-    font-size: 1.2rem;
-  }
-`;
 
 const DetailsSectionHeader = ({ heading, colouredHeading, alignment }) => {
   var router = useRouter();
@@ -90,3 +61,30 @@ const DetailsSectionHeader = ({ heading, colouredHeading, alignment }) => {
 };
 
 export default DetailsSectionHeader;
+
+const Header = styled.div`
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 1rem 0;
+
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 1.2rem;
+  }
+`;

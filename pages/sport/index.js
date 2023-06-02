@@ -8,17 +8,16 @@ import Head from 'next/head';
 import client from '/contentful/contentful.data';
 
 // Components
+import CarouselSlider from '../../components/carousel/carousel.component';
+import DetailsSection from '../../components/details-section/details-section.component';
 import HeroImage from '../../components/hero-image/hero-image.component';
 import SeperationHeader from '../../components/seperation-header/seperation-header.component';
-import DetailsSection from '../../components/details-section/details-section.component';
-import CarouselSlider from '../../components/carousel/carousel.component';
 
 // Images
 
 // Data
 
 // Styles
-import styled from 'styled-components';
 
 export async function getStaticProps() {
 
@@ -59,7 +58,7 @@ const Sport = ({ header, sportSections, brands }) => {
         <link rel="canonical" href="https://www.pjcsport.co.za/sport"></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <main>
         <HeroImage content={header} />
         <SeperationHeader childrenLvl1='Sport Equipment' />

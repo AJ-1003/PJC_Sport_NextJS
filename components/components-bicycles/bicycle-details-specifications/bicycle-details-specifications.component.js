@@ -9,73 +9,30 @@ import React from 'react';
 import Specification from './bicycle-spec.component';
 
 // Images
-import brakesImg from '/assets/bicycles/spec-icons/brakes.png';
-import frontDerailleurImg from '/assets/bicycles/spec-icons/frontDerailleur.png';
-import rearDerailleurImg from '/assets/bicycles/spec-icons/rearDerailleur.png';
 import bottomBracketImg from '/assets/bicycles/spec-icons/bottomBracket.png';
-import frameMaterialImg from '/assets/bicycles/spec-icons/frameMaterial.png';
-import shiftersImg from '/assets/bicycles/spec-icons/shifters.png';
-import frontHubImg from '/assets/bicycles/spec-icons/frontHub.png';
-import rearHubImg from '/assets/bicycles/spec-icons/rearHub.png';
-import wheelsImg from '/assets/bicycles/spec-icons/wheels.png';
-import tyresImg from '/assets/bicycles/spec-icons/tyres.png';
-import crankImg from '/assets/bicycles/spec-icons/crank.png';
-import forkImg from '/assets/bicycles/spec-icons/fork.png';
-import rearShockImg from '/assets/bicycles/spec-icons/rearShock.png';
-import chainImg from '/assets/bicycles/spec-icons/chain.png';
-import stemImg from '/assets/bicycles/spec-icons/stem.png';
-import seatPostImg from '/assets/bicycles/spec-icons/seatPost.png';
+import brakesImg from '/assets/bicycles/spec-icons/brakes.png';
 import cassetteImg from '/assets/bicycles/spec-icons/cassette.png';
-import speedImg from '/assets/bicycles/spec-icons/speed.png';
+import chainImg from '/assets/bicycles/spec-icons/chain.png';
+import crankImg from '/assets/bicycles/spec-icons/crank.png';
 import extrasImg from '/assets/bicycles/spec-icons/extras.png';
+import forkImg from '/assets/bicycles/spec-icons/fork.png';
+import frameMaterialImg from '/assets/bicycles/spec-icons/frameMaterial.png';
+import frontDerailleurImg from '/assets/bicycles/spec-icons/frontDerailleur.png';
+import frontHubImg from '/assets/bicycles/spec-icons/frontHub.png';
+import rearDerailleurImg from '/assets/bicycles/spec-icons/rearDerailleur.png';
+import rearHubImg from '/assets/bicycles/spec-icons/rearHub.png';
+import rearShockImg from '/assets/bicycles/spec-icons/rearShock.png';
+import seatPostImg from '/assets/bicycles/spec-icons/seatPost.png';
+import shiftersImg from '/assets/bicycles/spec-icons/shifters.png';
+import speedImg from '/assets/bicycles/spec-icons/speed.png';
+import stemImg from '/assets/bicycles/spec-icons/stem.png';
+import tyresImg from '/assets/bicycles/spec-icons/tyres.png';
+import wheelsImg from '/assets/bicycles/spec-icons/wheels.png';
 
 // Data
 
 // Styles
 import styled from 'styled-components';
-
-const SpecsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  h3 {
-    color: var(--orange);
-  }
-
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-  }
-`;
-
-const Left = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 50%;
-
-  @media screen and (max-width: 767px) {
-    width: 100%;
-  }
-`;
-
-const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 50%;
-
-  @media screen and (max-width: 767px) {
-    width: 100%;
-  }
-`;
-
-const LineBreak = styled.div`
-  background: #313131;
-  height: 1px;
-  width: 100%;
-  margin: 5px auto;
-`;
 
 const BicycleSpecifications = ({ content }) => {
   const {
@@ -147,3 +104,46 @@ const BicycleSpecifications = ({ content }) => {
 };
 
 export default BicycleSpecifications;
+
+const SpecsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h3 {
+    color: var(--orange);
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
+const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
+const LineBreak = styled.div`
+  background: #313131;
+  height: 1px;
+  width: 100%;
+  margin: 5px auto;
+`;

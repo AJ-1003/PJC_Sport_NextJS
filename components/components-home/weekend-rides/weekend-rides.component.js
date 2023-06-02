@@ -15,6 +15,28 @@ import Link from 'next/link';
 // Styles
 import styled from 'styled-components';
 
+const WeekendRides = () => {
+  return (
+    <WeekendRidesContainer>
+      <Content>
+        <Heading>Weekend <span>Rides</span></Heading>
+        <p>
+          All rides starts and ends at the shop.
+          Anyone is welcome to join us on weekends for a ride with coffee and doughnuts/snacks at the shop after the ride.
+          Start time may vary between Summer and Winter.
+          For more up-to-date information, please ask in-stores to be added to the WhatsApp group or <Link href='contact/#contact-us' legacyBehavior>
+            <ContactUsLink className='bold pointer'>
+              Contact Us
+            </ContactUsLink>
+          </Link>
+        </p>
+      </Content>
+    </WeekendRidesContainer>
+  );
+};
+
+export default WeekendRides;
+
 const WeekendRidesContainer = styled.div`
   font-family: 'Montserrat', sans-serif;
   background: var(--dark-grey);
@@ -42,10 +64,6 @@ const Content = styled.div`
     padding: 0 1rem;
   }
 
-  @media screen and (min-width: 1024px) {
-
-  }
-
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     width: 100%;
   }
@@ -58,25 +76,3 @@ const Content = styled.div`
 const ContactUsLink = styled.span`
   color: var(--red);
 `;
-
-const WeekendRides = () => {
-  return (
-    <WeekendRidesContainer>
-      <Content>
-        <Heading>Weekend <span>Rides</span></Heading>
-        <p>
-          All rides starts and ends at the shop.
-          Anyone is welcome to join us on weekends for a ride with coffee and doughnuts/snacks at the shop after the ride.
-          Start time may vary between Summer and Winter.
-          For more up-to-date information, please ask in-stores to be added to the WhatsApp group or <Link href='contact/#contact-us' legacyBehavior>
-            <ContactUsLink className='bold pointer'>
-              Contact Us
-            </ContactUsLink>
-          </Link>
-        </p>
-      </Content>
-    </WeekendRidesContainer>
-  );
-};
-
-export default WeekendRides;

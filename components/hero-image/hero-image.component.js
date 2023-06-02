@@ -16,9 +16,9 @@ import HeroImageText from './hero-image-text/hero-image-text.component';
 
 // Styles
 import styled from 'styled-components';
+import ButtonLink from '../../utils/button-link/button-link.component';
 
 export async function getStaticProps() {
-
   const res = await client.getEntries({
     content_type: 'header'
   });
@@ -33,8 +33,42 @@ export async function getStaticProps() {
   };
 };
 
+const HeroImage = ({ children, content, buttons }) => {
+  var router = useRouter();
+  return (
+    <>
+      {content.map(header => {
+        const { colouredHeading, contentText, heading, image, order } = header.fields;
+        var route;
+        if (router.route == '/') {
+          route = 'home';
+        } else {
+          route = router.route.substring(1);
+        }
+        return (
+          <HeroImageContainer
+            key={order}
+            backgroundImg={'https:' + image.fields.file.url}
+            className={`hero-text-section ${route}`} >
+            {children}
+            <HeroImageText
+              colouredHeading={colouredHeading}
+              heading={heading}
+              contentText={contentText}
+              route={route}
+              buttons={buttons} />
+          </HeroImageContainer>
+        )
+      })}
+    </>
+  );
+};
+
+export default HeroImage;
+
 const HeroImageContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 600px;
@@ -68,38 +102,8 @@ const HeroImageContainer = styled.div`
   &.contact {
     background: linear-gradient(170deg, rgba(var(--grey-background),0.5) 20%, rgba(var(--grey-background),0.2) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
   }
+
+  &.news {
+    background: linear-gradient(170deg, rgba(var(--grey-background),0.5) 20%, rgba(var(--red-background),0.2) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+  }
 `;
-
-const HeroImage = ({ children, content, buttons }) => {
-  var router = useRouter();
-  return (
-    <>
-      {content.map(header => {
-        const { colouredHeading, contentText, heading, image, order } = header.fields;
-        var route;
-        if (router.route == '/') {
-          route = 'home';
-        } else {
-          route = router.route.substring(1);
-        }
-        return (
-          <HeroImageContainer
-            key={order}
-            backgroundImg={'https:' + image.fields.file.url}
-            className={`hero-text-section ${route}`} >
-            {children}
-            <HeroImageText
-              colouredHeading={colouredHeading}
-              heading={heading}
-              contentText={contentText}
-              route={route}
-              buttons={buttons} />
-          </HeroImageContainer>
-        )
-      })
-      }
-    </>
-  );
-};
-
-export default HeroImage;

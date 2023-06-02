@@ -9,12 +9,27 @@ import React from 'react';
 import SpecialCard from '../special-card/special-card.component';
 
 // Images
-// import specialsParallax from '../../../assets/home/specials.webp';
 
 // Data
 
 // Styles
 import styled from 'styled-components';
+
+const SpecialsContainer = ({ content }) => {
+  return (
+    <Container>
+      <Content>
+        {content.map(special => {
+          return (
+            <SpecialCard key={special.sys.id} specialDetails={special} />
+          )
+        })}
+      </Content>
+    </Container>
+  );
+};
+
+export default SpecialsContainer;
 
 const Container = styled.div`
   // Uncomment only for Black Friday //
@@ -45,19 +60,3 @@ const Content = styled.div`
     gap: 0;
   }
 `;
-
-const SpecialsContainer = ({ content }) => {
-  return (
-    <Container>
-      <Content>
-        {content.map(special => {
-          return (
-            <SpecialCard key={special.sys.id} specialDetails={special} />
-          )
-        })}
-      </Content>
-    </Container>
-  );
-};
-
-export default SpecialsContainer;

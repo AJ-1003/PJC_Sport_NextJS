@@ -8,16 +8,15 @@ import Head from 'next/head';
 import client from '/contentful/contentful.data';
 
 // Components
+import BalletItemsContainer from '../../components/components-ballet/ballet-items-container/ballet-items-container.component';
 import HeroImage from '../../components/hero-image/hero-image.component';
 import SeperationHeader from '../../components/seperation-header/seperation-header.component';
-import BalletItemsContainer from '../../components/components-ballet/ballet-items-container/ballet-items-container.component';
 
 // Images
 
 // Data
 
 // Styles
-import styled from 'styled-components';
 
 export async function getStaticProps() {
 
@@ -45,11 +44,11 @@ const Ballet = ({ header, ballet }) => {
     <>
       <Head>
         <title>PJC Sport & Cycles - Ballet</title>
-        <meta name="description" content="We stock a variety of sizes and colours in ballet outfits including leotards, ballet shoes, anklets, stockings, tights, ballet jersies, ballet skirts and bags.
-        Available accessories include hair gel (LaPebra), hair nets, hair pins (bobby pins) and ribbons." />
-        <meta name="robots" content="index,follow"></meta>
-        <link rel="canonical" href="https://www.pjcsport.co.za/ballet"></link>
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name='description' content='We stock a variety of sizes and colours in ballet outfits including leotards, ballet shoes, anklets, stockings, tights, ballet jersies, ballet skirts and bags.
+        Available accessories include hair gel (LaPebra), hair nets, hair pins (bobby pins) and ribbons.' />
+        <meta name='robots' content='index,follow'></meta>
+        <link rel='canonical' href='https://www.pjcsport.co.za/ballet'></link>
+        <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
       </Head>
 
       <main>

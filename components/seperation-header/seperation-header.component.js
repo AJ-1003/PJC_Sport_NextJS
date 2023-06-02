@@ -12,48 +12,13 @@ import { useRouter } from 'next/router';
 
 // Styles
 import styled from 'styled-components';
-import homeStyles from '/styles/Home.module.css';
+import balletStyles from '/styles/Ballet.module.css';
 import bicycleStyles from '/styles/Bicycles.module.css';
+import contactStyles from '/styles/Contact.module.css';
+import homeStyles from '/styles/Home.module.css';
+import newsStyles from '/styles/News.module.css';
 import servicesStyles from '/styles/Services.module.css';
 import sportStyles from '/styles/Sport.module.css';
-import balletStyles from '/styles/Ballet.module.css';
-import contactStyles from '/styles/Contact.module.css';
-
-const Header = styled.section`
-  padding: 2rem 0;
-  color: rgba(255,255,255,0);
-  border-color: rgb(255,255,255);
-  // Comment for Christmas
-  background: var(--background-grey);
-  /* background: var(--light-grey); */
-  // Uncomment for Christmas
-  /* background: var(--grey); */
-  font-family: 'Racing Sans One', serif;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  text-align: center;
-
-  .ballet-text {
-    font-family: 'Raleway', sans-serif;
-  }
-
-  .header-text-h2 {
-    margin: 0;
-    font-size: 2rem;
-    overflow: none;
-  }
-
-  .header-text-h3 {
-    margin: 0;
-    color: #ed1d22;
-    font-size: 1.5rem;
-    color: #000;
-  }
-`;
 
 const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
   var router = useRouter();
@@ -136,8 +101,9 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
                   route == 'sport' ? sportStyles.textColour :
                     route == 'ballet' ? balletStyles.textColour :
                       route == 'contact' ? contactStyles.headingColour :
-                        ''
-          } ${route == 'ballet' ? 'ballet-text' : ''}`}>
+                        route == 'news' ? newsStyles.textColour :
+                          ''
+          } ${route == 'ballet' ? 'ballet-text' : homeStyles.textColour}`}>
           {childrenLvl1}
         </h2>
         {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
@@ -152,3 +118,39 @@ const SeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
 };
 
 export default SeperationHeader;
+
+const Header = styled.section`
+  padding: 2rem 0;
+  color: rgba(255,255,255,0);
+  border-color: rgb(255,255,255);
+  // Comment for Christmas
+  background: var(--background-grey);
+  /* background: var(--light-grey); */
+  // Uncomment for Christmas
+  /* background: var(--grey); */
+  font-family: 'Racing Sans One', serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+
+  .ballet-text {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .header-text-h2 {
+    margin: 0;
+    font-size: 2rem;
+    overflow: none;
+  }
+
+  .header-text-h3 {
+    margin: 0;
+    color: #ed1d22;
+    font-size: 1.5rem;
+    color: #000;
+  }
+`;

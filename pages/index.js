@@ -1,6 +1,5 @@
 // React
 import React, { useEffect } from 'react';
-import { useRef } from 'react';
 
 // Next
 import Head from 'next/head';
@@ -9,19 +8,17 @@ import Head from 'next/head';
 import client from '/contentful/contentful.data';
 
 // Components
-import SeperationHeader from '/components/seperation-header/seperation-header.component';
-import WhatWeOfferContainer from '/components/components-home/what-we-offer/what-we-offer-container.component';
 import SpecialsContainer from '../components/components-home/specials-container/specials-container.component';
 import WeekendRides from '../components/components-home/weekend-rides/weekend-rides.component';
 import HeroImage from '../components/hero-image/hero-image.component';
 import ButtonLink from '../utils/button-link/button-link.component';
+import WhatWeOfferContainer from '/components/components-home/what-we-offer/what-we-offer-container.component';
+import SeperationHeader from '/components/seperation-header/seperation-header.component';
 
 // Images
 
 // Data
 import monthName from '../functions/home.functions';
-import CustomSeperationHeader from '../components/seperation-header/custom-seperation-header.component';
-import ChristmasSeperationHeader from '../components/seperation-header/christmas-seperation-header.component';
 
 // Styles
 
@@ -74,9 +71,14 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
         <HeroImage
           content={header}
           buttons={
-            <ButtonLink to='#specials' color='--red' fill={true} >
-              View Specials
-            </ButtonLink>
+            <>
+              <ButtonLink to='#specials' color='--red' fill={true} >
+                View Specials
+              </ButtonLink>
+              <ButtonLink to='/news' color='--white' textColor='--grey' fill={true} >
+                Brand of the Month
+              </ButtonLink>
+            </>
           }>
         </HeroImage>
         <SeperationHeader

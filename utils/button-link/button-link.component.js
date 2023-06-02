@@ -26,13 +26,13 @@ const Button = styled.div`
   &.fill {
     border: 1px solid var(${props => props.color});
     background: var(${props => props.color});
-    color: #fff;
+    color: var(${props => props.textColor ? props.textColor : '#fff'});
     transition: 0.5s;
   }
 
   &.outline {
     border: 1px solid var(${props => props.color});
-    color: #313131;
+    color: var(${props => props.textColor ? props.textColor : '#313131'});
     transition: 0.3s;
   }
 
@@ -42,13 +42,12 @@ const Button = styled.div`
     background: var(${props => props.color + '-hover'});
     transition: 0.5s;
     /* color: var(--grey); */
-    font-weight: bold;
   }
 `;
 
-const ButtonLink = ({ to, color, fill, children, target, rel }) => {
+const ButtonLink = ({ to, color, fill, textColor, children, target, rel }) => {
   return (
-    <Button className={`rounded-corners ${fill ? 'fill' : 'outline'}`} color={color}>
+    <Button className={`rounded-corners ${fill ? 'fill' : 'outline'}`} color={color} textColor={textColor}>
       <Link href={to} target={target} rel={rel} scroll={true}>
         {children}
       </Link>

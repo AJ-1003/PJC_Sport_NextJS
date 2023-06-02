@@ -1,9 +1,7 @@
 // React
-import React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 // Next
-import Image from 'next/image';
 
 // Components
 import ButtonLink from '/utils/button-link/button-link.component';
@@ -14,6 +12,30 @@ import ButtonLink from '/utils/button-link/button-link.component';
 
 // Styles
 import styled from 'styled-components';
+
+const WhatWeOfferCard = ({ cardDetails }) => {
+  let ref = useRef(null);
+  const { title, contentText, altText, image, toPage } = cardDetails.fields;
+  return (
+    <Card
+      // className='rounded-corners'
+      backgroundImg={'https:' + image.fields.file.url}>
+      <CardHeader>
+        <h3>{title}</h3>
+      </CardHeader>
+      <CardBody>
+        <p>{contentText}</p>
+      </CardBody>
+      <CardFooter>
+        <ButtonLink to={toPage} color='--red' fill={true}>
+          View More
+        </ButtonLink>
+      </CardFooter>
+    </Card>
+  );
+};
+
+export default WhatWeOfferCard;
 
 const Card = styled.div`
   display: flex;
@@ -59,27 +81,3 @@ const CardFooter = styled.div`
   justify-content: center;
   padding: 2rem;
 `;
-
-const WhatWeOfferCard = ({ cardDetails }) => {
-  let ref = useRef(null);
-  const { title, contentText, altText, image, toPage } = cardDetails.fields;
-  return (
-    <Card
-      // className='rounded-corners'
-      backgroundImg={'https:' + image.fields.file.url}>
-      <CardHeader>
-        <h3>{title}</h3>
-      </CardHeader>
-      <CardBody>
-        <p>{contentText}</p>
-      </CardBody>
-      <CardFooter>
-        <ButtonLink to={toPage} color='--red' fill={true}>
-          View More
-        </ButtonLink>
-      </CardFooter>
-    </Card>
-  );
-};
-
-export default WhatWeOfferCard;

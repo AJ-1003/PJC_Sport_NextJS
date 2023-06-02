@@ -1,14 +1,13 @@
 // React
 import React from 'react';
-import { isDesktop, isMobile, MobileView } from 'react-device-detect';
 
 // Next
 import Image from 'next/image';
-import Link from 'next/link';
 
 // Contentful
 
 // Components
+import ButtonLink from '../../../utils/button-link/button-link.component';
 
 // Images
 
@@ -16,10 +15,111 @@ import Link from 'next/link';
 
 // Styles
 import styled from 'styled-components';
-import ButtonLink from '../../../utils/button-link/button-link.component';
 
+const BicycleCard = ({ content }) => {
+  const {
+    name,
+    brand,
+    model,
+    description,
+    cardImage,
+    cardImageWidth,
+    cardImageHeight,
+    noStockImage,
+    availableSizes,
+    priceNow,
+    priceWas,
+    altText,
+    inStock,
+    onSpecial } = content.fields;
 
-/* ---------------< Larger than mobile >--------------- */
+  var getDescriptionText = (desc) => {
+    if (typeof window !== 'undefined') {
+      var w = window.innerWidth;
+    }
+
+    var shortDescription;
+    if (w >= 1024 && w < 1280 && desc.length > 130) {
+      shortDescription = desc.substr(0, 135) + '...';
+    } else if (desc.lenght > 200) {
+      shortDescription = desc.substr(0, 200) + '...';
+    } else {
+      return desc;
+    }
+    return shortDescription;
+  }
+
+  return (
+    <Card>
+      <CardContent>
+        <CardLeft>
+          {inStock ?
+            <>
+              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} loading='eager' />
+            </>
+            :
+            <Overlay className='rounded-corners' backgroundImg={'https:' + cardImage.fields.file.url} >
+              <Image src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} />
+            </Overlay>
+          }
+        </CardLeft>
+        <CardRight>
+          {onSpecial ?
+            <SpecialBadge>
+              <span className='badge-content'>On Special</span>
+            </SpecialBadge>
+            : null}
+          <Heading>
+            <h2>{brand} {model}</h2>
+          </Heading>
+          <Description>
+            {getDescriptionText(description)}
+          </Description>
+          <Details>
+            <AvailableSizes>
+              <div>
+                <span className='bold'>Avaialable sizes: </span>
+              </div>
+              <Sizes>
+                {availableSizes.map(size => {
+                  return (
+                    <li key={size}>{size}</li>
+                  )
+                })}
+              </Sizes>
+            </AvailableSizes>
+            <PriceContainer>
+              {onSpecial ?
+                <Price>
+                  <span className='bold'>Price: </span>
+                  <PriceValues>
+                    <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
+                    <PriceWas>Was - R{priceWas}.00</PriceWas>
+                  </PriceValues>
+                </Price>
+                :
+                <Price>
+                  <span className='bold'>Price: </span>
+                  <PriceNow className='bold'>R{priceNow}.00</PriceNow>
+                </Price>
+              }
+            </PriceContainer>
+          </Details>
+          <ViewMore>
+            <TsCs>Bicycle specifications may vary from manufacturer website. Other models available. T&apos;s &amp; C&apos;s apply</TsCs>
+            <ButtonLink to={'/bicycles/' + name} color='--orange' fill={true}>
+              View Bicycle
+            </ButtonLink>
+          </ViewMore>
+        </CardRight>
+      </CardContent>
+      <LineBreak />
+    </Card>
+  );
+};
+
+export default BicycleCard;
+
 const Card = styled.div`
   height: auto;
 `;
@@ -213,9 +313,7 @@ const Overlay = styled.div`
   background: linear-gradient(270deg, rgba(31,31,31,0.5) 50%, rgba(71,71,71,0.7) 100%), url(${props => props.backgroundImg}) center / cover no-repeat;
 `;
 
-const PriceContainer = styled.div`
-  
-`;
+const PriceContainer = styled.div``;
 
 const Price = styled.div`
   display: flex;
@@ -240,17 +338,9 @@ const PriceValues = styled.div`
   flex-direction: row;
   gap: 1rem;
 
-  @media screen and (min-width: 1024px) {
-
-  }
-
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     flex-direction: column;
     gap: 5px;
-  }
-
-  @media screen and (max-width: 767px) {
-
   }
 `;
 
@@ -291,108 +381,3 @@ const LineBreak = styled.div`
     display: none;
   }
 `;
-
-
-const BicycleCard = ({ content }) => {
-  const {
-    name,
-    brand,
-    model,
-    description,
-    cardImage,
-    cardImageWidth,
-    cardImageHeight,
-    noStockImage,
-    availableSizes,
-    priceNow,
-    priceWas,
-    altText,
-    inStock,
-    onSpecial } = content.fields;
-
-  var getDescriptionText = (desc) => {
-    if (typeof window !== 'undefined') {
-      var w = window.innerWidth;
-    }
-        
-    var shortDescription;
-    if (w >= 1024 && w < 1280 && desc.length > 130) {
-      shortDescription = desc.substr(0, 135) + '...';
-    } else if (desc.lenght > 200) {
-      shortDescription = desc.substr(0, 200) + '...';
-    } else {
-      return desc;
-    }
-    return shortDescription;
-  }
-
-  return (
-    <Card>
-      <CardContent>
-        <CardLeft>
-          {inStock ?
-            <>
-              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} loading='eager' />
-            </>
-            :
-            <Overlay className='rounded-corners' backgroundImg={'https:' + cardImage.fields.file.url} >
-              <Image src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} />
-            </Overlay>
-          }
-        </CardLeft>
-        <CardRight>
-          {onSpecial ?
-            <SpecialBadge>
-              <span className='badge-content'>On Special</span>
-            </SpecialBadge>
-            : null}
-          <Heading>
-            <h2>{brand} {model}</h2>
-          </Heading>
-          <Description>
-            {getDescriptionText(description)}
-          </Description>
-          <Details>
-            <AvailableSizes>
-              <div>
-                <span className='bold'>Avaialable sizes: </span>
-              </div>
-              <Sizes>
-                {availableSizes.map(size => {
-                  return (
-                    <li key={size}>{size}</li>
-                  )
-                })}
-              </Sizes>
-            </AvailableSizes>
-            <PriceContainer>
-              {onSpecial ?
-                <Price>
-                  <span className='bold'>Price: </span>
-                  <PriceValues>
-                    <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
-                    <PriceWas>Was - R{priceWas}.00</PriceWas>
-                  </PriceValues>
-                </Price>
-                :
-                <Price>
-                  <span className='bold'>Price: </span>
-                  <PriceNow className='bold'>R{priceNow}.00</PriceNow>
-                </Price>
-              }
-            </PriceContainer>
-          </Details>
-          <ViewMore>
-            <TsCs>Bicycle specifications may vary from manufacturer website. Other models available. T&apos;s &amp; C&apos;s apply</TsCs>
-            <ButtonLink to={'/bicycles/' + name} color='--orange' fill={true}>
-              View Bicycle
-            </ButtonLink>
-          </ViewMore>
-        </CardRight>
-      </CardContent>
-      <LineBreak />
-    </Card>
-  );
-};
-
-export default BicycleCard;

@@ -15,10 +15,8 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const TradingHoursHeader = () => {
-
   const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
   const januaryDays = [1, 2, 3];
-
   const currentDate = new Date();
   var todayMonth = useRef(currentDate.getMonth());
   var todayDay = useRef(currentDate.getDate());

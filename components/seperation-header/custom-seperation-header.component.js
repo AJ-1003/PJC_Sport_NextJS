@@ -13,6 +13,31 @@ import { useRouter } from 'next/router';
 // Styles
 import styled from 'styled-components';
 
+const CustomSeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
+  var router = useRouter();
+  var route;
+  if (router.route == '/') {
+    route = 'home';
+  } else {
+    route = router.route.substring(1);
+  }
+  return (
+    <Header id={id}>
+      <h2 className='black-friday'>
+        {/* {childrenLvl1} */}
+        Bla<span className='delay1'>c</span>k
+        Fr<span className='delay2'>i</span>da<span className='delay3'>y</span>
+      </h2>
+      {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
+        ?
+        <h3 className='header-text-h3'>{childrenLvl2}</h3>
+        : null}
+    </Header>
+  );
+};
+
+export default CustomSeperationHeader;
+
 const Header = styled.div`
   font-family: 'Lato', sans-serif;
   background: var(--dark-grey);
@@ -39,28 +64,3 @@ const Header = styled.div`
     }
   }
 `;
-
-const CustomSeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
-  var router = useRouter();
-  var route;
-  if (router.route == '/') {
-    route = 'home';
-  } else {
-    route = router.route.substring(1);
-  }
-  return (
-    <Header id={id}>
-      <h2 className='black-friday'>
-        {/* {childrenLvl1} */}
-        Bla<span className='delay1'>c</span>k
-        Fr<span className='delay2'>i</span>da<span className='delay3'>y</span>
-      </h2>
-      {childrenLvl2 !== '' || childrenLvl2 !== null || typeof childrenLvl2 !== 'undefined'
-        ?
-        <h3 className='header-text-h3'>{childrenLvl2}</h3>
-        : null}
-    </Header>
-  );
-};
-
-export default CustomSeperationHeader;

@@ -8,6 +8,7 @@ import React, { useEffect, useRef } from 'react';
 // Components
 import TradingHoursDay from './trading-hours-day.component';
 import TradingHoursDecemberDay from './trading-hours-december-day.component';
+import TradingHoursNote from './trading-hours-note.component';
 
 // Images
 
@@ -15,7 +16,6 @@ import TradingHoursDecemberDay from './trading-hours-december-day.component';
 
 // Styles
 import styled from 'styled-components';
-import TradingHoursNote from './trading-hours-note.component';
 
 const TradingHoursBody = ({ content }) => {
 

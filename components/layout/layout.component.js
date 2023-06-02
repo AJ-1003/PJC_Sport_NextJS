@@ -15,10 +15,6 @@ import BackToTop from '../../utils/button-back-to-top/button-back-to-top.compone
 // Styles
 import styled from 'styled-components';
 
-const LayoutContainer = styled.div`
-  margin: 0;
-`;
-
 const Layout = ({ children }) => {
   return (
     <LayoutContainer>
@@ -31,3 +27,7 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+const LayoutContainer = styled.div`
+  margin: 0;
+`;

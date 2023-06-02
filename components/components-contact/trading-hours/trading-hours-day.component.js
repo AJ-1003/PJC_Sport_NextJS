@@ -1,6 +1,5 @@
 // React
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // Next
 
@@ -52,13 +51,9 @@ const Day = styled.div`
   }
 `;
 
-const Weekday = styled.div`
+const Weekday = styled.div``;
 
-`;
-
-const Time = styled.div`
-
-`;
+const Time = styled.div``;
 
 const Underline = styled.div`
   height: 2px;

@@ -16,6 +16,40 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 // Styles
 import styled from 'styled-components';
 
+const SpecialCard = ({ specialDetails }) => {
+  const { title, image, altText, description } = specialDetails.fields;
+  return (
+    <Card>
+      <Heading className='rounded-corners'>
+        <h2>{title}</h2>
+      </Heading>
+      <ImageContainer>
+        <Image
+          // className='rounded-corners'
+          src={'https:' + image.fields.file.url}
+          alt={altText}
+          width='500'
+          height='500'
+          responsive='true'
+          title={altText} />
+      </ImageContainer>
+      <DescriptionContainer className='rounded-corners'>
+        <DescriptionText>
+          {documentToReactComponents(description)}
+        </DescriptionText>
+        <TsCs>
+          <span>
+            {/* Offer only valid from 05/12/2022 - 30/12/2022.  */}
+            T&apos;s & C&apos;s Apply
+          </span>
+        </TsCs>
+      </DescriptionContainer>
+    </Card>
+  );
+};
+
+export default SpecialCard;
+
 const Card = styled.div`
   min-width: 35%;
   max-width: 50%;
@@ -74,18 +108,27 @@ const ImageContainer = styled.div`
   justify-content: center;
   margin: 0 auto;
   width: 70%;
-  border-radius: 0.5rem;
+
+  img {
+    border-radius: 0.5rem;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     margin: 0;
     width: 100%;
-    border-radius: 0;
+
+    img {
+      border-radius: 0;
+    }
   }
 
   @media screen and (max-width: 767px) {
     margin: 0;
     width: 100%;
-    border-radius: 0;
+    
+    img {
+      border-radius: 0;
+    }
   }
 `;
 
@@ -137,37 +180,3 @@ const TsCs = styled.div`
   text-align: center;
   padding-right: 10px;
 `;
-
-const SpecialCard = ({ specialDetails }) => {
-  const { title, image, altText, description } = specialDetails.fields;
-  return (
-    <Card>
-      <Heading className='rounded-corners'>
-        <h2>{title}</h2>
-      </Heading>
-      <ImageContainer>
-        <Image
-          // className='rounded-corners'
-          src={'https:' + image.fields.file.url}
-          alt={altText}
-          width='500'
-          height='500'
-          responsive='true'
-          title={altText} />
-      </ImageContainer>
-      <DescriptionContainer className='rounded-corners'>
-        <DescriptionText>
-          {documentToReactComponents(description)}
-        </DescriptionText>
-        <TsCs>
-          <span>
-            {/* Offer only valid from 05/12/2022 - 30/12/2022.  */}
-            T&apos;s & C&apos;s Apply
-          </span>
-        </TsCs>
-      </DescriptionContainer>
-    </Card>
-  );
-};
-
-export default SpecialCard;

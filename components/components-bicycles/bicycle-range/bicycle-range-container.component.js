@@ -15,16 +15,6 @@ import BicycleRangeCard from './bicycle-range-card.component';
 // Styles
 import styled from 'styled-components';
 
-const Container = styled.div`
-  display : flex;
-  flex-flow: row wrap;
-
-  @media screen and (max-width: 767px) {
-    display : flex;
-    flex-flow: column;
-  }
-`;
-
 const BicycleRangeContainer = ({ content }) => {
   return (
     <Container>
@@ -38,3 +28,13 @@ const BicycleRangeContainer = ({ content }) => {
 };
 
 export default BicycleRangeContainer;
+
+const Container = styled.div`
+  display : flex;
+  flex-flow: row wrap;
+
+  @media screen and (max-width: 767px) {
+    display : flex;
+    flex-flow: column;
+  }
+`;

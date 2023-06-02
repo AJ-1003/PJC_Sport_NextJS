@@ -14,6 +14,17 @@ import React from 'react';
 // Styles
 import styled from 'styled-components';
 
+const ServiceCardHeader = ({ heading, subHeading }) => {
+  return (
+    <Header>
+      <h3>{heading}</h3>
+      <p>{subHeading}</p>
+    </Header>
+  );
+};
+
+export default ServiceCardHeader;
+
 const Header = styled.div`
   min-height: 55px;
   font-family: 'Racing Sans One', sans-serif;
@@ -31,14 +42,3 @@ const Header = styled.div`
     margin: 0;
   }
 `;
-
-const ServiceCardHeader = ({ heading, subHeading }) => {
-  return (
-    <Header>
-      <h3>{heading}</h3>
-      <p>{subHeading}</p>
-    </Header>
-  );
-};
-
-export default ServiceCardHeader;

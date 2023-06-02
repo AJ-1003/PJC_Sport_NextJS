@@ -1,5 +1,5 @@
 // React
-import React, { Children } from 'react';
+import React from 'react';
 
 // Components
 
@@ -9,12 +9,49 @@ import React, { Children } from 'react';
 
 // Styles
 import styled from 'styled-components';
-import homeStyles from '/styles/Home.module.css';
+import balletStyles from '/styles/Ballet.module.css';
 import bicycleStyles from '/styles/Bicycles.module.css';
+import contactStyles from '/styles/Contact.module.css';
+import homeStyles from '/styles/Home.module.css';
+import newsStyles from '/styles/News.module.css';
 import servicesStyles from '/styles/Services.module.css';
 import sportStyles from '/styles/Sport.module.css';
-import balletStyles from '/styles/Ballet.module.css';
-import contactStyles from '/styles/Contact.module.css';
+
+const HeroImageText = ({ colouredHeading, heading, contentText, route, buttons }) => {
+  return (
+    <HeaderTextContainer className='rounded-corners'>
+      {heading == null || heading == undefined || heading == ''
+        ?
+        <h1 className={`${route == 'home' ? homeStyles.textColour :
+          route == 'bicycles' ? bicycleStyles.textColour :
+            route == 'services' ? servicesStyles.textColour :
+              route == 'sport' ? sportStyles.textColour :
+                route == 'ballet' ? balletStyles.textColour :
+                  route == 'contact' ? contactStyles.textColour :
+                    route == 'news' ? newsStyles.textColour :
+                      ''}
+                      ${route == 'ballet' ? 'ballet-text' : ''}`}>{colouredHeading}</h1>
+        :
+        <>
+          <h1 className={`${route == 'home' ? homeStyles.textColour :
+            route == 'bicycles' ? bicycleStyles.textColour :
+              route == 'services' ? servicesStyles.textColour :
+                route == 'sport' ? sportStyles.textColour :
+                  route == 'ballet' ? balletStyles.textColour :
+                    route == 'contact' ? contactStyles.textColour :
+                      route == 'news' ? newsStyles.textColour :
+                        ''}
+          ${route == 'ballet' ? 'ballet-text' : ''}`}>{colouredHeading}</h1>
+          <h2 className={`${route == 'ballet' ? 'ballet-text' : ''}`}>{heading}</h2>
+        </>
+      }
+      <p className={`${route == 'ballet' ? 'ballet-text-p' : ''}`}>{contentText}</p>
+      <Buttons>{buttons}</Buttons>
+    </HeaderTextContainer>
+  );
+};
+
+export default HeroImageText;
 
 const HeaderTextContainer = styled.div`
   display: flex;
@@ -68,36 +105,13 @@ const HeaderTextContainer = styled.div`
   }
 `;
 
-const HeroImageText = ({ colouredHeading, heading, contentText, route, buttons }) => {
-  return (
-    <HeaderTextContainer className='rounded-corners'>
-      {heading == null || heading == undefined || heading == ''
-        ?
-        <h1 className={`${route == 'home' ? homeStyles.textColour :
-            route == 'bicycles' ? bicycleStyles.textColour :
-              route == 'services' ? servicesStyles.textColour :
-                route == 'sport' ? sportStyles.textColour :
-                  route == 'ballet' ? balletStyles.textColour :
-                    route == 'contact' ? contactStyles.textColour :
-                      ''}
-                      ${route == 'ballet' ? 'ballet-text' : ''}`}>{colouredHeading}</h1>
-        :
-        <>
-          <h1 className={`${route == 'home' ? homeStyles.textColour :
-              route == 'bicycles' ? bicycleStyles.textColour :
-                route == 'services' ? servicesStyles.textColour :
-                  route == 'sport' ? sportStyles.textColour :
-                    route == 'ballet' ? balletStyles.textColour :
-                      route == 'contact' ? contactStyles.textColour :
-                        ''}
-          ${route == 'ballet' ? 'ballet-text' : ''}`}>{colouredHeading}</h1>
-          <h2 className={`${route == 'ballet' ? 'ballet-text' : ''}`}>{heading}</h2>
-        </>
-      }
-      <p  className={`${route == 'ballet' ? 'ballet-text-p' : ''}`}>{contentText}</p>
-      {buttons}
-    </HeaderTextContainer>
-  );
-};
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 
-export default HeroImageText;
+  @media screen and (max-width: 767px) {
+    align-items: center;
+    flex-direction: column;
+  }
+`;

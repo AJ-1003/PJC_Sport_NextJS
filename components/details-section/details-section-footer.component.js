@@ -21,27 +21,8 @@ import sportStyles from '/styles/Sport.module.css';
 import balletStyles from '/styles/Ballet.module.css';
 import contactStyles from '/styles/Contact.module.css';
 
-const Footer = styled.div`
-  font-family: 'Racing Sans One', cursive;
-  font-size: 1rem;
-  margin: 1rem 0;
-
-  p {
-    color: #fff;
-  }
-
-  &.left {
-    text-align: left;
-  }
-
-  &.right {
-    text-align: right;
-  }
-`;
-
 const DetailsSectionFooter = ({ colouredFootnote, footnote, alignment }) => {
   var router = useRouter();
-
   var route;
   if (router.route == '/') {
     route = 'home';
@@ -65,3 +46,21 @@ const DetailsSectionFooter = ({ colouredFootnote, footnote, alignment }) => {
 };
 
 export default DetailsSectionFooter;
+
+const Footer = styled.div`
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1rem;
+  margin: 1rem 0;
+
+  p {
+    color: #fff;
+  }
+
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+`;

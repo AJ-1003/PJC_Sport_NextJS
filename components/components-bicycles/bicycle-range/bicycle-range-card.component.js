@@ -15,6 +15,21 @@ import Link from 'next/link';
 // Styles
 import styled from 'styled-components';
 
+const BicycleRangeCard = ({ bicycleRangeDetails }) => {
+  const { title, image, linkToSection } = bicycleRangeDetails.fields;
+  return (
+    <Card
+      backgroundImg={'https:' + image.fields.file.url}>
+      <Link href={'#' + linkToSection} legacyBehavior>
+        {title}
+      </Link>
+    </Card>
+
+  );
+};
+
+export default BicycleRangeCard;
+
 const Card = styled.div`
   display: flex;
   justify-content: center;
@@ -41,18 +56,3 @@ const Card = styled.div`
     min-height: 150px;
   }
 `;
-
-const BicycleRangeCard = ({ bicycleRangeDetails }) => {
-  const { title, image, linkToSection } = bicycleRangeDetails.fields;
-  return (
-    <Card
-      backgroundImg={'https:' + image.fields.file.url}>
-      <Link href={'#' + linkToSection} legacyBehavior>
-        {title}
-      </Link>
-    </Card>
-
-  );
-};
-
-export default BicycleRangeCard;

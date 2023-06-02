@@ -20,34 +20,6 @@ import sportStyles from '/styles/Sport.module.css';
 import balletStyles from '/styles/Ballet.module.css';
 import contactStyles from '/styles/Contact.module.css';
 
-const RightNav = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-flow: row nowrap;
-  padding-right: 20px;
-  color: #fff;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  
-  .nav-link {
-    padding: 10px 15px;
-  }
-
-  @media (max-width: 767px) {
-    flex-flow: column nowrap;
-    background-color: #313131;
-    position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 60%;
-    padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
-  }
-`;
-
 const RightNavigation = ({ open, closeSideNav }) => {
   const router = useRouter();
   var route;
@@ -105,3 +77,31 @@ const RightNavigation = ({ open, closeSideNav }) => {
 };
 
 export default RightNavigation;
+
+const RightNav = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  padding-right: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  
+  .nav-link {
+    padding: 10px 15px;
+  }
+
+  @media (max-width: 767px) {
+    flex-flow: column nowrap;
+    background-color: #313131;
+    position: fixed;
+    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    padding-top: 3.5rem;
+    transition: transform 0.3s ease-in-out;
+  }
+`;

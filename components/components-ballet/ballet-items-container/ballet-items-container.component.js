@@ -15,6 +15,20 @@ import BalletItem from '../ballet-item/ballet-item.component';
 // Styles
 import styled from 'styled-components';
 
+const BalletItemsContainer = ({ content }) => {
+  return (
+    <Container>
+      {content.map(item => {
+        return (
+          <BalletItem key={item.sys.id} content={item} />
+        )
+      })}
+    </Container>
+  );
+};
+
+export default BalletItemsContainer;
+
 const Container = styled.div`
   font-family: 'Lato', sans-serif;
   padding: 2rem;
@@ -43,17 +57,3 @@ const Container = styled.div`
     border-radius: 0;
   }
 `;
-
-const BalletItemsContainer = ({ content }) => {
-  return (
-    <Container>
-      {content.map(item => {
-        return (
-          <BalletItem key={item.sys.id} content={item} />
-        )
-      })}
-    </Container>
-  );
-};
-
-export default BalletItemsContainer;
