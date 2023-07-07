@@ -26,19 +26,22 @@ const EventsContainer = ({ content }) => {
   var currentMonth = currentDate.getMonth();
   var previousMonth = currentDate.getMonth() - 1;
 
+  console.log(currentMonth)
+
   return (
     <Container>
       <Heading>
         <HeadingText>
-          This Month&apos;s Events
+          Upcoming Events
         </HeadingText>
       </Heading>
       {content.map(newsEvent => {
         const { eventName, description, images, date } = newsEvent.fields;
         const dateParts = date.split('-');
+        console.log(dateParts)
         return (
           <>
-            {dateParts[1] - 1 == currentMonth ?
+            {dateParts[1] - 1 >= currentMonth ?
               <>
                 <Content key={newsEvent.sys.id} className='rounded-corners'>
                   <div>
