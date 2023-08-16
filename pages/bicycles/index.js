@@ -13,7 +13,6 @@ import BicycleRangeContainer from '../../components/components-bicycles/bicycle-
 import DetailsSection from '../../components/details-section/details-section.component';
 import HeroImage from '../../components/hero-image/hero-image.component';
 import SeperationHeader from '../../components/seperation-header/seperation-header.component';
-import BicycleCatalog from '../../components/components-bicycles/bicycle-catalog/bicycle-catalog.component';
 
 // Images
 

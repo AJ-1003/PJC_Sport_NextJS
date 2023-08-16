@@ -76,7 +76,7 @@ const Home = ({ whatWeOfferCards, specials, header }) => {
                 View Specials
               </ButtonLink>
               <ButtonLink to='/news' color='--white' textColor='--grey' fill={true} >
-                Brand of the Month
+                News, Events, and Tips
               </ButtonLink>
             </>
           }>
