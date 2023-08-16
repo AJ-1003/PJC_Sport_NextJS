@@ -93,7 +93,6 @@ const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, ac
         <SeperationHeader childrenLvl1='Bicycle Ranges' />
         <BicycleRangeContainer content={bicycleRanges} />
         <CarouselSlider content={brands} />
-        <BicycleCatalog/>
         <DetailsSection content={bicycleSections} panelContent={bicycles} type={type} />
         <SeperationHeader childrenLvl1='Accessories & Gear' />
         <DetailsSection content={accessoriesGear} />
