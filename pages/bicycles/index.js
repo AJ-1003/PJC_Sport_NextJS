@@ -13,6 +13,7 @@ import BicycleRangeContainer from '../../components/components-bicycles/bicycle-
 import DetailsSection from '../../components/details-section/details-section.component';
 import HeroImage from '../../components/hero-image/hero-image.component';
 import SeperationHeader from '../../components/seperation-header/seperation-header.component';
+import BicycleCatalog from '../../components/components-bicycles/bicycle-catalog/bicycle-catalog.component';
 
 // Images
 
@@ -93,6 +94,7 @@ const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, ac
         <SeperationHeader childrenLvl1='Bicycle Ranges' />
         <BicycleRangeContainer content={bicycleRanges} />
         <CarouselSlider content={brands} />
+        <BicycleCatalog/>
         <DetailsSection content={bicycleSections} panelContent={bicycles} type={type} />
         <SeperationHeader childrenLvl1='Accessories & Gear' />
         <DetailsSection content={accessoriesGear} />
