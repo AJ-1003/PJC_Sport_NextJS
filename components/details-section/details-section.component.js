@@ -9,11 +9,11 @@ import { useRouter } from 'next/router';
 // Contentful
 
 // Components
-import BicycleCard from '../components-bicycles/bicycle-card/bicycle-card.component';
-import ItemCard from '../item-card/item-card.component';
 import DetailsSectionBody from './details-section-body.component';
 import DetailsSectionFooter from './details-section-footer.component';
 import DetailsSectionHeader from './details-section-header.component';
+import BicycleCard from '../components-bicycles/bicycle-card/bicycle-card.component';
+import ItemCard from '../item-card/item-card.component';
 
 // Images
 
@@ -24,9 +24,16 @@ import styled from 'styled-components';
 
 const DetailsSection = ({ content, panelContent, type }) => {
 
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const [ref, bounds] = useMeasure();
+  const [show, setShow] = useState(true);
+  const [nextShow, setNextShow] = useState(false);
+  const [contentId, setContentId] = useState('id');
   var router = useRouter();
+
+  function ShowPanelContent(id) {
+    setShow(!show);
+    setContentId(id);
+    setNextShow(!nextShow);
+  }
 
   var route;
   if (router.route == '/') {
@@ -34,17 +41,6 @@ const DetailsSection = ({ content, panelContent, type }) => {
   } else {
     route = router.route.substring(1);
   }
-
-  const toggleWrapperAnimatedStyle = useSpring({
-    transform: isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)'
-  });
-  const panelContentAnimatedStyle = useSpring({
-    height: isCollapsed ? false : bounds.height
-  });
-
-  const togglePanel = () => {
-    setIsCollapsed(prevState => !prevState)
-  };
 
   return (
     <>
@@ -89,38 +85,38 @@ const DetailsSection = ({ content, panelContent, type }) => {
                       alignment={alignment} />
                     : null}
 
-                {/* {hasContent
+                {hasContent
                   ?
-                  <ViewMoreButton onClick={togglePanel}>
-                    View More
-                  </ViewMoreButton>
-                  : null} */}
+                  <ViewMoreButtonContainer className={alignment}>
+                    <ViewMoreButton className='rounded-corners' onClick={() => ShowPanelContent(id)}>
+                      View More
+                    </ViewMoreButton>
+                  </ViewMoreButtonContainer>
+                  : null}
 
               </SectionContainer>
             </Section>
-            <PanelContent style={panelContentAnimatedStyle}>
-              <PanelContentInner ref={ref}>
-                {panelContent !== null && typeof panelContent !== 'undefined'
-                  ?
-                  <>
-                    {panelContent.filter(section => section.fields.forSection == id)
-                      .map(item => {
-                        return (
-                          <>
-                            {
-                              type == 'bicycles'
-                                ?
-                                <BicycleCard key={item.sys.id} content={item} />
-                                :
-                                <ItemCard key={item.sys.id} content={item} />
-                            }
-                          </>
-                        )
-                      })}
-                  </>
-                  : null}
-              </PanelContentInner>
-            </PanelContent>
+
+            {show && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id ||
+              nextShow && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id
+              ?
+              <PanelContent id={contentId}>
+                {panelContent.filter(bicycle => bicycle.fields.forSection == id)
+                  .map(item => {
+                    return (
+                      <>
+                        {
+                          type == 'bicycles'
+                            ?
+                            <BicycleCard key={item.sys.id} content={item} />
+                            :
+                            <ItemCard key={item.sys.id} content={item} />
+                        }
+                      </>
+                    )
+                  })}
+              </PanelContent>
+              : null}
           </>
         )
       })}
@@ -154,10 +150,24 @@ const SectionContainer = styled.div`
   }
 `;
 
-const ViewMoreButton = styled.div`
+const ViewMoreButtonContainer = styled.div`
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+`;
+
+const ViewMoreButton = styled.button`
   cursor: pointer;
+  width: fit-content;
+  padding: 10px 15px;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  background: var(--orange);
 `;
 
 const PanelContent = styled.div``;
-
-const PanelContentInner = styled.div``;

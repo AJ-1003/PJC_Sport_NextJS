@@ -45,7 +45,11 @@ const Footer = () => {
           </SocialIcons>
         </ContentCenter>
         <ContentRight>
-          <p>PJC Sport &amp; Cycles ©&nbsp;{currentYear}</p>
+          <p>
+            PJC Sport &amp; Cycles ©&nbsp;{currentYear}
+            <br />
+            Developed by <Link href='https://nxtgenwebworks.co.za/'><a target='_blank'>NxtGen WebWorks</a></Link>
+          </p>
         </ContentRight>
       </Content>
     </FooterContainer>
