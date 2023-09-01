@@ -20,13 +20,8 @@ import styled from 'styled-components';
 
 const EventsContainer = ({ content }) => {
 
-  console.log(content)
-
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth();
-  var previousMonth = currentDate.getMonth() - 1;
-
-  console.log(currentMonth)
 
   return (
     <Container>
@@ -38,10 +33,10 @@ const EventsContainer = ({ content }) => {
       {content.map(newsEvent => {
         const { eventName, description, images, date } = newsEvent.fields;
         const dateParts = date.split('-');
-        console.log(dateParts)
         return (
           <>
-            {dateParts[1] - 1 >= currentMonth ?
+            {dateParts[1] - 1 >= currentMonth
+              ?
               <>
                 <Content key={newsEvent.sys.id} className='rounded-corners'>
                   <div>
@@ -56,7 +51,8 @@ const EventsContainer = ({ content }) => {
                     <>
                       <EventsImages images={images} />
                     </>}
-                </Content></> :
+                </Content></>
+              :
               null}
           </>
         );

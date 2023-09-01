@@ -17,7 +17,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styled from 'styled-components';
 
 const SpecialCard = ({ specialDetails }) => {
-  const { title, image, altText, description } = specialDetails.fields;
+  const { title, image, altText, description, tsCs } = specialDetails.fields;
   return (
     <Card>
       <Heading className='rounded-corners'>
@@ -39,8 +39,7 @@ const SpecialCard = ({ specialDetails }) => {
         </DescriptionText>
         <TsCs>
           <span>
-            {/* Offer only valid from 05/12/2022 - 30/12/2022.  */}
-            T&apos;s & C&apos;s Apply
+            {tsCs}
           </span>
         </TsCs>
       </DescriptionContainer>

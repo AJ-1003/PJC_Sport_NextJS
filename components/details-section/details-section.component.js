@@ -98,9 +98,9 @@ const DetailsSection = ({ content, panelContent, type }) => {
             </Section>
 
             {show && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id ||
-              nextShow && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id
+            nextShow && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id
               ?
-              <PanelContent id={contentId}>
+              <PanelContent>
                 {panelContent.filter(bicycle => bicycle.fields.forSection == id)
                   .map(item => {
                     return (
