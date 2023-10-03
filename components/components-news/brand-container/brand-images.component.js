@@ -41,7 +41,7 @@ const BrandImages = ({ images }) => {
             return (
               <CarouselItem
                 key={image.sys.id}>
-                <Image className='rounded-corners' src={'https:' + image.fields.file.url} width='450px' height='250px' alt='image' />
+                <Image className='rounded-corners' src={'https:' + image.fields.file.url} width='450px' height='450px' alt='image' />
               </CarouselItem>
             );
           })}
