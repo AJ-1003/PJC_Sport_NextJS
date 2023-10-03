@@ -64,31 +64,103 @@ const BicycleSpecifications = ({ content }) => {
     <SpecsContainer>
       <Left>
         <h3>Frameset</h3>
-        <Specification image={frameMaterialImg} heading='Frame Material' spec={frameMaterial} />
+        {frameMaterial == null || frameMaterial == "" || typeof frameMaterial == 'undefined'
+          ?
+          null :
+          <Specification image={frameMaterialImg} heading='Frame Material' spec={frameMaterial} />
+        }
         <h3>Suspension</h3>
-        <Specification image={forkImg} heading='Fork' spec={fork} />
-        <Specification image={rearShockImg} heading='Rear Shock' spec={rearShock} />
+        {fork == null || fork == "" || typeof fork == 'undefined'
+          ?
+          null :
+          <Specification image={forkImg} heading='Fork' spec={fork} />
+        }
+        {rearShock == null || rearShock == "" || typeof rearShock == 'undefined'
+          ?
+          null :
+          <Specification image={rearShockImg} heading='Rear Shock' spec={rearShock} />
+        }
         <h3>Drivetrain</h3>
-        <Specification image={frontDerailleurImg} heading='Front Derailleur' spec={frontDerailleur} />
-        <Specification image={rearDerailleurImg} heading='Rear Derailleur' spec={rearDerailleur} />
-        <Specification image={bottomBracketImg} heading='Bottom Bracket' spec={bottomBracket} />
-        <Specification image={crankImg} heading='Crank' spec={chainwheel} />
-        <Specification image={chainImg} heading='Chain' spec={chain} />
-        <Specification image={shiftersImg} heading='Shifters' spec={shifters} />
-        <Specification image={cassetteImg} heading='Cassette' spec={cassette} />
-        <Specification image={speedImg} heading='Speed' spec={speed} />
+        {frontDerailleur == null || frontDerailleur == "" || typeof frontDerailleur == 'undefined'
+          ?
+          null :
+          <Specification image={frontDerailleurImg} heading='Front Derailleur' spec={frontDerailleur} />
+        }
+        {rearDerailleur == null || rearDerailleur == "" || typeof rearDerailleur == 'undefined'
+          ?
+          null :
+          <Specification image={rearDerailleurImg} heading='Rear Derailleur' spec={rearDerailleur} />
+        }
+        {bottomBracket == null || bottomBracket == "" || typeof bottomBracket == 'undefined'
+          ?
+          null :
+          <Specification image={bottomBracketImg} heading='Bottom Bracket' spec={bottomBracket} />
+        }
+        {chainwheel == null || chainwheel == "" || typeof chainwheel == 'undefined'
+          ?
+          null :
+          <Specification image={crankImg} heading='Crank' spec={chainwheel} />
+        }
+        {chain == null || chain == "" || typeof chain == 'undefined'
+          ?
+          null :
+          <Specification image={chainImg} heading='Chain' spec={chain} />
+        }
+        {shifters == null || shifters == "" || typeof shifters == 'undefined'
+          ?
+          null :
+          <Specification image={shiftersImg} heading='Shifters' spec={shifters} />
+        }
+        {cassette == null || cassette == "" || typeof cassette == 'undefined'
+          ?
+          null :
+          <Specification image={cassetteImg} heading='Cassette' spec={cassette} />
+        }
+        {speed == null || speed == "" || typeof speed == 'undefined'
+          ?
+          null :
+          <Specification image={speedImg} heading='Speed' spec={speed} />
+        }
       </Left>
       <Right>
         <h3>Brakes</h3>
-        <Specification image={brakesImg} heading='Brakes' spec={brakes} />
+        {brakes == null || brakes == "" || typeof brakes == 'undefined'
+          ?
+          null :
+          <Specification image={brakesImg} heading='Brakes' spec={brakes} />
+        }
         <h3>Wheels</h3>
-        <Specification image={frontHubImg} heading='Front Hub' spec={frontHub} />
-        <Specification image={rearHubImg} heading='Rear Hub' spec={rearHub} />
-        <Specification image={wheelsImg} heading='Wheels' spec={wheels} />
-        <Specification image={tyresImg} heading='Tyres' spec={tyres} />
+        {frontHub == null || frontHub == "" || typeof frontHub == 'undefined'
+          ?
+          null :
+          <Specification image={frontHubImg} heading='Front Hub' spec={frontHub} />
+        }
+        {rearHub == null || rearHub == "" || typeof rearHub == 'undefined'
+          ?
+          null :
+          <Specification image={rearHubImg} heading='Rear Hub' spec={rearHub} />
+        }
+        {wheels == null || wheels == "" || typeof wheels == 'undefined'
+          ?
+          null :
+          <Specification image={wheelsImg} heading='Wheels' spec={wheels} />
+        }
+        {tyres == null || tyres == "" || typeof tyres == 'undefined'
+          ?
+          null :
+          <Specification image={tyresImg} heading='Tyres' spec={tyres} />
+        }
         <h3>Components</h3>
-        <Specification image={stemImg} heading='Stem' spec={stem} />
-        <Specification image={seatPostImg} heading='Seat Post' spec={seatPost} />
+        {stem == null || stem == "" || typeof stem == 'undefined'
+          ?
+          null :
+          <Specification image={stemImg} heading='Stem' spec={stem} />
+        }
+        {seatPost == null || seatPost == "" || typeof seatPost == 'undefined'
+          ?
+          null :
+          <Specification image={seatPostImg} heading='Seat Post' spec={seatPost} />
+        }
         {extras !== null && typeof extras !== 'undefined'
           ?
           <>
