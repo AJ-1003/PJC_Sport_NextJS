@@ -77,25 +77,25 @@ const News = ({ header, news, events, tips, brand }) => {
         {news == '' || news == null || typeof news == 'undefined'
           ? null
           : <>
-            <SeperationHeader childrenLvl1={'Latest News'} />
+            <SeperationHeader id='news' childrenLvl1={'Latest News'} />
             <NewsContainer content={news} />
           </>}
         {events == '' || events == null || typeof events == 'undefined'
           ? null
           : <>
-            <SeperationHeader childrenLvl1={'Events'} />
+            <SeperationHeader id='events' childrenLvl1={'Events'} />
             <EventsContainer content={events} />
           </>}
         {tips == '' || tips == null || typeof tips == 'undefined'
           ? null
           : <>
-            <SeperationHeader childrenLvl1={'Tips & Tricks'} />
+            <SeperationHeader id='tips' childrenLvl1={'Tips & Tricks'} />
             <TipsContainer content={tips} />
           </>}
         {brand == '' || brand == null || typeof brand == 'undefined'
           ? null
           : <>
-            <SeperationHeader childrenLvl1={'Brand of the Month'} />
+            <SeperationHeader id='brand-of-the-month' childrenLvl1={'Brand of the Month'} />
             <BrandOfMonthContainer content={brand} />
           </>}
       </main>
