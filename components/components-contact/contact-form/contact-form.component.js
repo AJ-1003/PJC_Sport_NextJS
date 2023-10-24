@@ -86,7 +86,7 @@ const ContactForm = () => {
             </Link>
           </ContactOption>
           <ContactOption className='pointer'>
-            <Link href='https://api.whatsapp.com/send?phone=27824559060'>
+            <Link href='https://api.whatsapp.com/send?phone=27662915277'>
               <a target='_blank' rel='noopener noreferrer'>
                 <WhatsApp />
               </a>
