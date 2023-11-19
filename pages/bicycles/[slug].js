@@ -12,6 +12,7 @@ import client from '/contentful/contentful.data';
 import BicycleSpecifications from '../../components/components-bicycles/bicycle-details-specifications/bicycle-details-specifications.component';
 import SeperationHeader from '../../components/seperation-header/seperation-header.component';
 import BicycleSkeleton from '../../components/skeletons/bicycle-skeleton.component';
+import BicycleCarouselSlider from '../../components/carousel/bicycleCarousel.component';
 
 // Images
 
@@ -22,27 +23,27 @@ import styled from 'styled-components';
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
-    content_type: 'bicycle'
+    content_type: 'bicycle',
   });
 
-  const paths = res.items.map(item => {
+  const paths = res.items.map((item) => {
     return {
       params: {
-        slug: item.fields.name
-      }
-    }
+        slug: item.fields.name,
+      },
+    };
   });
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
     content_type: 'bicycle',
-    'fields.name': params.slug
+    'fields.name': params.slug,
   });
 
   if (!items.length) {
@@ -51,24 +52,21 @@ export const getStaticProps = async ({ params }) => {
         destination: '/',
         permanent: false,
       },
-    }
+    };
   }
 
   return {
-    props:
-    {
-      bicycle: items[0]
+    props: {
+      bicycle: items[0],
     },
-    revalidate: 1
+    revalidate: 1,
   };
 };
 
 const BicycleDetails = ({ bicycle }) => {
   if (!bicycle) {
-    return (
-      <BicycleSkeleton />
-    )
-  };
+    return <BicycleSkeleton />;
+  }
 
   const {
     name,
@@ -98,10 +96,14 @@ const BicycleDetails = ({ bicycle }) => {
     priceNow,
     priceWas,
     cardImage,
+    cardImages,
     detailsImageWidth,
     detailsImageHeight,
     altText,
-    onSpecial } = bicycle.fields;
+    onSpecial,
+  } = bicycle.fields;
+
+  console.log(cardImages);
 
   var specs = {
     frameMaterial,
@@ -122,12 +124,12 @@ const BicycleDetails = ({ bicycle }) => {
     tyres,
     stem,
     seatPost,
-    extras
+    extras,
   };
 
   var sizes = '';
 
-  availableSizes.map(size => {
+  availableSizes.map((size) => {
     sizes += ' ' + size;
   });
 
@@ -136,15 +138,46 @@ const BicycleDetails = ({ bicycle }) => {
   return (
     <>
       <Head>
-        <title>PJC Sport & Cycles - {brand} {model}</title>
-        <meta name='description' content={`${brand} ${model}. ${description}`} />
-        <meta name='robots' content='index,follow'></meta>
-        <link rel='canonical' href={`https://www.pjcsport.co.za/${name}`}></link>
-        <link rel='icon' href='/favicon.ico' />
+        <title>
+          PJC Sport & Cycles - {brand} {model}
+        </title>
+        <meta
+          name="description"
+          content={`${brand} ${model}. ${description}`}
+        />
+        <meta name="robots" content="index,follow"></meta>
+        <link
+          rel="canonical"
+          href={`https://www.pjcsport.co.za/${name}`}
+        ></link>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Main>
-        <Image src={'https:' + cardImage.fields.file.url} objectFit='cover' objectPosition='top' width={detailsImageWidth} height={detailsImageHeight} responsive='true' alt={altText} priority={true} quality={100} />
+        {typeof cardImages !== 'undefined' &&
+        cardImages !== '' &&
+        cardImages !== null ? (
+          cardImages.length > 1 ? (
+            <BicycleCarouselSlider
+              images={cardImages}
+              width={detailsImageWidth}
+              height={detailsImageHeight}
+              altText={altText}
+            />
+          ) : (
+            <Image
+              src={'https:' + cardImage.fields.file.url}
+              objectFit="cover"
+              objectPosition="top"
+              width={detailsImageWidth}
+              height={detailsImageHeight}
+              responsive="true"
+              alt={altText}
+              priority={true}
+              quality={100}
+            />
+          )
+        ) : null}
         <SeperationHeader childrenLvl1={header} />
         <Details>
           <DetailsContainer>
@@ -161,29 +194,29 @@ const BicycleDetails = ({ bicycle }) => {
                   <TopContent>
                     <AvailableSizes>
                       <div>
-                        <span className='bold'>Avaialable sizes: </span>
+                        <span className="bold">Avaialable sizes: </span>
                       </div>
                       <Sizes>
-                        {availableSizes.map(size => {
-                          return (
-                            <li key={size}>{size}</li>
-                          )
+                        {availableSizes.map((size) => {
+                          return <li key={size}>{size}</li>;
                         })}
                       </Sizes>
                     </AvailableSizes>
                     <PriceContainer>
-                      {onSpecial ?
+                      {onSpecial ? (
                         <Price>
-                          <span className='bold'>Price: </span>
-                          <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
+                          <span className="bold">Price: </span>
+                          <PriceNow className="bold">
+                            Now - R{priceNow}.00
+                          </PriceNow>
                           <PriceWas>Was - R{priceWas}.00</PriceWas>
                         </Price>
-                        :
+                      ) : (
                         <Price>
-                          <span className='bold'>Price: </span>
-                          <PriceNow className='bold'>R{priceNow}.00</PriceNow>
+                          <span className="bold">Price: </span>
+                          <PriceNow className="bold">R{priceNow}.00</PriceNow>
                         </Price>
-                      }
+                      )}
                     </PriceContainer>
                   </TopContent>
                 </Top>
@@ -203,7 +236,7 @@ const BicycleDetails = ({ bicycle }) => {
 export default BicycleDetails;
 
 const Main = styled.main`
-  /* background: url(${props => props.backgroundImg}) top / 100% no-repeat; */
+  /* background: url(${(props) => props.backgroundImg}) top / 100% no-repeat; */
   overflow: hidden;
   position: relative;
   display: flex;
@@ -329,7 +362,7 @@ const Sizes = styled.ul`
   list-style: none;
   margin: 0;
   padding-left: 0;
-  
+
   li {
     padding: 0 5px;
     margin: 0;
