@@ -101,6 +101,7 @@ const BicycleDetails = ({ bicycle }) => {
     detailsImageHeight,
     altText,
     onSpecial,
+    tsCs
   } = bicycle.fields;
 
   console.log(cardImages);
@@ -224,6 +225,7 @@ const BicycleDetails = ({ bicycle }) => {
                   <h2>Specifications</h2>
                   <BicycleSpecifications content={specs} />
                 </Bottom>
+                <TsCs>{tsCs}</TsCs>
               </DetailsBottomSection>
             </DetailsSection>
           </DetailsContainer>
@@ -393,3 +395,9 @@ const PriceWas = styled.div`
 const PriceNow = styled.div``;
 
 const Bottom = styled.div``;
+
+const TsCs = styled.span`
+  color: var(--light-grey);
+  font-style: italic;
+  font-size: 0.8rem;
+`;
