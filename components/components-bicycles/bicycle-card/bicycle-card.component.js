@@ -31,7 +31,9 @@ const BicycleCard = ({ content }) => {
     priceWas,
     altText,
     inStock,
-    onSpecial } = content.fields;
+    onSpecial,
+    tsCs,
+  } = content.fields;
 
   var getDescriptionText = (desc) => {
     if (typeof window !== 'undefined') {
@@ -47,67 +49,84 @@ const BicycleCard = ({ content }) => {
       return desc;
     }
     return shortDescription;
-  }
+  };
 
   return (
     <Card>
       <CardContent>
         <CardLeft>
-          {inStock ?
+          {inStock ? (
             <>
-              <Image className='rounded-corners' src={'https:' + cardImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} loading='eager' />
+              <Image
+                className="rounded-corners"
+                src={'https:' + cardImage.fields.file.url}
+                width={cardImageWidth}
+                height={cardImageHeight}
+                alt={altText}
+                title={altText}
+                loading="eager"
+              />
             </>
-            :
-            <Overlay className='rounded-corners' backgroundImg={'https:' + cardImage.fields.file.url} >
-              <Image src={'https:' + noStockImage.fields.file.url} width={cardImageWidth} height={cardImageHeight} alt={altText} title={altText} />
+          ) : (
+            <Overlay
+              className="rounded-corners"
+              backgroundImg={'https:' + cardImage.fields.file.url}
+            >
+              <Image
+                src={'https:' + noStockImage.fields.file.url}
+                width={cardImageWidth}
+                height={cardImageHeight}
+                alt={altText}
+                title={altText}
+              />
             </Overlay>
-          }
+          )}
         </CardLeft>
         <CardRight>
-          {onSpecial ?
+          {onSpecial ? (
             <SpecialBadge>
-              <span className='badge-content'>On Special</span>
+              <span className="badge-content">On Special</span>
             </SpecialBadge>
-            : null}
+          ) : null}
           <Heading>
-            <h2>{brand} {model}</h2>
+            <h2>
+              {brand} {model}
+            </h2>
           </Heading>
-          <Description>
-            {getDescriptionText(description)}
-          </Description>
+          <Description>{getDescriptionText(description)}</Description>
           <Details>
             <AvailableSizes>
               <div>
-                <span className='bold'>Avaialable sizes: </span>
+                <span className="bold">Avaialable sizes: </span>
               </div>
               <Sizes>
-                {availableSizes.map(size => {
-                  return (
-                    <li key={size}>{size}</li>
-                  )
+                {availableSizes.map((size) => {
+                  return <li key={size}>{size}</li>;
                 })}
               </Sizes>
             </AvailableSizes>
             <PriceContainer>
-              {onSpecial ?
+              {onSpecial ? (
                 <Price>
-                  <span className='bold'>Price: </span>
+                  <span className="bold">Price: </span>
                   <PriceValues>
-                    <PriceNow className='bold'>Now - R{priceNow}.00</PriceNow>
+                    <PriceNow className="bold">Now - R{priceNow}.00</PriceNow>
                     <PriceWas>Was - R{priceWas}.00</PriceWas>
                   </PriceValues>
                 </Price>
-                :
+              ) : (
                 <Price>
-                  <span className='bold'>Price: </span>
-                  <PriceNow className='bold'>R{priceNow}.00</PriceNow>
+                  <span className="bold">Price: </span>
+                  <PriceNow className="bold">R{priceNow}.00</PriceNow>
                 </Price>
-              }
+              )}
             </PriceContainer>
           </Details>
           <ViewMore>
-            <TsCs>Bicycle specifications may vary from manufacturer website. Other models available. T&apos;s &amp; C&apos;s apply</TsCs>
-            <ButtonLink to={'/bicycles/' + name} color='--orange' fill={true}>
+            <TsCs>
+              {tsCs}
+            </TsCs>
+            <ButtonLink to={'/bicycles/' + name} color="--orange" fill={true}>
               View Bicycle
             </ButtonLink>
           </ViewMore>
@@ -199,13 +218,13 @@ const SpecialBadge = styled.div`
     width: 200px;
     padding: 10px 0;
     background-color: var(--red-hover);
-    box-shadow: 0 0px 10px ;
+    box-shadow: 0 0px 10px;
     color: #fff;
-    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     text-align: center;
     border: 2px dashed #fff;
-    outline : 5px solid #313131;
+    outline: 5px solid #313131;
 
     @media screen and (min-width: 768px) {
       left: 15px;
@@ -310,7 +329,12 @@ const Sizes = styled.ul`
 `;
 
 const Overlay = styled.div`
-  background: linear-gradient(270deg, rgba(31,31,31,0.5) 50%, rgba(71,71,71,0.7) 100%), url(${props => props.backgroundImg}) center / cover no-repeat;
+  background: linear-gradient(
+      270deg,
+      rgba(31, 31, 31, 0.5) 50%,
+      rgba(71, 71, 71, 0.7) 100%
+    ),
+    url(${(props) => props.backgroundImg}) center / cover no-repeat;
 `;
 
 const PriceContainer = styled.div``;
@@ -329,9 +353,7 @@ const PriceWas = styled.div`
   color: #808080;
 `;
 
-const PriceNow = styled.div`
-  
-`;
+const PriceNow = styled.div``;
 
 const PriceValues = styled.div`
   display: flex;
