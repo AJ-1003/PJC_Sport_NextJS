@@ -19,7 +19,7 @@ import styled from 'styled-components';
 
 const TradingHoursBody = ({ content }) => {
 
-  const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
+  const decemberDays = [25, 26, 27, 28, 29, 30, 31];
   const januaryDays = [1, 2, 3];
 
   const currentDate = new Date();
@@ -38,12 +38,12 @@ const TradingHoursBody = ({ content }) => {
         {(todayMonth.current == 11 && decemberDays.includes(todayDay.current)) || (todayMonth.current == 0 && januaryDays.includes(todayDay.current))
           ?
           <>
-            <TradingHoursDecemberDay date='24 December' openTime='8:30' closingTime='1:00' days={[24]} />
-            <TradingHoursDecemberDay date='25-27 December' openTime='' closingTime='' days={[25, 26, 27]} />
-            <TradingHoursDecemberDay date='28 December' openTime='9:00' closingTime='2:00' days={[28]} />
-            <TradingHoursDecemberDay date='29 December' openTime='9:00' closingTime='2:00' days={[29]} />
-            <TradingHoursDecemberDay date='30 December' openTime='9:00' closingTime='2:00' days={[30]} />
-            <TradingHoursDecemberDay date='31 Dec 2022 - 3 Jan 2023' openTime='' closingTime='' days={[31, 1, 2, 3]} />
+            {/* <TradingHoursDecemberDay date='24 December' openTime='8:30' closingTime='1:00' days={[24]} /> */}
+            <TradingHoursDecemberDay date='25 - 26 December' openTime='' closingTime='' days={[25, 26]} />
+            <TradingHoursDecemberDay date='27 - 29 December' openTime='8:30' closingTime='12:00' days={[27, 28, 29]} />
+            {/* <TradingHoursDecemberDay date='29 December' openTime='9:00' closingTime='2:00' days={[29]} /> */}
+            {/* <TradingHoursDecemberDay date='30 December' openTime='9:00' closingTime='2:00' days={[30]} /> */}
+            <TradingHoursDecemberDay date='30 Dec 2023 - 3 Jan 2024' openTime='' closingTime='' days={[30, 31, 1, 2, 3]} />
           </>
           :
           <>
