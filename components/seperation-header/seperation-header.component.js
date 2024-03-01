@@ -152,8 +152,8 @@ const Header = styled.section`
     color: #ed1d22;
     font-size: 1.5rem;
     // Comment for Christmas
-    /* color: #000; */
+    color: #000;
     // Uncomment for Christmas
-    color: #fff;
+    /* color: #fff; */
   }
 `;
