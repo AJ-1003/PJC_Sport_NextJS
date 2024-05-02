@@ -41,7 +41,7 @@ const BrandImages = ({ images }) => {
             return (
               <CarouselItem
                 key={image.sys.id}>
-                <Image className='rounded-corners' src={'https:' + image.fields.file.url} width='450px' height='450px' alt='image' />
+                <Image className='rounded-corners' src={'https:' + image.fields.file.url} width='550px' height='350px' alt='image' />
               </CarouselItem>
             );
           })}
@@ -49,7 +49,7 @@ const BrandImages = ({ images }) => {
         <Images>
           {images.map(image => {
             return (
-              <Image className='image rounded-corners' key={image.sys.id} src={'https:' + image.fields.file.url} width='450px' height='250px' alt='image' />
+              <Image className='image rounded-corners' key={image.sys.id} src={'https:' + image.fields.file.url} width={auto} height={auto} alt='image' />
             );
           })}
         </Images>

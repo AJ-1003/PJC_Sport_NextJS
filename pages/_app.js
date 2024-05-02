@@ -18,6 +18,8 @@ import '/styles/globals.css';
 import '/styles/404.styles.css';
 import '/styles/christmas-lights.styles.scss';
 import '/styles/black-friday.styles.scss';
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const MyApp = ({ Component, pageProps }) => {
   return (

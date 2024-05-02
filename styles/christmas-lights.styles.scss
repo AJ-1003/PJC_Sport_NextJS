@@ -54,7 +54,7 @@ $light-off-opacity: 0.4;
       animation-duration: 1.4s;
     }
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       background: #222;
       width: ($globe-width - 2);
@@ -64,7 +64,7 @@ $light-off-opacity: 0.4;
       left: 1px;
     }
     &:after {
-      content: "";
+      content: '';
       top: (0 - $globe-height/2);
       left: $globe-width - 3;
       position: absolute;
@@ -87,7 +87,7 @@ $light-off-opacity: 0.4;
   100% {
     background: rgb(0, 255, 21);
     box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread
-    rgb(0, 255, 21);
+      rgb(0, 255, 21);
   }
   50% {
     background: rgba(0, 247, 165, $light-off-opacity);
@@ -113,7 +113,7 @@ $light-off-opacity: 0.4;
   100% {
     background: rgb(255, 0, 0);
     box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread
-    rgb(255, 0, 0);
+      rgb(255, 0, 0);
   }
   50% {
     background: rgba(247, 0, 148, $light-off-opacity);

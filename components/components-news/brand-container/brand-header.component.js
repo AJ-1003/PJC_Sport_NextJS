@@ -18,7 +18,7 @@ import styled from 'styled-components';
 const BrandHeader = ({ header }) => {
   return (
     <Header>
-      <Image className='rounded-corners' src={'https:' + header.fields.file.url} width='450px' height='50px' alt='header' />
+      <Image className='rounded-corners' src={'https:' + header.fields.file.url} width='450px' height='100px' alt='header' />
     </Header>
   );
 };
