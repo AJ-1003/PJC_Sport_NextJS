@@ -124,7 +124,8 @@ const BicycleCard = ({ content }) => {
           </Details>
           <ViewMore>
             <TsCs>
-              {tsCs}
+              Bicycle specifications and color may vary from manufacturer
+              website. Other models available. T&apos;s & C&apos;s apply.
             </TsCs>
             <ButtonLink to={'/bicycles/' + name} color="--orange" fill={true}>
               View Bicycle

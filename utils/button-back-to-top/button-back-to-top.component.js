@@ -95,17 +95,17 @@ const BackToTopButton = styled.button`
   }
 
   @media screen and (min-width: 1024px) and (max-width: 1535px) {
-    bottom: 100px;
+    bottom: 80px;
     right: 50px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    bottom: 100px;
+    bottom: 80px;
     right: 50px;
   }
 
   @media screen and (max-width: 767px) {
-    bottom: 80px;
-    right: 50px;
+    bottom: 30px;
+    right: 30px;
   }
 `;

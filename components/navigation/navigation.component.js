@@ -22,25 +22,32 @@ import logo from '../../assets/navigation/Logo.png';
 import styled from 'styled-components';
 
 const Navigation = () => {
-
   const router = useRouter();
   const route = router.pathname.substring(1);
 
-  return <>
-    <header>
-      <Nav>
-        <div className='navigation_container'>
-          <div className='logo_container'>
-            <Link href='/'>
-              <Image src={logo} alt='logo-img' width='180' height='75' title='Logo' />
-            </Link>
+  return (
+    <>
+      <header>
+        <Nav>
+          <div className="navigation_container">
+            <div className="logo_container">
+              <Link href="/">
+                <Image
+                  src={logo}
+                  alt="logo-img"
+                  width="180"
+                  height="75"
+                  title="Logo"
+                />
+              </Link>
+            </div>
+            <BurgerToggle />
           </div>
-          <BurgerToggle />
-        </div>
-      </Nav>
-    </header>
-    {/* <Outlet /> */}
-  </>;
+        </Nav>
+      </header>
+      {/* <Outlet /> */}
+    </>
+  );
 };
 
 export default Navigation;
@@ -61,11 +68,27 @@ const Nav = styled.nav`
     padding-top: 10px;
     padding-bottom: 10px;
 
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 90%;
+    }
+
     .logo_container {
       width: 200px;
       height: auto;
       padding-left: 20px;
       cursor: pointer;
+
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 60%;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 70%;
+      }
     }
   }
 `;

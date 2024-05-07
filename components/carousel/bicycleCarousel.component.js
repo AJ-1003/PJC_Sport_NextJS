@@ -1,3 +1,5 @@
+'use client';
+
 // React
 import React from 'react';
 import Carousel from 'react-multi-carousel';
@@ -15,7 +17,7 @@ import Link from 'next/link';
 // Data
 
 // Styles
-import 'react-multi-carousel/lib/styles.css';
+import '/node_modules/react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
 
 const BicycleCarouselSlider = ({ images, width, height, altText }) => {
@@ -38,23 +40,22 @@ const BicycleCarouselSlider = ({ images, width, height, altText }) => {
         sliderClass="slider-class"
         removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}
       >
-        {images.map((image) => {
-          return (
-            <CarouselItem key={image.sys.id}>
-              <Image
-                src={'https:' + image.fields.file.url}
-                objectFit="cover"
-                objectPosition="top"
-                width={width}
-                height={height}
-                responsive="true"
-                alt={altText}
-                priority={true}
-                quality={100}
-              />
-            </CarouselItem>
-          );
-        })}
+        {images.map((image) => (
+          <CarouselItem key={image.sys.id}>
+            <Image
+              src={`https:${image.fields.file.url}`}
+              objectFit="cover"
+              objectPosition="top"
+              width={width}
+              height={height}
+              responsive="true"
+              alt={altText}
+              priority={true}
+              quality={100}
+              className="rounded-corners"
+            />
+          </CarouselItem>
+        ))}
       </Carousel>
     </CarouselStyled>
   );
@@ -83,8 +84,9 @@ const responsive = {
 
 const CarouselStyled = styled.div`
   .container-class {
-    margin: 0 auto;
+    width: 100%;
     padding: 0;
+    margin: 0;
   }
 
   .slider-class {

@@ -104,7 +104,7 @@ const BicycleDetails = ({ bicycle }) => {
     tsCs,
   } = bicycle.fields;
 
-  console.log(cardImages);
+  // console.log(cardImages);
 
   var specs = {
     frameMaterial,
@@ -155,123 +155,92 @@ const BicycleDetails = ({ bicycle }) => {
       </Head>
 
       <Main>
-        {typeof cardImages !== 'undefined' &&
-        cardImages !== '' &&
-        cardImages !== null ? (
-          cardImages.length > 1 ? (
-            <BicycleCarouselSlider
-              images={cardImages}
-              width={detailsImageWidth}
-              height={detailsImageHeight}
-              altText={altText}
-            />
-          ) : (
-            <>
-              {/* <Image
-              src={'https:' + cardImage.fields.file.url}
-              objectFit="cover"
-              objectPosition="top"
-              width={detailsImageWidth}
-              height={detailsImageHeight}
-              responsive="true"
-              alt={altText}
-              priority={true}
-              quality={100}
-            /> */}
-              <div className="container col-xxl-8 px-4 py-5">
-                <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-                  <div className="col-10 col-sm-8 col-lg-6">
-                    <Image
-                      src={'https:' + cardImage.fields.file.url}
-                      className="d-block mx-lg-auto img-fluid rounded"
-                      width={detailsImageWidth}
-                      height={detailsImageHeight}
-                      responsive="true"
-                      alt={altText}
-                      priority={true}
-                      quality={100}
-                      objectFit="cover"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <div className="col-lg-6">
-                    <h1 className="display-5 fw-bold lh-1 mb-3">
-                      Responsive left-aligned hero with image
-                    </h1>
-                    <p className="lead">
-                      Quickly design and customize responsive mobile-first sites
-                      with Bootstrap, the world’s most popular front-end open
-                      source toolkit, featuring Sass variables and mixins,
-                      responsive grid system, extensive prebuilt components, and
-                      powerful JavaScript plugins.
-                    </p>
-                    <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-lg px-4 me-md-2"
-                      >
-                        Primary
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-outline-secondary btn-lg px-4"
-                      >
-                        Default
-                      </button>
+        <div className="slug-top">
+          <div className="bicycle-hero">
+            <div className="bicycle-hero-content rounded-corners">
+              <div className="bicycle-img-container rounded-corners">
+                {typeof cardImages !== 'undefined' &&
+                cardImages !== '' &&
+                cardImages !== null ? (
+                  cardImages.length > 1 ? (
+                    <div className="bicycle-img">
+                      <BicycleCarouselSlider
+                        images={cardImages}
+                        width={detailsImageWidth / 3}
+                        height={detailsImageHeight / 3}
+                        altText={altText}
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="bicycle-img">
+                      <Image
+                        src={'https:' + cardImage.fields.file.url}
+                        objectFit="cover"
+                        objectPosition="top"
+                        width={detailsImageWidth / 3}
+                        height={detailsImageHeight / 3}
+                        responsive="true"
+                        alt={altText}
+                        priority={true}
+                        quality={100}
+                        className="rounded-corners"
+                      />
+                    </div>
+                  )
+                ) : (
+                  <p>No image</p>
+                )}
+              </div>
+              <div className="bicycle-details rounded-corners">
+                <div className="bd-top">
+                  <h2>Description</h2>
+                  <p>{description}</p>
+                </div>
+                <div className="bd-bottom">
+                  <hr />
+                  <AvailableSizes>
+                    <div>
+                      <span className="bold">Avaialable sizes: </span>
+                    </div>
+                    <Sizes>
+                      {availableSizes.map((size) => {
+                        return <li key={size}>{size}</li>;
+                      })}
+                    </Sizes>
+                  </AvailableSizes>
+                  <PriceContainer>
+                    {onSpecial ? (
+                      <Price>
+                        <span className="bold">Price: </span>
+                        <PriceNow className="bold">
+                          Now - R{priceNow}.00
+                        </PriceNow>
+                        <PriceWas>Was - R{priceWas}.00</PriceWas>
+                      </Price>
+                    ) : (
+                      <Price>
+                        <span className="bold">Price: </span>
+                        <PriceNow className="bold">R{priceNow}.00</PriceNow>
+                      </Price>
+                    )}
+                  </PriceContainer>
                 </div>
               </div>
-            </>
-          )
-        ) : null}
-        <SeperationHeader childrenLvl1={header} />
+            </div>
+          </div>
+        </div>
+        <SeperationHeader childrenLvl1="Specifications" />
         <Details>
           <DetailsContainer>
             <DetailsSection>
-              <DetailsTopSection>
-                <DescriptionText>
-                  <h2>Description</h2>
-                  <p>{description}</p>
-                </DescriptionText>
-              </DetailsTopSection>
               <DetailsBottomSection>
-                <Top>
-                  <h2>Details</h2>
-                  <TopContent>
-                    <AvailableSizes>
-                      <div>
-                        <span className="bold">Avaialable sizes: </span>
-                      </div>
-                      <Sizes>
-                        {availableSizes.map((size) => {
-                          return <li key={size}>{size}</li>;
-                        })}
-                      </Sizes>
-                    </AvailableSizes>
-                    <PriceContainer>
-                      {onSpecial ? (
-                        <Price>
-                          <span className="bold">Price: </span>
-                          <PriceNow className="bold">
-                            Now - R{priceNow}.00
-                          </PriceNow>
-                          <PriceWas>Was - R{priceWas}.00</PriceWas>
-                        </Price>
-                      ) : (
-                        <Price>
-                          <span className="bold">Price: </span>
-                          <PriceNow className="bold">R{priceNow}.00</PriceNow>
-                        </Price>
-                      )}
-                    </PriceContainer>
-                  </TopContent>
-                </Top>
                 <Bottom>
-                  <h2>Specifications</h2>
                   <BicycleSpecifications content={specs} />
                 </Bottom>
-                <TsCs>{tsCs}</TsCs>
+                <TsCs>
+                  Bicycle specifications and color may vary from manufacturer
+                  website. Other models available. T&apos;s & C&apos;s apply.
+                </TsCs>
               </DetailsBottomSection>
             </DetailsSection>
           </DetailsContainer>
@@ -289,6 +258,101 @@ const Main = styled.main`
   position: relative;
   display: flex;
   flex-direction: column;
+
+  .slug-top {
+    background: linear-gradient(
+      250deg,
+      rgba(var(--grey-background), 0.5) 20%,
+      rgba(var(--orange-background), 0.5) 100%
+    );
+
+    .bicycle-hero {
+      padding: 8rem 0 2rem;
+      width: 70%;
+      margin: auto;
+      position: relative;
+
+      .bicycle-hero-content {
+        padding: 1rem;
+        gap: 3rem;
+        display: flex;
+        flex-direction: row-reverse;
+
+        .bicycle-img-container {
+          width: 50%;
+
+          @media screen and (max-width: 767px) {
+            width: 100%;
+          }
+
+          .bicycle-img {
+          }
+
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            width: 100%;
+            gap: 1rem;
+          }
+
+          @media screen and (max-width: 767px) {
+            gap: 1rem;
+          }
+        }
+
+        .bicycle-details {
+          width: 50%;
+          padding: 2rem;
+          background: var(--background-grey);
+          display: flex;
+          flex-direction: column;
+
+          .bd-top {
+          }
+
+          .bd-bottom {
+            margin-top: auto;
+          }
+
+          h2 {
+            color: var(--orange);
+          }
+
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            width: 100%;
+            gap: 2rem;
+          }
+
+          @media screen and (max-width: 767px) {
+            padding: 1rem;
+            width: 100%;
+            gap: 1rem;
+            flex-direction: column;
+          }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+          gap: 2rem;
+          flex-direction: column;
+        }
+
+        @media screen and (max-width: 767px) {
+          gap: 1rem;
+          flex-direction: column;
+        }
+      }
+
+      @media screen and (min-width: 1024px) and (max-width: 1080px) {
+        width: 90%;
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        width: 90%;
+      }
+
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+    }
+  }
 `;
 
 const ImageContainer = styled.div`

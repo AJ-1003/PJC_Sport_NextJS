@@ -8,7 +8,6 @@ import Head from 'next/head';
 import client from '/contentful/contentful.data';
 
 // Components
-import BrandOfMonthContainer from '../../components/components-news/brand-container/brand-container.component';
 import NewsContainer from '../../components/components-news/news-container/news-container.component';
 import EventsContainer from '../../components/components-news/events-container/events-container.component';
 import TipsContainer from '../../components/components-news/tips-container/tips-container.component';
@@ -43,24 +42,18 @@ export async function getStaticProps() {
   });
   const resultTips = Array.from(resTips.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
 
-  const resBrand = await client.getEntries({
-    content_type: 'brandOfTheMonth'
-  });
-  const resultBrand = Array.from(resBrand.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
-
   return {
     props: {
       header: resultHeader,
       news: resultNews,
       events: resultEvents,
-      tips: resultTips,
-      brand: resultBrand
+      tips: resultTips
     },
     revalidate: 1
   };
 };
 
-const News = ({ header, news, events, tips, brand }) => {
+const News = ({ header, news, events, tips }) => {
   return (
     <>
       <Head>
@@ -91,12 +84,6 @@ const News = ({ header, news, events, tips, brand }) => {
           : <>
             <SeperationHeader id='tips' childrenLvl1={'Tips & Tricks'} />
             <TipsContainer content={tips} />
-          </>}
-        {brand == '' || brand == null || typeof brand == 'undefined'
-          ? null
-          : <>
-            <SeperationHeader id='brand-of-the-month' childrenLvl1={'Brand of the Month'} />
-            <BrandOfMonthContainer content={brand} />
           </>}
       </main>
     </>
