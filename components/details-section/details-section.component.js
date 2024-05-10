@@ -23,10 +23,9 @@ import ItemCard from '../item-card/item-card.component';
 import styled from 'styled-components';
 
 const DetailsSection = ({ content, panelContent, type }) => {
-
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [nextShow, setNextShow] = useState(false);
-  const [contentId, setContentId] = useState('id');
+  const [contentId, setContentId] = useState('');
   var router = useRouter();
 
   function ShowPanelContent(id) {
@@ -44,13 +43,24 @@ const DetailsSection = ({ content, panelContent, type }) => {
 
   return (
     <>
-      {content.map(sectionDetails => {
-        const { heading, colouredHeading, description, features, items, image, colouredFootnote, footnote, id, hasContent, order } = sectionDetails.fields;
+      {content.map((sectionDetails) => {
+        const {
+          heading,
+          colouredHeading,
+          description,
+          features,
+          items,
+          image,
+          colouredFootnote,
+          footnote,
+          id,
+          hasContent,
+          order,
+        } = sectionDetails.fields;
         var alignment;
         if (order % 2 == 0) {
           alignment = 'left';
-        }
-        else {
+        } else {
           alignment = 'right';
         }
         return (
@@ -59,66 +69,102 @@ const DetailsSection = ({ content, panelContent, type }) => {
               key={id}
               id={id}
               backgroundImg={'https:' + image.fields.file.url}
-              className={route}>
+              className={route}
+            >
               <SectionContainer>
                 <DetailsSectionHeader
                   heading={heading}
                   colouredHeading={colouredHeading}
-                  alignment={alignment} />
+                  alignment={alignment}
+                />
 
                 <DetailsSectionBody
                   description={description}
                   features={features ? features : items}
-                  alignment={alignment} />
+                  alignment={alignment}
+                />
 
-                {(footnote !== null && colouredFootnote !== null)
-                  ?
+                {footnote !== null && colouredFootnote !== null ? (
                   <DetailsSectionFooter
                     colouredFootnote={colouredFootnote}
                     footnote={footnote}
-                    alignment={alignment} />
-                  :
-                  (footnote !== null && colouredFootnote == null)
-                    ?
-                    <DetailsSectionFooter
-                      footnote={footnote}
-                      alignment={alignment} />
-                    : null}
+                    alignment={alignment}
+                  />
+                ) : footnote !== null && colouredFootnote == null ? (
+                  <DetailsSectionFooter
+                    footnote={footnote}
+                    alignment={alignment}
+                  />
+                ) : null}
 
-                {hasContent
-                  ?
+                {hasContent ? (
                   <ViewMoreButtonContainer className={alignment}>
-                    <ViewMoreButton className='rounded-corners' onClick={() => ShowPanelContent(id)}>
+                    <ViewMoreButton
+                      className="rounded-corners"
+                      onClick={() => ShowPanelContent(id)}
+                    >
                       View More
                     </ViewMoreButton>
                   </ViewMoreButtonContainer>
-                  : null}
-
+                ) : null}
               </SectionContainer>
             </Section>
 
-            {show && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id ||
-            nextShow && panelContent !== null && typeof panelContent !== 'undefined' && contentId == id
-              ?
-              <PanelContent>
-                {panelContent.filter(bicycle => bicycle.fields.forSection == id)
-                  .map(item => {
-                    return (
-                      <>
-                        {
-                          type == 'bicycles'
-                            ?
-                            <BicycleCard key={item.sys.id} content={item} />
-                            :
-                            <ItemCard key={item.sys.id} content={item} />
-                        }
-                      </>
-                    )
-                  })}
-              </PanelContent>
-              : null}
+            {type == 'bicycles' ? (
+              <>
+                {(show &&
+                  panelContent !== null &&
+                  typeof panelContent !== 'undefined' &&
+                  contentId == id) ||
+                (nextShow &&
+                  panelContent !== null &&
+                  typeof panelContent !== 'undefined' &&
+                  contentId == id) ? (
+                  <>
+                    <PanelContent>
+                      {panelContent
+                        .filter((bicycle) => bicycle.fields.forSection == id)
+                        .map((item) => {
+                          return (
+                            <>
+                              <BicycleCard key={item.sys.id} content={item} />
+                            </>
+                          );
+                        })}
+                    </PanelContent>
+                  </>
+                ) : null}
+              </>
+            ) : null}
+
+            {type == 'products' ? (
+              <>
+                {(show &&
+                  panelContent !== null &&
+                  typeof panelContent !== 'undefined' &&
+                  contentId == id) ||
+                (nextShow &&
+                  panelContent !== null &&
+                  typeof panelContent !== 'undefined' &&
+                  contentId == id) ? (
+                  <>
+                    <PanelContent>
+                      {panelContent
+                        .filter((product) => product.fields.forSection == id)
+                        .map((item) => {
+                          return (
+                            <>
+                              <ItemCard key={item.sys.id} content={item} />
+                            </>
+                          );
+                        })}
+                    </PanelContent>
+                  </>
+                ) : null}
+              </>
+            ) : null}
           </>
-        )
+        );
       })}
     </>
   );
@@ -128,7 +174,12 @@ export default DetailsSection;
 
 const Section = styled.div`
   min-height: 400px;
-  background: linear-gradient(0deg, rgba(var(--dark-grey-background),0.9) 60%, rgba(var(--dark-grey-background),0.5) 100%), url(${props => props.backgroundImg}) center / cover no-repeat, transparent;
+  background: linear-gradient(
+      0deg,
+      rgba(var(--dark-grey-background), 0.9) 60%,
+      rgba(var(--dark-grey-background), 0.5) 100%
+    ),
+    url(${(props) => props.backgroundImg}) center / cover no-repeat, transparent;
   display: flex;
   align-items: center;
 `;
@@ -140,7 +191,7 @@ const SectionContainer = styled.div`
   padding-bottom: 2rem; */
   position: relative;
   padding: 1rem 0;
-  
+
   &.align-left {
     text-align: left;
   }
@@ -165,7 +216,7 @@ const ViewMoreButton = styled.button`
   width: fit-content;
   padding: 10px 15px;
   border: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
   background: var(--orange);
 `;

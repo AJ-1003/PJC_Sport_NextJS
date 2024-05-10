@@ -62,6 +62,11 @@ export async function getStaticProps() {
   });
   const resultAccessoriesGear = Array.from(resAccessoriesGear.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
 
+  const resProducts = await client.getEntries({
+    content_type: 'product'
+  });
+  const resultProducts = Array.from(resProducts.items).sort((a, b) => parseInt(a.fields.order) - parseInt(b.fields.order));
+
   return {
     props: {
       header: resultHeader,
@@ -69,14 +74,14 @@ export async function getStaticProps() {
       brands: resultBrands,
       bicycleSections: resultBicycleSections,
       bicycles: resultBicycles,
-      accessoriesGear: resultAccessoriesGear
+      accessoriesGear: resultAccessoriesGear,
+      products: resultProducts
     },
     revalidate: 1
   };
 };
 
-const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, accessoriesGear }) => {
-  const type = 'bicycles';
+const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, accessoriesGear, products }) => {
   return (
     <>
       <Head>
@@ -93,9 +98,9 @@ const Bicycles = ({ header, bicycleRanges, brands, bicycleSections, bicycles, ac
         <SeperationHeader childrenLvl1='Bicycle Ranges' />
         <BicycleRangeContainer content={bicycleRanges} />
         <CarouselSlider content={brands} />
-        <DetailsSection content={bicycleSections} panelContent={bicycles} type={type} />
+        <DetailsSection content={bicycleSections} panelContent={bicycles} type='bicycles' />
         <SeperationHeader childrenLvl1='Accessories & Gear' />
-        <DetailsSection content={accessoriesGear} />
+        <DetailsSection content={accessoriesGear} panelContent={products} type='products' />
       </main>
     </>
   )
