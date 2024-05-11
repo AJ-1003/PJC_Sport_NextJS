@@ -44,7 +44,7 @@ const ItemCard = ({ content }) => {
             src={'https:' + image.fields.file.url}
             width="350px"
             height="250px"
-            alt="product"
+            alt={name}
             title="product"
             loading="eager"
           />
@@ -141,7 +141,7 @@ const Heading = styled.div`
   margin: 0.5rem 0;
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    height: 25%;
+    height: fit-content;
     width: 80%;
   }
 
@@ -165,11 +165,11 @@ const Description = styled.div`
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    display: none;
+    height: fit-content;
   }
 
   @media screen and (max-width: 767px) {
-    display: none;
+    /* display: none; */
   }
 `;
 
@@ -184,7 +184,7 @@ const Details = styled.div`
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     font-size: 14px;
-    height: 25%;
+    height: fit-content;
   }
 
   @media screen and (max-width: 767px) {
