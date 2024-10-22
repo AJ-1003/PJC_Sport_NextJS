@@ -136,6 +136,8 @@ const BicycleDetails = ({ bicycle }) => {
 
   const header = `${brand} ${model}`;
 
+  console.log(priceNow)
+
   return (
     <>
       <Head>
@@ -216,6 +218,11 @@ const BicycleDetails = ({ bicycle }) => {
                           Now - R{priceNow}.00
                         </PriceNow>
                         <PriceWas>Was - R{priceWas}.00</PriceWas>
+                      </Price>
+                    ) : priceNow == undefined ? (
+                      <Price>
+                        <span className="bold">Price: </span>
+                        <PriceNow className="bold">TBC</PriceNow>
                       </Price>
                     ) : (
                       <Price>

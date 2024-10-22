@@ -109,10 +109,13 @@ const BicycleCard = ({ content }) => {
               {onSpecial ? (
                 <Price>
                   <span className="bold">Price: </span>
-                  <PriceValues>
-                    <PriceNow className="bold">Now - R{priceNow}.00</PriceNow>
-                    <PriceWas>Was - R{priceWas}.00</PriceWas>
-                  </PriceValues>
+                  <PriceNow className="bold">Now - R{priceNow}.00</PriceNow>
+                  <PriceWas>Was - R{priceWas}.00</PriceWas>
+                </Price>
+              ) : priceNow == undefined ? (
+                <Price>
+                  <span className="bold">Price: </span>
+                  <PriceNow className="bold">TBC</PriceNow>
                 </Price>
               ) : (
                 <Price>
