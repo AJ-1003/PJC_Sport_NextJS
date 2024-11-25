@@ -39,7 +39,7 @@ const CustomSeperationHeader = ({ id, childrenLvl1, childrenLvl2 }) => {
 export default CustomSeperationHeader;
 
 const Header = styled.div`
-  font-family: 'Lato', sans-serif;
+  font-family: 'Racing Sans One', sans-serif;
   background: var(--dark-grey);
   padding: 1rem 0;
   

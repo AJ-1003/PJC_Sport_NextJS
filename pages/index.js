@@ -16,6 +16,7 @@ import ButtonLink from '../utils/button-link/button-link.component';
 import WhatWeOfferContainer from '/components/components-home/what-we-offer/what-we-offer-container.component';
 import SeperationHeader from '/components/seperation-header/seperation-header.component';
 import BrandOfMonthContainer from '../components/components-news/brand-container/brand-container.component';
+import CustomSeperationHeader from '../components/seperation-header/custom-seperation-header.component';
 
 // Images
 import celebrate from '../assets/home/40 Years.png';
@@ -65,6 +66,8 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
+
+const date = new Date();
 
 const Home = ({ whatWeOfferCards, specials, header, brand }) => {
   useEffect(() => {
@@ -137,12 +140,8 @@ const Home = ({ whatWeOfferCards, specials, header, brand }) => {
             </div>
           </div>
         </CelebrationContainer>
-        <SeperationHeader
-          id="specials"
-          childrenLvl1={monthName}
-          childrenLvl2={'Specials'}
-        />
-        {/* <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2='Offer only valid from 25/11/2022 - 03/12/2022.' /> */}
+        {/* <SeperationHeader id="specials" childrenLvl1={monthName} childrenLvl2={'Specials'} /> */}
+        <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2={`Offers only valid from 25/11/${date.getFullYear()} - 30/11/${date.getFullYear()}.`} />
         {/* <ChristmasSeperationHeader id='specials' childrenLvl1='Christmas' childrenLvl2='Offer only valid from 05/12/2022 - 03/12/2022.' /> */}
         <SpecialsContainer content={specials} />
         {brand == '' || brand == null || typeof brand == 'undefined' ? null : (
