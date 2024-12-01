@@ -16,10 +16,11 @@ import ButtonLink from '../utils/button-link/button-link.component';
 import WhatWeOfferContainer from '/components/components-home/what-we-offer/what-we-offer-container.component';
 import SeperationHeader from '/components/seperation-header/seperation-header.component';
 import BrandOfMonthContainer from '../components/components-news/brand-container/brand-container.component';
+import ChristmasSeperationHeader from '../components/seperation-header/christmas-seperation-header.component';
 import CustomSeperationHeader from '../components/seperation-header/custom-seperation-header.component';
 
 // Images
-import celebrate from '../assets/home/40 Years.png';
+import giant from '../assets/home/Giant.png';
 
 // Data
 import monthName from '../functions/home.functions';
@@ -117,31 +118,30 @@ const Home = ({ whatWeOfferCards, specials, header, brand }) => {
         <CelebrationContainer>
           <div>
             <Image
-              src={celebrate}
+              src={giant}
               alt="celebrate"
-              width="500"
-              height="500"
+              width="1200"
+              height="200"
               title="Celebrate"
               responsive={true}
             />
           </div>
           <div className='celebrate-details'>
-            <h2>Your one-stop-shop for school sports gear and bicycles.</h2>
-            <p>
+            <h2>We are pleased to announce that we are now a Giant Bicycles dealer.</h2>
+            {/* <p>
               We continue to strive for delivering excellent customer service,
               expert advice, and ensuring no grinding gears or flat tyre will
               keep you from enjoying the outdoors.
-            </p>
+            </p> */}
             <div className='celebration-pill'>
               <p>
-                Make sure you watch this space as something is happening behind
-                the scenes and you don&apos;t want to miss out!
+                Make sure you visit us in-store to check our new range of Giant bicycles!
               </p>
             </div>
           </div>
         </CelebrationContainer>
-        {/* <SeperationHeader id="specials" childrenLvl1={monthName} childrenLvl2={'Specials'} /> */}
-        <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2={`Offers only valid from 25/11/${date.getFullYear()} - 30/11/${date.getFullYear()}.`} />
+        <SeperationHeader id="specials" childrenLvl1={monthName} childrenLvl2={'Specials'} />
+        {/* <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2={`Offers only valid from 25/11/${date.getFullYear()} - 30/11/${date.getFullYear()}.`} /> */}
         {/* <ChristmasSeperationHeader id='specials' childrenLvl1='Christmas' childrenLvl2='Offer only valid from 05/12/2022 - 03/12/2022.' /> */}
         <SpecialsContainer content={specials} />
         {brand == '' || brand == null || typeof brand == 'undefined' ? null : (
@@ -177,11 +177,15 @@ const CelebrationContainer = styled.div`
   .celebrate-details {
     width: 80%;
     margin: auto;
+    
+    h2 {
+      padding-bottom: 1rem;
+    }
   }
 
   .celebration-pill {
     padding: 0.5rem 2rem;
-    background: rgba(237, 29, 32, 0.8);
+    background: rgba(5, 3, 141, 1);
     width: fit-content;
     margin: auto;
     border-radius: 3rem;
