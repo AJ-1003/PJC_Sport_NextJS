@@ -19,12 +19,13 @@ import styled from 'styled-components';
 
 const TradingHoursBody = ({ content }) => {
 
-  const decemberDays = [24, 25, 26, 27, 28, 29, 30, 31];
+  const decemberDays = [16, 24, 25, 26, 27, 28, 29, 30, 31];
   const januaryDays = [1, 2, 3];
 
   const currentDate = new Date();
   var todayMonth = useRef(currentDate.getMonth());
   var todayDay = useRef(currentDate.getDate());
+  var currentYear = useRef(currentDate.getFullYear);
 
   useEffect(() => {
     const date = new Date();
@@ -38,12 +39,13 @@ const TradingHoursBody = ({ content }) => {
         {(todayMonth.current == 11 && decemberDays.includes(todayDay.current)) || (todayMonth.current == 0 && januaryDays.includes(todayDay.current))
           ?
           <>
-            <TradingHoursDecemberDay date='24 December' openTime='' closingTime='' days={[24]} />
-            <TradingHoursDecemberDay date='25 - 26 December' openTime='' closingTime='' days={[25, 26]} />
-            <TradingHoursDecemberDay date='27 - 29 December' openTime='8:30' closingTime='12:00' days={[27, 28, 29]} />
+            <TradingHoursDecemberDay date='16 December' openTime='' closingTime='' days={[16]} />
+            <TradingHoursDecemberDay date='23 December' openTime='8:30' closingTime='17:00' days={[23]} />
+            <TradingHoursDecemberDay date='24 December' openTime='8:30' closingTime='16:00' days={[24]} />
             {/* <TradingHoursDecemberDay date='29 December' openTime='9:00' closingTime='2:00' days={[29]} /> */}
             {/* <TradingHoursDecemberDay date='30 December' openTime='9:00' closingTime='2:00' days={[30]} /> */}
-            <TradingHoursDecemberDay date='30 Dec 2023 - 3 Jan 2024' openTime='' closingTime='' days={[30, 31, 1, 2, 3]} />
+            <TradingHoursDecemberDay date={`25 Dec ${currentYear} - 2 Jan ${currentYear + 1}`} openTime='' closingTime='' days={[25, 26, 27, 28, 29, 30, 31, 1, 2]} />
+            <TradingHoursDecemberDay date={`3 Jan ${currentYear + 1}`} openTime='8:30' closingTime='17:00' days={[3]} />
           </>
           :
           <>
@@ -55,7 +57,7 @@ const TradingHoursBody = ({ content }) => {
           </>
         }
       </TradingHourDays>
-      {/* <TradingHoursNote /> */}
+      <TradingHoursNote />
       <Address>
         <h4>183 Koedoe Street</h4>
         <h5>Wierda Park, Centurion</h5>
