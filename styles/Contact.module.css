@@ -8,7 +8,7 @@
 
 .headingColour {
   /* Unomment for Christmas */
-  /* color: #fff; */
+  color: #fff;
   /* Comment for Christmas */
-  color: var(--grey);
+  /* color: var(--grey); */
 }

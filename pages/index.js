@@ -115,6 +115,17 @@ const Home = ({ whatWeOfferCards, specials, header, brand }) => {
         ></HeroImage>
         <SeperationHeader childrenLvl1={'What We Offer'} />
         <WhatWeOfferContainer content={whatWeOfferCards} />
+        <SeperationHeader childrenLvl1={'December Trading Hours'} />
+        <ChristmasTradingHoursContainer className='black-friday'>
+          We will be <span className='delay3'>closed</span> from <span className='delay2'>
+          <br/>
+          25 December 2024</span> - <span className='delay1'>2 January 2025</span>
+          <br/>
+          <br/>
+          <hr/>
+          <br/>
+          Merry Christmas and Happy New Year
+        </ChristmasTradingHoursContainer>
         <CelebrationContainer>
           <div>
             <Image
@@ -192,6 +203,40 @@ const CelebrationContainer = styled.div`
     box-shadow: 2px 2px 10px;
     color: white;
     font-weight: bold;
+  }
+`;
+
+const ChristmasTradingHoursContainer = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  padding: 10rem 0;
+  font-size: 58px;
+  /* color: #fff;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5rem;
+  text-shadow: 0 0 10px #00b3ff,
+  0 0 20px #00b3ff,
+  0 0 30px #00b3ff; */
+  text-align: center;
+  background: var(--dark-grey);
+
+  hr {
+    width: 60%;
+    border:none;
+    height: 20px;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 20px 20px -20px #5eff00;
+    margin: -50px auto 10px; 
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 4rem 2rem;
+    font-size: 24px;
   }
 `;
 
