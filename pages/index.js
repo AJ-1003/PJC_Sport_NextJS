@@ -115,7 +115,7 @@ const Home = ({ whatWeOfferCards, specials, header, brand }) => {
         ></HeroImage>
         <SeperationHeader childrenLvl1={'What We Offer'} />
         <WhatWeOfferContainer content={whatWeOfferCards} />
-        <SeperationHeader childrenLvl1={'December Trading Hours'} />
+        {/* <SeperationHeader childrenLvl1={'December Trading Hours'} />
         <ChristmasTradingHoursContainer className='black-friday'>
           We will be <span className='delay3'>closed</span> from <span className='delay2'>
           <br/>
@@ -125,7 +125,7 @@ const Home = ({ whatWeOfferCards, specials, header, brand }) => {
           <hr/>
           <br/>
           Merry Christmas and Happy New Year
-        </ChristmasTradingHoursContainer>
+        </ChristmasTradingHoursContainer> */}
         <CelebrationContainer>
           <div>
             <Image
