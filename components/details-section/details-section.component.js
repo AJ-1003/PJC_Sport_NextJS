@@ -1,7 +1,5 @@
 // React
 import React, { useState } from 'react';
-import { useSpring } from 'react-spring';
-import useMeasure from 'react-use-measure';
 
 // Next
 import { useRouter } from 'next/router';
