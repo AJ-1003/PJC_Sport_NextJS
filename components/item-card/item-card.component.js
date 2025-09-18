@@ -56,10 +56,10 @@ const ItemCard = ({ content }) => {
           <Description>{documentToReactComponents(description)}</Description>
           <Details>
             <PriceContainer>
-              <Price>
+              {price ? (<Price>
                 <span className="bold">From: </span>
                 <PriceNow className="bold">R{price}.00</PriceNow>
-              </Price>
+              </Price>) : <span>TBC</span>}
             </PriceContainer>
           </Details>
           <TsCs>
