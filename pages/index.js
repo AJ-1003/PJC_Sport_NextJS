@@ -21,6 +21,7 @@ import CustomSeperationHeader from '../components/seperation-header/custom-seper
 
 // Images
 import giant from '../assets/home/Giant.png';
+import bokke from '../assets/home/Bokke.png';
 
 // Data
 import monthName from '../functions/home.functions';
@@ -151,6 +152,26 @@ const Home = ({ whatWeOfferCards, specials, header, brand }) => {
             </div>
           </div>
         </CelebrationContainer>
+        <CelebrationContainer style={{ background: 'linear-gradient(90deg,rgba(1, 128, 62, 1) 0%, rgba(0, 26, 13, 1) 100%)' }}>
+          <div>
+            <Image
+              src={bokke}
+              alt="bokke"
+              width="400"
+              height="400"
+              title="Bokke"
+              responsive={true}
+            />
+          </div>
+          <div className='celebrate-details'>
+            <h2 style={{ color: '#FFCB04' }}>Back die Bokke.</h2>
+          </div>
+          <div className='celebration-pill-bokke'>
+            <p>
+              Castle Lager Rugby Championship - 2025
+            </p>
+          </div>
+        </CelebrationContainer>
         <SeperationHeader id="specials" childrenLvl1={monthName} childrenLvl2={'Specials'} />
         {/* <CustomSeperationHeader id='specials' childrenLvl1='Black Friday' childrenLvl2={`Offers only valid from 25/11/${date.getFullYear()} - 30/11/${date.getFullYear()}.`} /> */}
         {/* <ChristmasSeperationHeader id='specials' childrenLvl1='Christmas' childrenLvl2='Offer only valid from 05/12/2022 - 03/12/2022.' /> */}
@@ -203,6 +224,21 @@ const CelebrationContainer = styled.div`
     box-shadow: 2px 2px 10px;
     color: white;
     font-weight: bold;
+  }
+
+  .celebration-pill-bokke {
+    padding: 0.5rem 2rem;
+    background: #01803E;
+    width: fit-content;
+    margin: auto;
+    border-radius: 3rem;
+    box-shadow: 2px 2px 10px black;
+    color: #FFCB04;
+    font-weight: bold;
+  }
+
+  .bokke {
+    background-color: #01803E;
   }
 `;
 
