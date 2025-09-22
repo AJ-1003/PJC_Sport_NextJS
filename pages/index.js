@@ -1,5 +1,5 @@
 // React
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Next
 import Head from 'next/head';
@@ -11,17 +11,15 @@ import client from '/contentful/contentful.data';
 // Components
 import SpecialsContainer from '../components/components-home/specials-container/specials-container.component';
 import WeekendRides from '../components/components-home/weekend-rides/weekend-rides.component';
+import BrandOfMonthContainer from '../components/components-news/brand-container/brand-container.component';
 import HeroImage from '../components/hero-image/hero-image.component';
 import ButtonLink from '../utils/button-link/button-link.component';
 import WhatWeOfferContainer from '/components/components-home/what-we-offer/what-we-offer-container.component';
 import SeperationHeader from '/components/seperation-header/seperation-header.component';
-import BrandOfMonthContainer from '../components/components-news/brand-container/brand-container.component';
-import ChristmasSeperationHeader from '../components/seperation-header/christmas-seperation-header.component';
-import CustomSeperationHeader from '../components/seperation-header/custom-seperation-header.component';
 
 // Images
-import giant from '../assets/home/Giant.png';
 import bokke from '../assets/home/Bokke.png';
+import giant from '../assets/home/Giant.png';
 
 // Data
 import monthName from '../functions/home.functions';
