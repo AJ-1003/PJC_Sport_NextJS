@@ -6,4 +6,4 @@ Allow: /
 Host: https://pjcsport.co.za
 
 # Sitemaps
-Sitemap: https://www.pjcsport.co.za/sitemap.xml
+Sitemap: https://pjcsport.co.za/sitemap.xml
