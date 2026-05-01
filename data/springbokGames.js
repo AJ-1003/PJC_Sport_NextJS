@@ -1,0 +1,81 @@
+export const games = [
+  {
+    id: "1",
+    opponent: "Barbarians",
+    date: "2026-06-20T17:00:00+02:00",
+    stadium: "Nelson Mandela Bay Stadium",
+    city: "Gqeberha",
+  },
+  {
+    id: "2",
+    opponent: "England",
+    date: "2026-07-04T17:00:00+02:00",
+    stadium: "Ellis Park Stadium",
+    city: "Johannesburg",
+  },
+  {
+    id: "3",
+    opponent: "Scotland",
+    date: "2026-07-11T15:00:00+02:00",
+    stadium: "Loftus Versfeld",
+    city: "Pretoria",
+  },
+  {
+    id: "4",
+    opponent: "Wales",
+    date: "2026-07-18T17:00:00+02:00",
+    stadium: "Hollywoodbets Kings Park",
+    city: "Durban",
+  },
+  {
+    id: "5",
+    opponent: "New Zealand",
+    date: "2026-08-22T17:00:00+02:00",
+    stadium: "Ellis Park Stadium",
+    city: "Johannesburg",
+  },
+  {
+    id: "6",
+    opponent: "New Zealand",
+    date: "2026-08-29T17:00:00+02:00",
+    stadium: "DHL Stadium",
+    city: "Cape Town",
+  },
+  {
+    id: "7",
+    opponent: "New Zealand",
+    date: "2026-09-05T17:00:00+02:00",
+    stadium: "FNB Stadium",
+    city: "Johannesburg",
+  },
+  {
+    id: "8",
+    opponent: "Wallabies",
+    date: "2026-09-27T17:00:00+02:00",
+    stadium: "Optus Stadium",
+    city: "Perth",
+  },
+
+  // Nations Championship away fixtures (TBA dates)
+  {
+    id: "9",
+    opponent: "Italy",
+    date: "",
+    stadium: "Venue TBC",
+    city: "Italy",
+  },
+  {
+    id: "10",
+    opponent: "France",
+    date: "",
+    stadium: "Stade de France",
+    city: "Paris",
+  },
+  {
+    id: "11",
+    opponent: "Ireland",
+    date: "",
+    stadium: "Aviva Stadium",
+    city: "Dublin",
+  },
+];
