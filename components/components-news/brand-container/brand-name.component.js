@@ -1,5 +1,5 @@
 // React
-import React from 'react';
+import React from "react";
 
 // Next
 
@@ -12,14 +12,11 @@ import React from 'react';
 // Data
 
 // Styles
-import styled from 'styled-components';
+
+import styled from "styled-components";
 
 const BrandName = ({ name }) => {
-  return (
-    <div>
-
-    </div>
-  );
+  return <div></div>;
 };
 
 export default BrandName;
