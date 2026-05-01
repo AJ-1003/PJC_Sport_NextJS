@@ -1,9 +1,9 @@
 // React
-import React from 'react';
-import Carousel from 'react-multi-carousel';
+import React from "react";
+import Carousel from "react-multi-carousel";
 
 // Next
-import Image from 'next/image';
+import Image from "next/image";
 
 // Contentful
 
@@ -14,13 +14,13 @@ import Image from 'next/image';
 // Data
 
 // Styles
-import 'react-multi-carousel/lib/styles.css';
-import styled from 'styled-components';
+import "react-multi-carousel/lib/styles.css";
+import styled from "styled-components";
 
 const BrandImages = ({ images }) => {
   return (
     <div>
-      {images.length > 3 ?
+      {images.length > 3 ? (
         <Carousel
           swipeable={false}
           draggable={false}
@@ -31,29 +31,28 @@ const BrandImages = ({ images }) => {
           autoPlay={true}
           autoPlaySpeed={2000}
           keyBoardControl={true}
-          customTransition=''
+          customTransition=""
           transitionDuration={500}
-          containerClass=''
-          itemClass=''
+          containerClass=""
+          itemClass=""
           centerMode={false}
-          removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}>
-          {images.map(image => {
+          removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+        >
+          {images.map((image) => {
             return (
-              <CarouselItem
-                key={image.sys.id}>
-                <Image className='rounded-corners' src={'https:' + image.fields.file.url} width='550px' height='350px' alt='image' />
+              <CarouselItem key={image.sys.id}>
+                <Image className="rounded-corners" src={"https:" + image.fields.file.url} width="550px" height="350px" alt="image" />
               </CarouselItem>
             );
           })}
-        </Carousel> :
+        </Carousel>
+      ) : (
         <Images>
-          {images.map(image => {
-            return (
-              <Image className='image rounded-corners' key={image.sys.id} src={'https:' + image.fields.file.url} width={auto} height={auto} alt='image' />
-            );
+          {images.map((image) => {
+            return <Image className="image rounded-corners" key={image.sys.id} src={"https:" + image.fields.file.url} width="auto" height="auto" alt="image" />;
           })}
         </Images>
-      }
+      )}
     </div>
   );
 };
@@ -63,20 +62,20 @@ export default BrandImages;
 const responsive = {
   largeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 5
+    items: 5,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    items: 1,
+  },
 };
 
 const CarouselItem = styled.div``;
