@@ -1,81 +1,95 @@
 export const games = [
+  // Nations Championship - July Window
   {
     id: "1",
-    opponent: "Barbarians",
-    date: "2026-06-20T17:00:00+02:00",
-    stadium: "Nelson Mandela Bay Stadium",
-    city: "Gqeberha",
-  },
-  {
-    id: "2",
     opponent: "England",
     date: "2026-07-04T17:00:00+02:00",
     stadium: "Ellis Park Stadium",
     city: "Johannesburg",
+    type: "home",
   },
+
   {
-    id: "3",
+    id: "2",
     opponent: "Scotland",
-    date: "2026-07-11T15:00:00+02:00",
+    date: "2026-07-11T17:00:00+02:00",
     stadium: "Loftus Versfeld",
     city: "Pretoria",
+    type: "home",
   },
+
   {
-    id: "4",
+    id: "3",
     opponent: "Wales",
     date: "2026-07-18T17:00:00+02:00",
     stadium: "Hollywoodbets Kings Park",
     city: "Durban",
+    type: "home",
   },
+
+  // New Zealand Tour
   {
-    id: "5",
+    id: "4",
     opponent: "New Zealand",
     date: "2026-08-22T17:00:00+02:00",
     stadium: "Ellis Park Stadium",
     city: "Johannesburg",
+    type: "home",
   },
+
   {
-    id: "6",
+    id: "5",
     opponent: "New Zealand",
     date: "2026-08-29T17:00:00+02:00",
     stadium: "DHL Stadium",
     city: "Cape Town",
+    type: "home",
   },
+
   {
-    id: "7",
+    id: "6",
     opponent: "New Zealand",
     date: "2026-09-05T17:00:00+02:00",
     stadium: "FNB Stadium",
     city: "Johannesburg",
-  },
-  {
-    id: "8",
-    opponent: "Wallabies",
-    date: "2026-09-27T17:00:00+02:00",
-    stadium: "Optus Stadium",
-    city: "Perth",
+    type: "home",
   },
 
-  // Nations Championship away fixtures (TBA dates)
+  // Nations Championship - November Window
   {
-    id: "9",
+    id: "7",
     opponent: "Italy",
-    date: "",
-    stadium: "Venue TBC",
-    city: "Italy",
+    date: "2026-11-07T16:00:00+01:00",
+    stadium: "Stadio Olimpico",
+    city: "Rome",
+    type: "away",
   },
+
   {
-    id: "10",
+    id: "8",
     opponent: "France",
-    date: "",
+    date: "2026-11-14T21:00:00+01:00",
     stadium: "Stade de France",
     city: "Paris",
+    type: "away",
   },
+
   {
-    id: "11",
+    id: "9",
     opponent: "Ireland",
-    date: "",
+    date: "2026-11-21T17:00:00+00:00",
     stadium: "Aviva Stadium",
     city: "Dublin",
+    type: "away",
+  },
+
+  // Finals Weekend
+  {
+    id: "10",
+    opponent: "TBD",
+    date: "2026-11-28T20:00:00+00:00",
+    stadium: "Allianz Stadium Twickenham",
+    city: "London",
+    type: "neutral",
   },
 ];
